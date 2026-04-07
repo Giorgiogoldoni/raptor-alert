@@ -2,8 +2,9 @@ name: 🦅 RAPTOR Alert - Aggiorna dati ETF
 
 on:
   schedule:
-    - cron: '0 * * * *'   # ogni ora esatta (UTC)
-  workflow_dispatch:        # avvio manuale dal pannello GitHub
+    - cron: '0 10 * * 1-5'    # 12:00 Italia estate (10:00 UTC) - mercati aperti
+    - cron: '30 16 * * 1-5'   # 18:30 Italia estate (16:30 UTC) - dopo chiusura EU
+  workflow_dispatch:            # avvio manuale dal pannello GitHub
 
 jobs:
   update-etf-data:
@@ -15,18 +16,22 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Python
+      - name: Setup Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Scarica dati ETF da Yahoo Finance
+      - name: Scarica e analizza ETF
+        env:
+          GMAIL_USER:     ${{ secrets.GMAIL_USER }}
+          GMAIL_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
+          MAIL_TO:        ${{ secrets.MAIL_TO }}
         run: python fetch_data.py
 
-      - name: Commit e push data/etf.json
+      - name: Commit dati aggiornati
         run: |
-          git config user.name "raptor-bot"
+          git config user.name  "raptor-bot"
           git config user.email "raptor-bot@github.com"
-          git add data/etf.json
-          git diff --staged --quiet || git commit -m "🦅 Update ETF data - $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git add data/
+          git diff --staged --quiet || git commit -m "🦅 Update ETF data - $(date -u '+%d/%m/%Y %H:%M UTC')"
           git push
