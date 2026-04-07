@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🦅 RAPTOR Alert — Dettaglio</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@300;400;500;600;700&display=swap');
+:root{
+  --bg:#ffffff;--surface:#f8f9fa;--card:#f1f3f5;--border:#e2e8f0;
+  --text:#0f172a;--muted:#64748b;--dim:#94a3b8;
+  --long:#16a34a;--long-bg:#f0fdf4;
+  --early:#2563eb;--early-bg:#eff6ff;
+  --watch:#d97706;--watch-bg:#fffbeb;
+  --rosso:#dc2626;--rosso-bg:#fef2f2;
+  --mono:'JetBrains Mono',monospace;
+  --sans:'Inter',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:100vh}
+
+.header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(255,255,255,0.95);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  padding:12px 16px;display:flex;align-items:center;gap:12px;
+}
+.back-btn{
+  display:flex;align-items:center;gap:6px;
+  padding:7px 14px;border-radius:8px;
+  border:1px solid var(--border);background:var(--surface);
+  font-size:13px;font-weight:500;cursor:pointer;
+  color:var(--text);text-decoration:none;transition:all .15s;
+}
+.back-btn:hover{background:var(--card);border-color:var(--dim)}
+.header-title{font-size:16px;font-weight:700}
+.header-sub{font-size:11px;color:var(--muted);font-family:var(--mono)}
+
+.page{max-width:800px;margin:0 auto;padding:20px 16px 60px}
+
+/* HERO */
+.hero{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:16px;padding:20px;margin-bottom:16px;
+}
+.hero-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:16px}
+.hero-ticker{font-size:28px;font-weight:700;font-family:var(--mono);line-height:1}
+.hero-cat{font-size:12px;color:var(--muted);margin-top:4px}
+.sig-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:6px 14px;border-radius:8px;
+  font-size:14px;font-weight:700;font-family:var(--mono);
+}
+.sig-long{background:var(--long-bg);color:var(--long);border:1px solid rgba(22,163,74,.3)}
+.sig-early{background:var(--early-bg);color:var(--early);border:1px solid rgba(37,99,235,.3)}
+.sig-watch{background:var(--watch-bg);color:var(--watch);border:1px solid rgba(217,119,6,.3)}
+.sig-rosso{background:var(--rosso-bg);color:var(--rosso);border:1px solid rgba(220,38,38,.3)}
+.sig-none{background:var(--card);color:var(--muted);border:1px solid var(--border)}
+
+/* PREZZI OPERATIVI */
+.price-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;
+  margin-bottom:16px;
+}
+.price-card{
+  background:var(--bg);border:1px solid var(--border);
+  border-radius:12px;padding:14px;text-align:center;
+}
+.price-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.price-value{font-size:20px;font-weight:700;font-family:var(--mono);line-height:1}
+.price-sub{font-size:10px;color:var(--muted);font-family:var(--mono);margin-top:3px}
+.price-card.entry .price-value{color:var(--early)}
+.price-card.stop  .price-value{color:var(--rosso)}
+.price-card.target .price-value{color:var(--long)}
+
+/* R:R BAR */
+.rr-bar-wrap{margin-bottom:16px}
+.rr-label{font-size:11px;color:var(--muted);margin-bottom:6px;display:flex;justify-content:space-between}
+.rr-bar{height:8px;border-radius:4px;background:var(--border);position:relative;overflow:hidden}
+.rr-risk{position:absolute;left:0;top:0;height:100%;background:var(--rosso);border-radius:4px 0 0 4px}
+.rr-reward{position:absolute;top:0;height:100%;background:var(--long);border-radius:0 4px 4px 0}
+
+/* SECTION */
+.section{margin-bottom:16px}
+.section-title{
+  font-size:11px;font-weight:600;color:var(--muted);
+  text-transform:uppercase;letter-spacing:.06em;
+  margin-bottom:10px;padding-bottom:6px;
+  border-bottom:1px solid var(--border);
+}
+
+/* METRICHE GRID */
+.metrics-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.metric-row{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:10px;padding:10px 12px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.metric-name{font-size:12px;color:var(--muted)}
+.metric-val{font-size:13px;font-weight:600;font-family:var(--mono)}
+.mv-verde{color:var(--long)}
+.mv-rosso{color:var(--rosso)}
+.mv-grigio{color:var(--muted)}
+.mv-blue{color:var(--early)}
+.mv-warn{color:var(--watch)}
+
+/* MOTIVAZIONE */
+.reasons-list{display:flex;flex-direction:column;gap:6px}
+.reason-row{
+  display:flex;align-items:center;gap:10px;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:10px;padding:10px 12px;
+}
+.reason-icon{font-size:16px;flex-shrink:0;width:22px;text-align:center}
+.reason-label{font-size:13px;flex:1}
+.reason-ok{border-color:rgba(22,163,74,.3);background:var(--long-bg)}
+.reason-ko{opacity:.55}
+
+/* KAMA CHART */
+.mini-chart{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;padding:14px;margin-bottom:16px;
+  overflow:hidden;
+}
+.mini-chart svg{width:100%;height:140px;display:block}
+
+/* STORICO */
+.history-box{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:12px;padding:14px;
+}
+.history-row{display:flex;justify-content:space-between;font-size:12px;padding:6px 0;border-bottom:1px solid var(--border)}
+.history-row:last-child{border-bottom:none}
+.history-label{color:var(--muted)}
+.history-val{font-family:var(--mono);font-weight:500}
+
+/* STATS BAR */
+.stats-bar{
+  display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;
+}
+.stat-pill{
+  display:flex;align-items:center;gap:5px;
+  padding:5px 12px;border-radius:20px;
+  font-size:11px;font-weight:500;
+  background:var(--surface);border:1px solid var(--border);color:var(--muted);
+}
+.stat-pill b{color:var(--text);font-weight:700;font-family:var(--mono)}
+
+.not-found{text-align:center;padding:80px 20px;color:var(--muted)}
+.not-found-icon{font-size:48px;margin-bottom:12px}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <a class="back-btn" href="index.html">← Torna alla lista</a>
+  <div>
+    <div class="header-title">🦅 RAPTOR Alert</div>
+    <div class="header-sub" id="headerSub">Dettaglio ETF</div>
+  </div>
+</div>
+
+<div class="page" id="page">
+  <div class="not-found">
+    <div class="not-found-icon">⏳</div>
+    <div>Caricamento...</div>
+  </div>
+</div>
+
+<script>
+const params = new URLSearchParams(location.search);
+const TICKER = (params.get('t') || '').toUpperCase();
+
+function sigClass(tipo) {
+  if(tipo==='LONG')   return 'sig-long';
+  if(tipo==='EARLY')  return 'sig-early';
+  if(tipo==='WATCH')  return 'sig-watch';
+  if(tipo==='ROSSO+') return 'sig-rosso';
+  return 'sig-none';
+}
+function sigLabel(tipo) {
+  if(tipo==='LONG')   return '🟢 LONG';
+  if(tipo==='EARLY')  return '🔵 EARLY';
+  if(tipo==='WATCH')  return '🟡 WATCH';
+  if(tipo==='ROSSO+') return '🔴 ROSSO+';
+  return '— Nessun segnale';
+}
+function trdClass(t) {
+  return t==='VERDE'?'mv-verde':t==='ROSSO'?'mv-rosso':'mv-grigio';
+}
+function fmtN(v, dec=2) {
+  if(v==null) return '—';
+  return typeof v==='number' ? v.toFixed(dec) : v;
+}
+function fmtPct(v) {
+  if(v==null) return '—';
+  const s = v >= 0 ? '+' : '';
+  return s + v.toFixed(2) + '%';
+}
+
+// Mini sparkline SVG
+function makeSVG(prices, kama_v, kama_s, sar) {
+  const n   = prices.length;
+  const all = [...prices, ...kama_v.filter(Boolean), ...kama_s.filter(Boolean), ...sar];
+  const mn  = Math.min(...all), mx = Math.max(...all);
+  const rng = mx - mn || 1;
+  const W = 740, H = 130, pad = 4;
+
+  function px(i) { return pad + (i/(n-1)) * (W - 2*pad); }
+  function py(v) { return H - pad - ((v-mn)/rng)*(H-2*pad); }
+
+  function line(arr, color, w=1.5, dash='') {
+    const pts = arr.map((v,i) => v!=null ? `${px(i).toFixed(1)},${py(v).toFixed(1)}` : null)
+      .filter(Boolean);
+    if(pts.length < 2) return '';
+    return `<polyline points="${pts.join(' ')}" fill="none" stroke="${color}" stroke-width="${w}" stroke-dasharray="${dash}" stroke-linejoin="round" stroke-linecap="round"/>`;
+  }
+
+  return `<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
+    ${line(prices,  '#64748b', 1)}
+    ${line(kama_s,  '#d97706', 1.5, '4,3')}
+    ${line(kama_v,  '#2563eb', 2)}
+    ${line(sar,     '#dc2626', 1.5, '2,3')}
+    <circle cx="${px(n-1).toFixed(1)}" cy="${py(prices[n-1]).toFixed(1)}" r="3" fill="#0f172a"/>
+  </svg>`;
+}
+
+async function load() {
+  if(!TICKER) {
+    document.getElementById('page').innerHTML = `
+      <div class="not-found"><div class="not-found-icon">❓</div><div>Nessun ticker specificato</div></div>`;
+    return;
+  }
+
+  let data;
+  try {
+    const r = await fetch('./data/etf.json?t=' + Date.now());
+    const j = await r.json();
+    data = (j.data || []).find(d => d.ticker === TICKER);
+    document.getElementById('headerSub').textContent = 'Aggiornato: ' + (j.updated || '—');
+  } catch(e) {
+    document.getElementById('page').innerHTML = `
+      <div class="not-found"><div class="not-found-icon">⚠️</div>
+      <div>Errore caricamento dati.<br>Premi CALCOLA nella pagina principale prima.</div></div>`;
+    return;
+  }
+
+  if(!data) {
+    document.getElementById('page').innerHTML = `
+      <div class="not-found"><div class="not-found-icon">🔍</div>
+      <div>ETF <b>${TICKER}</b> non trovato nei dati.</div></div>`;
+    return;
+  }
+
+  // R:R bar
+  const risk   = data.risk_pct   || 0;
+  const reward = data.reward_pct || 0;
+  const total  = risk + reward || 1;
+  const riskW  = Math.round(risk/total*100);
+  const rewW   = Math.round(reward/total*100);
+
+  // Uscita badge
+  let uscitaHtml = '';
+  if(data.uscita === 'STOP')       uscitaHtml = '<span style="color:#ff4d4d;font-weight:700">⛔ STOP LOSS</span>';
+  else if(data.uscita === 'USCITA') uscitaHtml = '<span style="color:#f97316;font-weight:700">🔴 USCITA</span>';
+  else if(data.uscita === 'ATTENZIONE') uscitaHtml = '<span style="color:#facc15;font-weight:700">🟡 ATTENZIONE</span>';
+
+  // Motivazioni
+  const reasons = data.reasons || [];
+  const reasonsHtml = reasons.map(r => `
+    <div class="reason-row ${r.ok ? 'reason-ok' : 'reason-ko'}">
+      <div class="reason-icon">${r.ok ? '✅' : '❌'}</div>
+      <div class="reason-label">${r.label}</div>
+    </div>`).join('');
+
+  // Metriche
+  const metrics = [
+    {name:'KAMA veloce',  val: fmtN(data.kama_v),  cls: data.price > data.kama_v ? 'mv-verde' : 'mv-rosso'},
+    {name:'KAMA lenta',   val: fmtN(data.kama_s),  cls: data.price > data.kama_s ? 'mv-verde' : 'mv-rosso'},
+    {name:'SAR',          val: fmtN(data.sar),      cls: data.sar_up ? 'mv-verde' : 'mv-rosso'},
+    {name:'SAR trend',    val: data.sar_up ? '▲ Rialzo' : '▼ Ribasso', cls: data.sar_up ? 'mv-verde' : 'mv-rosso'},
+    {name:'Trendycator',  val: data.trendycator,    cls: trdClass(data.trendycator)},
+    {name:'ER',           val: fmtN(data.er, 3),    cls: data.er >= 0.45 ? 'mv-verde' : 'mv-warn'},
+    {name:'Baffetti AO',  val: data.baff,           cls: data.baff >= 3 ? 'mv-verde' : data.baff >= 1 ? 'mv-warn' : 'mv-rosso'},
+    {name:'RSI',          val: fmtN(data.rsi, 1),   cls: data.rsi > 60 ? 'mv-verde' : data.rsi < 40 ? 'mv-rosso' : 'mv-grigio'},
+    {name:'MM20',         val: fmtN(data.mm20),     cls: data.price > data.mm20 ? 'mv-verde' : 'mv-rosso'},
+    {name:'MM50',         val: fmtN(data.mm50),     cls: data.price > data.mm50 ? 'mv-verde' : 'mv-rosso'},
+    {name:'MM200',        val: fmtN(data.mm200),    cls: data.mm200 ? (data.price > data.mm200 ? 'mv-verde' : 'mv-rosso') : 'mv-grigio'},
+    {name:'P/K veloce%',  val: fmtPct(data.pk_pct), cls: data.pk_pct > 0 ? 'mv-verde' : 'mv-rosso'},
+    {name:'Perf sett.',   val: fmtPct(data.perf_sett), cls: data.perf_sett > 0 ? 'mv-verde' : 'mv-rosso'},
+    {name:'Perf mese',    val: fmtPct(data.perf_mese), cls: data.perf_mese > 0 ? 'mv-verde' : 'mv-rosso'},
+    {name:'Volume ratio', val: fmtN(data.vol_ratio) + 'x', cls: data.vol_ratio >= 2 ? 'mv-verde' : 'mv-grigio'},
+    {name:'Score',        val: data.score,           cls: data.score >= 80 ? 'mv-verde' : data.score >= 40 ? 'mv-warn' : 'mv-rosso'},
+  ];
+
+  const metricsHtml = metrics.map(m => `
+    <div class="metric-row">
+      <span class="metric-name">${m.name}</span>
+      <span class="metric-val ${m.cls}">${m.val ?? '—'}</span>
+    </div>`).join('');
+
+  document.getElementById('page').innerHTML = `
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-top">
+        <div>
+          <div class="hero-ticker">${data.display}</div>
+          <div class="hero-cat">${data.categoria}</div>
+        </div>
+        <span class="sig-badge ${sigClass(data.tipo)}">${sigLabel(data.tipo)}</span>
+      </div>
+      ${uscitaHtml ? `<div style="margin-bottom:10px">${uscitaHtml}</div>` : ''}
+      <div class="stats-bar">
+        <div class="stat-pill">Prezzo <b>${fmtN(data.price)}</b></div>
+        <div class="stat-pill">Score <b>${data.score}</b></div>
+        <div class="stat-pill">Baffetti <b>${data.baff}</b></div>
+        <div class="stat-pill">ER <b>${fmtN(data.er,3)}</b></div>
+        <div class="stat-pill">Vol <b>${fmtN(data.vol_ratio)}x</b></div>
+      </div>
+    </div>
+
+    <!-- PREZZI OPERATIVI -->
+    <div class="section">
+      <div class="section-title">Prezzi operativi</div>
+      <div class="price-grid">
+        <div class="price-card entry">
+          <div class="price-label">Entrata</div>
+          <div class="price-value">${fmtN(data.entry_price)}</div>
+          <div class="price-sub">${data.entry_date || '—'} ${data.entry_time || ''}</div>
+        </div>
+        <div class="price-card stop">
+          <div class="price-label">Stop loss</div>
+          <div class="price-value">${fmtN(data.stop_price)}</div>
+          <div class="price-sub">MAX(SAR, KAMA lenta)</div>
+        </div>
+        <div class="price-card target">
+          <div class="price-label">Target R:R 1:2</div>
+          <div class="price-value">${fmtN(data.target_price)}</div>
+          <div class="price-sub">+${fmtN(data.reward_pct)}%</div>
+        </div>
+      </div>
+
+      <!-- R:R bar -->
+      <div class="rr-bar-wrap">
+        <div class="rr-label">
+          <span>Rischio <b style="color:var(--rosso)">-${fmtN(data.risk_pct)}%</b></span>
+          <span>R:R 1:2</span>
+          <span>Reward <b style="color:var(--long)">+${fmtN(data.reward_pct)}%</b></span>
+        </div>
+        <div class="rr-bar">
+          <div class="rr-risk"  style="width:${riskW}%"></div>
+          <div class="rr-reward" style="left:${riskW}%;width:${rewW}%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GRAFICO -->
+    <div class="section">
+      <div class="section-title">Grafico prezzi — KAMA veloce (blu) · KAMA lenta (arancio) · SAR (rosso tratto)</div>
+      <div class="mini-chart" id="chartWrap">
+        <div style="color:var(--muted);font-size:12px;text-align:center;padding:20px">
+          Grafico disponibile con analisi live (premi CALCOLA nella pagina principale)
+        </div>
+      </div>
+    </div>
+
+    <!-- MOTIVAZIONE SEGNALE -->
+    <div class="section">
+      <div class="section-title">Motivazione segnale</div>
+      <div class="reasons-list">${reasonsHtml || '<div style="color:var(--muted);font-size:13px">Nessun dato — avvia analisi dalla pagina principale</div>'}</div>
+    </div>
+
+    <!-- METRICHE -->
+    <div class="section">
+      <div class="section-title">Tutte le metriche</div>
+      <div class="metrics-grid">${metricsHtml}</div>
+    </div>
+
+    <!-- STORICO -->
+    <div class="section">
+      <div class="section-title">Dati operativi</div>
+      <div class="history-box">
+        <div class="history-row">
+          <span class="history-label">Data/ora aggiornamento</span>
+          <span class="history-val">${data.entry_date || '—'} ${data.entry_time || ''}</span>
+        </div>
+        <div class="history-row">
+          <span class="history-label">Giorni dal crossover KAMA</span>
+          <span class="history-val">${data.cross === 999 ? '—' : data.cross + ' gg'}</span>
+        </div>
+        <div class="history-row">
+          <span class="history-label">Distanza da stop</span>
+          <span class="history-val" style="color:var(--rosso)">${fmtPct(data.risk_pct ? -data.risk_pct : null)}</span>
+        </div>
+        <div class="history-row">
+          <span class="history-label">Potenziale target</span>
+          <span class="history-val" style="color:var(--long)">${fmtPct(data.reward_pct)}</span>
+        </div>
+        <div class="history-row">
+          <span class="history-label">MM allineate (20>50)</span>
+          <span class="history-val" style="color:${data.mm_align?'var(--long)':'var(--rosso)'}">
+            ${data.mm_align ? '✅ Sì' : '❌ No'}
+          </span>
+        </div>
+        <div class="history-row">
+          <span class="history-label">AO positivo</span>
+          <span class="history-val" style="color:${data.ao_pos?'var(--long)':'var(--rosso)'}">
+            ${data.ao_pos ? '✅ Sì' : '❌ No'}
+          </span>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+load();
+</script>
+</body>
+</html>
