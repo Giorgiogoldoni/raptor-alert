@@ -18,8 +18,8 @@ from email.mime.multipart import MIMEMultipart
 import urllib.request
 
 # ── Config ────────────────────────────────────────────────────────────────────
-GMAIL_USER     = os.environ.get("GMAIL_USER", "")
-GMAIL_PASSWORD = os.environ.get("GMAIL_PASSWORD", "")
+GMAIL_USER     = os.environ.get("EMAIL_USER", "")
+GMAIL_PASSWORD = os.environ.get("EMAIL_PASS", "")
 MAIL_TO        = os.environ.get("MAIL_TO", "")
 NOW            = datetime.now().strftime("%d/%m/%Y %H:%M")
 NOW_DATE       = datetime.now().strftime("%d/%m/%Y")
