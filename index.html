@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>🦅 RAPTOR Alert</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+:root{
+  --bg:#ffffff;--surface:#f8f9fa;--card:#f1f3f5;--border:#e2e8f0;
+  --text:#0f172a;--muted:#64748b;--dim:#94a3b8;
+  --long:#16a34a;--long-bg:#f0fdf4;
+  --early:#2563eb;--early-bg:#eff6ff;
+  --watch:#d97706;--watch-bg:#fffbeb;
+  --rosso:#dc2626;--rosso-bg:#fef2f2;
+  --vol-high:#ea580c;--vol-low:#cbd5e1;
+  --mono:'JetBrains Mono',monospace;
+  --sans:'Inter',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:100vh;overflow-x:hidden}
+
+.header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(255,255,255,0.95);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  padding:14px 16px 10px;
+}
+.header-top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}
+.logo{display:flex;align-items:center;gap:8px}
+.logo-icon{font-size:22px;line-height:1}
+.logo-text{font-size:16px;font-weight:700;letter-spacing:-0.3px}
+.logo-sub{font-size:10px;color:var(--muted);font-family:var(--mono);margin-top:1px}
+.btn-run{
+  display:flex;align-items:center;gap:6px;
+  background:var(--long);color:#fff;
+  border:none;border-radius:8px;
+  padding:9px 16px;font-size:13px;font-weight:700;
+  cursor:pointer;transition:all .15s;white-space:nowrap;
+  font-family:var(--sans);
+}
+.btn-run:hover{filter:brightness(1.1)}
+.btn-run:disabled{opacity:.5;cursor:not-allowed;filter:none}
+.btn-run.running{background:#374151;color:#fff}
+
+.progress-wrap{display:none;margin-top:4px}
+.progress-bar-outer{height:3px;background:var(--border);border-radius:3px;overflow:hidden}
+.progress-bar-inner{height:100%;background:var(--long);border-radius:3px;transition:width .3s;width:0%}
+.progress-text{font-size:10px;color:var(--muted);font-family:var(--mono);margin-top:5px;display:flex;justify-content:space-between}
+
+.data-source-bar{
+  font-size:10px;padding:5px 16px;border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:8px;
+}
+.ds-badge{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:2px 8px;border-radius:20px;font-size:10px;font-weight:600;
+  background:#f0fdf4;color:var(--long);border:1px solid rgba(22,163,74,.2);
+}
+.ds-badge.live{background:#eff6ff;color:var(--early);border-color:rgba(37,99,235,.2)}
+
+.timestamp-bar{
+  font-size:10px;color:var(--muted);font-family:var(--mono);
+  padding:6px 16px;border-bottom:1px solid var(--border);
+  display:none;
+}
+
+.filter-bar{
+  display:flex;gap:6px;padding:10px 16px;
+  border-bottom:1px solid var(--border);
+  overflow-x:auto;scrollbar-width:none;
+}
+.filter-bar::-webkit-scrollbar{display:none}
+.ftab{
+  flex-shrink:0;padding:5px 12px;border-radius:20px;
+  font-size:12px;font-weight:500;cursor:pointer;
+  border:1px solid var(--border);background:var(--surface);
+  color:var(--muted);transition:all .15s;
+}
+.ftab.active{color:var(--text);border-color:var(--dim);background:var(--card)}
+.ftab.f-long.active{background:var(--long-bg);border-color:var(--long);color:var(--long)}
+.ftab.f-early.active{background:var(--early-bg);border-color:var(--early);color:var(--early)}
+.ftab.f-watch.active{background:var(--watch-bg);border-color:var(--watch);color:var(--watch)}
+.ftab.f-rosso.active{background:var(--rosso-bg);border-color:var(--rosso);color:var(--rosso)}
+
+.stats-row{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1px;background:var(--border);
+  border-bottom:1px solid var(--border);
+}
+.stat-box{background:var(--surface);padding:10px 8px;text-align:center;}
+.stat-n{font-size:20px;font-weight:700;font-family:var(--mono);line-height:1}
+.stat-l{font-size:10px;color:var(--muted);margin-top:2px}
+.stat-box.s-long .stat-n{color:var(--long)}
+.stat-box.s-early .stat-n{color:var(--early)}
+.stat-box.s-watch .stat-n{color:var(--watch)}
+.stat-box.s-rosso .stat-n{color:var(--rosso)}
+
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:12px;min-width:700px}
+th{
+  background:var(--surface);color:var(--muted);
+  padding:8px 6px;text-align:right;
+  border-bottom:1px solid var(--border);
+  font-weight:500;font-size:10px;font-family:var(--mono);
+  white-space:nowrap;position:sticky;top:0;z-index:5;
+  cursor:pointer;user-select:none;
+}
+th:first-child,th:nth-child(2){text-align:left}
+th.sort-asc::after{content:' ↑'}
+th.sort-desc::after{content:' ↓'}
+td{padding:8px 6px;border-bottom:1px solid var(--border);text-align:right;vertical-align:middle;}
+td:first-child,td:nth-child(2){text-align:left}
+tr:hover td{background:rgba(0,0,0,0.02)}
+
+.tk{font-family:var(--mono);font-weight:600;font-size:12px}
+.cat{font-size:10px;color:var(--muted);margin-top:1px}
+
+.sig{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:4px;font-size:11px;font-weight:600;white-space:nowrap;font-family:var(--mono);}
+.sig-long{background:var(--long-bg);color:var(--long);border:1px solid rgba(34,197,94,.2)}
+.sig-early{background:var(--early-bg);color:var(--early);border:1px solid rgba(59,130,246,.2)}
+.sig-watch{background:var(--watch-bg);color:var(--watch);border:1px solid rgba(245,158,11,.2)}
+.sig-rosso{background:var(--rosso-bg);color:var(--rosso);border:1px solid rgba(239,68,68,.2)}
+.sig-none{color:var(--muted);font-family:var(--mono);font-size:11px}
+
+.exit{font-size:10px;font-family:var(--mono)}
+.exit-stop{color:#ff4d4d}
+.exit-out{color:#f97316}
+.exit-att{color:#facc15}
+
+.trd{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px}
+.trd-verde{background:var(--long)}
+.trd-rosso{background:var(--rosso)}
+.trd-grigio{background:var(--muted)}
+
+.vol-cell{display:flex;align-items:center;gap:5px;justify-content:flex-end}
+.vol-bar-wrap{width:40px;height:6px;background:var(--border);border-radius:3px;overflow:hidden;flex-shrink:0}
+.vol-bar{height:100%;border-radius:3px;transition:width .3s}
+.vol-high .vol-bar{background:var(--vol-high)}
+.vol-normal .vol-bar{background:var(--early)}
+.vol-low .vol-bar{background:var(--vol-low)}
+.vol-txt{font-size:10px;font-family:var(--mono);color:var(--muted);min-width:28px}
+
+.pos{color:var(--long)}.neg{color:var(--rosso)}.neu{color:var(--muted)}
+
+.score-cell{display:flex;align-items:center;gap:5px;justify-content:flex-end}
+.score-n{font-family:var(--mono);font-size:12px;font-weight:600;min-width:26px}
+.score-bar-wrap{width:32px;height:4px;background:var(--border);border-radius:2px;overflow:hidden}
+.score-bar{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--early),var(--long))}
+
+.empty{text-align:center;padding:60px 20px;color:var(--muted);}
+.empty-icon{font-size:48px;margin-bottom:12px}
+.empty-title{font-size:16px;font-weight:600;color:var(--dim);margin-bottom:6px}
+
+tr.err-row td{color:var(--dim);font-size:10px;font-family:var(--mono)}
+
+.search-bar{display:flex;gap:8px;padding:8px 16px;border-bottom:1px solid var(--border);background:var(--bg);}
+.search-bar input{flex:1;padding:7px 12px;border:1px solid var(--border);border-radius:6px;font-size:13px;background:var(--surface);color:var(--text);outline:none;font-family:var(--mono);}
+.search-bar input:focus{border-color:var(--early)}
+
+.cat-bar{display:flex;gap:6px;padding:8px 16px;border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none;background:var(--bg);}
+.cat-bar::-webkit-scrollbar{display:none}
+.ctab{flex-shrink:0;padding:4px 11px;border-radius:20px;font-size:12px;font-weight:500;cursor:pointer;border:1px solid var(--border);background:var(--surface);color:var(--muted);transition:all .15s;white-space:nowrap;}
+.ctab.active{background:#eff6ff;border-color:var(--early);color:var(--early);font-weight:600;}
+.ctab-n{display:inline-block;background:var(--border);color:var(--muted);border-radius:10px;padding:0 5px;font-size:10px;font-weight:700;margin-left:3px;font-family:var(--mono);}
+.ctab.active .ctab-n{background:var(--early);color:#fff;}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <div class="logo">
+      <div class="logo-icon">🦅</div>
+      <div>
+        <div class="logo-text" id="appTitle" onclick="editTitle()" title="Clicca per rinominare">RAPTOR Alert</div>
+        <div class="logo-sub" id="logoSub">v3.1 · 700 ETF · Caricamento...</div>
+      </div>
+    </div>
+    <button class="btn-run" id="btnRun" onclick="startScan()">⚡ CALCOLA</button>
+  </div>
+  <div class="progress-wrap" id="progressWrap">
+    <div class="progress-bar-outer"><div class="progress-bar-inner" id="progressBar"></div></div>
+    <div class="progress-text">
+      <span id="progressTxt">Avvio...</span>
+      <span id="progressTicker"></span>
+    </div>
+  </div>
+</div>
+
+<div class="data-source-bar" id="dataSourceBar" style="display:none">
+  <span id="dsBadge"></span>
+  <span style="color:var(--muted)" id="dsInfo"></span>
+</div>
+
+<div class="timestamp-bar" id="tsBar"></div>
+
+<div class="filter-bar" id="filterBar">
+  <div class="ftab active" data-f="ALL" onclick="setFilter('ALL',this)">Tutti</div>
+  <div class="ftab f-long" data-f="LONG" onclick="setFilter('LONG',this)">🟢 LONG</div>
+  <div class="ftab f-early" data-f="EARLY" onclick="setFilter('EARLY',this)">🔵 EARLY</div>
+  <div class="ftab f-watch" data-f="WATCH" onclick="setFilter('WATCH',this)">🟡 WATCH</div>
+  <div class="ftab f-rosso" data-f="ROSSO" onclick="setFilter('ROSSO',this)">🔴 ROSSO+</div>
+  <div class="ftab" data-f="USCITA" onclick="setFilter('USCITA',this)">⚠️ Uscita</div>
+  <div class="ftab" data-f="FRESH" onclick="setFilter('FRESH',this)">🕐 Ultimi 5gg</div>
+</div>
+
+<div class="search-bar">
+  <input type="text" id="tickerSearch" placeholder="🔍 Cerca ticker..." oninput="renderTable()">
+</div>
+
+<div class="cat-bar" id="catBar">
+  <div class="ctab active" data-cat="" onclick="setCat(this)">Tutte <span class="ctab-n" id="cn-all"></span></div>
+  <div class="ctab" data-cat="Tematici" onclick="setCat(this)">🎯 Tematici <span class="ctab-n" id="cn-Tematici"></span></div>
+  <div class="ctab" data-cat="BOND" onclick="setCat(this)">📊 BOND <span class="ctab-n" id="cn-BOND"></span></div>
+  <div class="ctab" data-cat="Materie" onclick="setCat(this)">🪨 Materie <span class="ctab-n" id="cn-Materie"></span></div>
+  <div class="ctab" data-cat="Settoriali" onclick="setCat(this)">🏭 Settoriali <span class="ctab-n" id="cn-Settoriali"></span></div>
+  <div class="ctab" data-cat="Paesi" onclick="setCat(this)">🌍 Paesi <span class="ctab-n" id="cn-Paesi"></span></div>
+  <div class="ctab" data-cat="ADVICE" onclick="setCat(this)">💼 Advice <span class="ctab-n" id="cn-ADVICE"></span></div>
+  <div class="ctab" data-cat="ATTIVO" onclick="setCat(this)">⚡ Attivo <span class="ctab-n" id="cn-ATTIVO"></span></div>
+  <div class="ctab" data-cat="NEW AREA" onclick="setCat(this)">🌐 New Area <span class="ctab-n" id="cn-NEWAREA"></span></div>
+  <div class="ctab" data-cat="Settoriali SPDR" onclick="setCat(this)">🇺🇸 SPDR <span class="ctab-n" id="cn-SPDR"></span></div>
+  <div class="ctab" data-cat="EUROGROW" onclick="setCat(this)">🇪🇺 Eurogrow <span class="ctab-n" id="cn-EUROGROW"></span></div>
+  <div class="ctab" data-cat="top4 usa" onclick="setCat(this)">🦅 Top4 USA <span class="ctab-n" id="cn-top4"></span></div>
+  <div class="ctab" data-cat="Lazy" onclick="setCat(this)">😴 Lazy <span class="ctab-n" id="cn-Lazy"></span></div>
+  <div class="ctab" data-cat="Benchmark" onclick="setCat(this)">📌 Benchmark <span class="ctab-n" id="cn-Benchmark"></span></div>
+  <div class="ctab" data-cat="Liquidità" onclick="setCat(this)">💧 Liquidità <span class="ctab-n" id="cn-Liquidita"></span></div>
+  <div class="ctab" data-cat="REAL ESTATE" onclick="setCat(this)">🏠 Real Estate <span class="ctab-n" id="cn-REALESTATE"></span></div>
+</div>
+
+<div class="stats-row">
+  <div class="stat-box s-long"><div class="stat-n" id="s-long">—</div><div class="stat-l">LONG</div></div>
+  <div class="stat-box s-early"><div class="stat-n" id="s-early">—</div><div class="stat-l">EARLY</div></div>
+  <div class="stat-box s-watch"><div class="stat-n" id="s-watch">—</div><div class="stat-l">WATCH</div></div>
+  <div class="stat-box s-rosso"><div class="stat-n" id="s-rosso">—</div><div class="stat-l">ROSSO+</div></div>
+</div>
+
+<div class="table-wrap">
+  <table id="mainTable">
+    <thead>
+      <tr>
+        <th onclick="sortBy('rank')">#</th>
+        <th onclick="sortBy('ticker')">TICKER</th>
+        <th onclick="sortBy('segnale')">SEGNALE</th>
+        <th onclick="sortBy('score')">SCORE</th>
+        <th onclick="sortBy('trendycator')">TREND</th>
+        <th onclick="sortBy('er')">ER</th>
+        <th onclick="sortBy('baff')">BAFF.</th>
+        <th onclick="sortBy('volume')">VOL</th>
+        <th onclick="sortBy('perfSett')">SETT%</th>
+        <th onclick="sortBy('perfMese')">MESE%</th>
+        <th onclick="sortBy('pkPct')">P/K%</th>
+        <th onclick="sortBy('entryDate')">ING.</th>
+        <th onclick="sortBy('uscita')">USCITA</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+      <tr><td colspan="13"><div class="empty"><div class="empty-icon">🦅</div><div class="empty-title">Premi CALCOLA per avviare l'analisi</div></div></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+// ═══════════════════════════════════════════
+//  TICKERS (700 ETF)
+// ═══════════════════════════════════════════
+const TICKERS = [{"y":"AFK","c":"top4 logical usa","t":"AFK"},{"y":"ARGT","c":"top4 logical usa","t":"ARGT"},{"y":"ASHR","c":"top4 logical usa","t":"ASHR"},{"y":"DIA","c":"top4 logical usa","t":"DIA"},{"y":"ECH","c":"top4 logical usa","t":"ECH"},{"y":"EEM","c":"top4 logical usa","t":"EEM"},{"y":"IAEX.AS","c":"Paesi","t":"IAEX"},{"y":"TOF.AS","c":"ATTIVO","t":"TOF"},{"y":"18MN.DE","c":"Lazy","t":"18MN"},{"y":"7USH.DE","c":"BOND","t":"7USH"},{"y":"CBUH.DE","c":"ATTIVO","t":"CBUH"},{"y":"CEB1.DE","c":"BOND","t":"CEB1"},{"y":"CEB4.DE","c":"NEW AREA","t":"CEB4"},{"y":"GXDW","c":"Paesi","t":"GXDW"},{"y":"DBZB.DE","c":"Lazy","t":"DBZB"},{"y":"EUNY.DE","c":"ATTIVO","t":"EUNY"},{"y":"FTGM.DE","c":"ATTIVO","t":"FTGM"},{"y":"IBC5.DE","c":"BOND","t":"IBC5"},{"y":"IBCJ.DE","c":"Paesi","t":"IBCJ"},{"y":"IQQ9.DE","c":"NEW AREA","t":"IQQ9"},{"y":"IQQF.DE","c":"NEW AREA","t":"IQQF"},{"y":"IS04.DE","c":"BOND","t":"IS04"},{"y":"IS3C.DE","c":"Lazy","t":"IS3C"},{"y":"IS3N.DE","c":"Lazy","t":"IS3N"},{"y":"IS3U.DE","c":"Paesi","t":"IS3U"},{"y":"ISPA.DE","c":"ATTIVO","t":"ISPA"},{"y":"IUSQ.DE","c":"Lazy","t":"IUSQ"},{"y":"IUSS.DE","c":"Paesi","t":"IUSS"},{"y":"LCUJ.DE","c":"Lazy","t":"LCUJ"},{"y":"MJMT.DE","c":"ATTIVO","t":"MJMT"},{"y":"QDVA.DE","c":"ATTIVO","t":"QDVA"},{"y":"SPP5.DE","c":"BOND","t":"SPP5"},{"y":"SPYX.DE","c":"ATTIVO","t":"SPYX"},{"y":"SXR1.DE","c":"Lazy","t":"SXR1"},{"y":"SXRT.DE","c":"Lazy","t":"SXRT"},{"y":"SXRU.DE","c":"NEW AREA","t":"SXRU"},{"y":"SXRW.DE","c":"Lazy","t":"SXRW"},{"y":"VGWE.DE","c":"ATTIVO","t":"VGWE"},{"y":"VUKG.DE","c":"Paesi","t":"VUKG"},{"y":"XBAS.DE","c":"Paesi","t":"XBAS"},{"y":"XCS3.DE","c":"Paesi","t":"XCS3"},{"y":"XCS4.DE","c":"Paesi","t":"XCS4"},{"y":"XD9E.DE","c":"Lazy","t":"XD9E"},{"y":"XD9U.DE","c":"Lazy","t":"XD9U"},{"y":"XDEM.DE","c":"ATTIVO","t":"XDEM"},{"y":"XESD.DE","c":"Paesi","t":"XESD"},{"y":"XGIN.DE","c":"Lazy","t":"XGIN"},{"y":"XMKA.DE","c":"Paesi","t":"XMKA"},{"y":"XPQP.DE","c":"Paesi","t":"XPQP"},{"y":"XWEM.DE","c":"ATTIVO","t":"XWEM"},{"y":"F701.F","c":"ATTIVO","t":"F701"},{"y":"F702.F","c":"ATTIVO","t":"F702"},{"y":"F703.F","c":"ATTIVO","t":"F703"},{"y":"IUSN.F","c":"ADVICE","t":"IUSN"},{"y":"IVAI.MI","c":"Tematici","t":"IVAI"},{"y":"IVDF.DE","c":"Tematici","t":"IVDF"},{"y":"NQSE.F","c":"NEW AREA","t":"NQSE"},{"y":"NTSZ.DE","c":"ATTIVO","t":"NTSZ"},{"y":"XMKA.F","c":"NEW AREA","t":"XMKA"},{"y":"IEFM.L","c":"ATTIVO","t":"IEFM"},{"y":"A01U.MI","c":"BOND","t":"A01U"},{"y":"ACT20.MI","c":"ATTIVO","t":"ACT20"},{"y":"ACT60.MI","c":"ATTIVO","t":"ACT60"},{"y":"ACTEQ.MI","c":"ATTIVO","t":"ACTEQ"},{"y":"ADLU.MI","c":"BOND","t":"ADLU"},{"y":"AEGE.MI","c":"BOND","t":"AEGE"},{"y":"AGEB.MI","c":"BOND","t":"AGEB"},{"y":"AGED.MI","c":"Tematici","t":"AGED"},{"y":"AGGH.MI","c":"BOND","t":"AGGH"},{"y":"AI4UJ.MI","c":"Tematici","t":"AI4UJ"},{"y":"AIAA.MI","c":"Tematici","t":"AIAA"},{"y":"AIAI.MI","c":"Tematici","t":"AIAI"},{"y":"AICU.MI","c":"BOND","t":"AICU"},{"y":"AIGA.MI","c":"Materie","t":"AIGA"},{"y":"AIGC.MI","c":"Materie","t":"AIGC"},{"y":"AIGE.MI","c":"Materie","t":"AIGE"},{"y":"AIGG.MI","c":"Materie","t":"AIGG"},{"y":"AIGI.MI","c":"Materie","t":"AIGI"},{"y":"AIGL.MI","c":"Materie","t":"AIGL"},{"y":"AIGO.MI","c":"Materie","t":"AIGO"},{"y":"AIGP.MI","c":"Materie","t":"AIGP"},{"y":"AIGS.MI","c":"Materie","t":"AIGS"},{"y":"AINF.MI","c":"Tematici","t":"AINF"},{"y":"AIQE.MI","c":"Tematici","t":"AIQE"},{"y":"ALAT.MI","c":"NEW AREA","t":"ALAT"},{"y":"ALUM.MI","c":"Materie","t":"ALUM"},{"y":"ANAU.MI","c":"ADVICE","t":"ANAU"},{"y":"AQWA.MI","c":"Tematici","t":"AQWA"},{"y":"ARMI.MI","c":"Tematici","t":"ARMI"},{"y":"ARMR.MI","c":"Tematici","t":"ARMR"},{"y":"ASRD.MI","c":"BOND","t":"ASRD"},{"y":"AT1.MI","c":"BOND","t":"AT1"},{"y":"AUCO.MI","c":"Tematici","t":"AUCO"},{"y":"AUHEUA.MI","c":"Paesi","t":"AUHEUA"},{"y":"BATT.MI","c":"Tematici","t":"BATT"},{"y":"BBTR.MI","c":"BOND","t":"BBTR"},{"y":"BCHN.MI","c":"Settoriali","t":"BCHN"},{"y":"BENE.MI","c":"Materie","t":"BENE"},{"y":"BIODV.MI","c":"Settoriali","t":"BIODV"},{"y":"BIOT.MI","c":"Tematici","t":"BIOT"},{"y":"BKCH.MI","c":"Tematici","t":"BKCH"},{"y":"BLTH.MI","c":"Tematici","t":"BLTH"},{"y":"BNK.MI","c":"Settoriali","t":"BNK"},{"y":"BNKE.MI","c":"Settoriali","t":"BNKE"},{"y":"BOTZ.MI","c":"Tematici","t":"BOTZ"},{"y":"BRENT.MI","c":"Materie","t":"BRENT"},{"y":"BRES.MI","c":"Settoriali","t":"BRES"},{"y":"BRIJ.MI","c":"Tematici","t":"BRIJ"},{"y":"BRND.MI","c":"Materie","t":"BRND"},{"y":"BRNT.MI","c":"Materie","t":"BRNT"},{"y":"BSRIC.MI","c":"BOND","t":"BSRIC"},{"y":"BT27.MI","c":"BOND","t":"BT27"},{"y":"BTC.MI","c":"Tematici","t":"BTC"},{"y":"BTECH.MI","c":"Tematici","t":"BTECH"},{"y":"BTECJ.MI","c":"Tematici","t":"BTECJ"},{"y":"BTP10.MI","c":"BOND","t":"BTP10"},{"y":"BUG.MI","c":"Tematici","t":"BUG"},{"y":"C40.MI","c":"Paesi","t":"C40"},{"y":"CAHEUA.MI","c":"NEW AREA","t":"CAHEUA"},{"y":"CARB.MI","c":"Materie","t":"CARB"},{"y":"CAUT.MI","c":"Tematici","t":"CAUT"},{"y":"CBSUSA.MI","c":"BOND","t":"CBSUSA"},{"y":"CCEUAS.MI","c":"Materie","t":"CCEUAS"},{"y":"CCUSAS.MI","c":"Materie","t":"CCUSAS"},{"y":"CHIP.MI","c":"ADVICE","t":"CHIP"},{"y":"CHM.MI","c":"Settoriali","t":"CHM"},{"y":"CIBR.MI","c":"ADVICE","t":"CIBR"},{"y":"CIT.MI","c":"Tematici","t":"CIT"},{"y":"CITE.MI","c":"Tematici","t":"CITE"},{"y":"CITY.MI","c":"Tematici","t":"CITY"},{"y":"CLIP.MI","c":"BOND","t":"CLIP"},{"y":"CLOU.MI","c":"Tematici","t":"CLOU"},{"y":"CMOC.MI","c":"Materie","t":"CMOC"},{"y":"CMOD.MI","c":"Materie","t":"CMOD"},{"y":"CMOE.MI","c":"Materie","t":"CMOE"},{"y":"CN1.MI","c":"Paesi","t":"CN1"},{"y":"CO2.MI","c":"Materie","t":"CO2"},{"y":"COCO.MI","c":"Materie","t":"COCO"},{"y":"COFF.MI","c":"Materie","t":"COFF"},{"y":"COMF.MI","c":"Materie","t":"COMF"},{"y":"COMH.MI","c":"Materie","t":"COMH"},{"y":"COMO.MI","c":"Materie","t":"COMO"},{"y":"COPA.MI","c":"Materie","t":"COPA"},{"y":"COPM.MI","c":"Tematici","t":"COPM"},{"y":"COPR.MI","c":"Tematici","t":"COPR"},{"y":"COPX.MI","c":"Tematici","t":"COPX"},{"y":"CORN.MI","c":"Materie","t":"CORN"},{"y":"COTN.MI","c":"Materie","t":"COTN"},{"y":"CROP.MI","c":"Tematici","t":"CROP"},{"y":"CRRY.MI","c":"Materie","t":"CRRY"},{"y":"CRUD.MI","c":"Materie","t":"CRUD"},{"y":"CSBGE7.MI","c":"BOND","t":"CSBGE7"},{"y":"CSBGU3.MI","c":"BOND","t":"CSBGU3"},{"y":"CSBGU7.MI","c":"BOND","t":"CSBGU7"},{"y":"CSCA.MI","c":"NEW AREA","t":"CSCA"},{"y":"CSEMAS.MI","c":"NEW AREA","t":"CSEMAS"},{"y":"CSMIB.MI","c":"Paesi","t":"CSMIB"},{"y":"CSNDX.MI","c":"Paesi","t":"CSNDX"},{"y":"CSPXJ.MI","c":"NEW AREA","t":"CSPXJ"},{"y":"CSSPX.MI","c":"ADVICE","t":"CSSPX"},{"y":"CSUS.MI","c":"ADVICE","t":"CSUS"},{"y":"CSUSS.MI","c":"ADVICE","t":"CSUSS"},{"y":"CTEK.MI","c":"Tematici","t":"CTEK"},{"y":"CURE.MI","c":"Tematici","t":"CURE"},{"y":"CWE.MI","c":"Settoriali","t":"CWE"},{"y":"CYBO.MI","c":"Tematici","t":"CYBO"},{"y":"CYBR.MI","c":"Settoriali","t":"CYBR"},{"y":"DAPP.MI","c":"Tematici","t":"DAPP"},{"y":"DEFS.MI","c":"Settoriali","t":"DEFS"},{"y":"DEMR.MI","c":"ATTIVO","t":"DEMR"},{"y":"DFND.MI","c":"Tematici","t":"DFND"},{"y":"DFNS.MI","c":"Tematici","t":"DFNS"},{"y":"DGTL.MI","c":"Tematici","t":"DGTL"},{"y":"DISW.MI","c":"Settoriali","t":"DISW"},{"y":"DJE.MI","c":"Paesi","t":"DJE"},{"y":"DMAT.MI","c":"Tematici","t":"DMAT"},{"y":"DOCT.MI","c":"Tematici","t":"DOCT"},{"y":"DPAY.MI","c":"Tematici","t":"DPAY"},{"y":"DRVE.MI","c":"Tematici","t":"DRVE"},{"y":"DXJF.MI","c":"ATTIVO","t":"DXJF"},{"y":"EALU.MI","c":"Materie","t":"EALU"},{"y":"EBIZ.MI","c":"Tematici","t":"EBIZ"},{"y":"EBRT.MI","c":"Materie","t":"EBRT"},{"y":"EBUY.MI","c":"Tematici","t":"EBUY"},{"y":"ECAR.MI","c":"Tematici","t":"ECAR"},{"y":"ECEH.MI","c":"Materie","t":"ECEH"},{"y":"ECO.MI","c":"BOND","t":"ECO"},{"y":"ECOF.MI","c":"Materie","t":"ECOF"},{"y":"ECOM.MI","c":"Tematici","t":"ECOM"},{"y":"ECOP.MI","c":"Materie","t":"ECOP"},{"y":"ECR1.MI","c":"BOND","t":"ECR1"},{"y":"ECRD.MI","c":"Materie","t":"ECRD"},{"y":"ECRN.MI","c":"Materie","t":"ECRN"},{"y":"ECRP3.MI","c":"BOND","t":"ECRP3"},{"y":"ECTN.MI","c":"Materie","t":"ECTN"},{"y":"EDOC.MI","c":"Tematici","t":"EDOC"},{"y":"EEA.MI","c":"Tematici","t":"EEA"},{"y":"EEIA.MI","c":"ATTIVO","t":"EEIA"},{"y":"EENG.MI","c":"Settoriali","t":"EENG"},{"y":"EFCM.MI","c":"Materie","t":"EFCM"},{"y":"EGEHE.MI","c":"Settoriali","t":"EGEHE"},{"y":"EGOV.MI","c":"BOND","t":"EGOV"},{"y":"EHYA.MI","c":"BOND","t":"EHYA"},{"y":"EIMI.MI","c":"ADVICE","t":"EIMI"},{"y":"EIMT.MI","c":"Materie","t":"EIMT"},{"y":"ELCR.MI","c":"Tematici","t":"ELCR"},{"y":"EM1015.MI","c":"BOND","t":"EM1015"},{"y":"EM35.MI","c":"BOND","t":"EM35"},{"y":"EM710.MI","c":"BOND","t":"EM710"},{"y":"EMGH.MI","c":"BOND","t":"EMGH"},{"y":"EMI.MI","c":"BOND","t":"EMI"},{"y":"EMOVE.MI","c":"Tematici","t":"EMOVE"},{"y":"EMOVJ.MI","c":"Tematici","t":"EMOVJ"},{"y":"EMQQ.MI","c":"Settoriali","t":"EMQQ"},{"y":"ENCO.MI","c":"Materie","t":"ENCO"},{"y":"ENERW.MI","c":"Settoriali","t":"ENERW"},{"y":"ENGS.MI","c":"Materie","t":"ENGS"},{"y":"ENIK.MI","c":"Materie","t":"ENIK"},{"y":"ENRG.MI","c":"Settoriali","t":"ENRG"},{"y":"ENTR.MI","c":"Materie","t":"ENTR"},{"y":"EPRA.MI","c":"Tematici","t":"EPRA"},{"y":"EPRE.MI","c":"Tematici","t":"EPRE"},{"y":"EROX.MI","c":"ADVICE","t":"EROX"},{"y":"ESGO.MI","c":"Tematici","t":"ESGO"},{"y":"ESOY.MI","c":"Materie","t":"ESOY"},{"y":"ESPO.MI","c":"Tematici","t":"ESPO"},{"y":"ESPY.MI","c":"Tematici","t":"ESPY"},{"y":"EST.MI","c":"NEW AREA","t":"EST"},{"y":"ESUG.MI","c":"Materie","t":"ESUG"},{"y":"ETFCRP.MI","c":"BOND","t":"ETFCRP"},{"y":"EUC.MI","c":"BOND","t":"EUC"},{"y":"EUES.MI","c":"BOND","t":"EUES"},{"y":"EWAT.MI","c":"Materie","t":"EWAT"},{"y":"EXS1.MI","c":"Paesi","t":"EXS1"},{"y":"EXXY.MI","c":"Materie","t":"EXXY"},{"y":"EZNC.MI","c":"Materie","t":"EZNC"},{"y":"FAMAMW.MI","c":"Tematici","t":"FAMAMW"},{"y":"FAMMAI.MI","c":"Tematici","t":"FAMMAI"},{"y":"FAMMWF.MI","c":"Tematici","t":"FAMMWF"},{"y":"FAMMWS.MI","c":"Tematici","t":"FAMMWS"},{"y":"FAMTEL.MI","c":"Tematici","t":"FAMTEL"},{"y":"FAMWCS.MI","c":"Tematici","t":"FAMWCS"},{"y":"FCRU.MI","c":"Materie","t":"FCRU"},{"y":"FGEA.MI","c":"ATTIVO","t":"FGEA"},{"y":"FINSW.MI","c":"Settoriali","t":"FINSW"},{"y":"FINX.MI","c":"Tematici","t":"FINX"},{"y":"FLUSA.MI","c":"BOND","t":"FLUSA"},{"y":"FLXI.MI","c":"Paesi","t":"FLXI"},{"y":"FLXT.MI","c":"Paesi","t":"FLXT"},{"y":"FLXU.MI","c":"Paesi","t":"FLXU"},{"y":"FMI.MI","c":"Paesi","t":"FMI"},{"y":"FOFD.MI","c":"Tematici","t":"FOFD"},{"y":"FOO.MI","c":"Settoriali","t":"FOO"},{"y":"FOOD.MI","c":"Settoriali","t":"FOOD"},{"y":"FUSU.MI","c":"ATTIVO","t":"FUSU"},{"y":"GAGG.MI","c":"BOND","t":"GAGG"},{"y":"GAGH.MI","c":"BOND","t":"GAGH"},{"y":"GAS.MI","c":"Materie","t":"GAS"},{"y":"GASRI.MI","c":"BOND","t":"GASRI"},{"y":"GCLE.MI","c":"Tematici","t":"GCLE"},{"y":"GCVE.MI","c":"BOND","t":"GCVE"},{"y":"GDIG.MI","c":"Tematici","t":"GDIG"},{"y":"GDX.MI","c":"Tematici","t":"GDX"},{"y":"GDXJ.MI","c":"Tematici","t":"GDXJ"},{"y":"GENDEE.MI","c":"Tematici","t":"GENDEE"},{"y":"GLUG.MI","c":"Tematici","t":"GLUG"},{"y":"GLUX.MI","c":"Tematici","t":"GLUX"},{"y":"GNOM.MI","c":"Tematici","t":"GNOM"},{"y":"GOAI.MI","c":"Tematici","t":"GOAI"},{"y":"GOVA.MI","c":"BOND","t":"GOVA"},{"y":"GRC.MI","c":"Paesi","t":"GRC"},{"y":"GRCTB.MI","c":"Settoriali","t":"GRCTB"},{"y":"GREAL.MI","c":"Settoriali","t":"GREAL"},{"y":"GSCE.MI","c":"Materie","t":"GSCE"},{"y":"GSM.MI","c":"Tematici","t":"GSM"},{"y":"HDRO.MI","c":"Tematici","t":"HDRO"},{"y":"HEAL.MI","c":"Tematici","t":"HEAL"},{"y":"HECB.MI","c":"BOND","t":"HECB"},{"y":"HERU.MI","c":"Tematici","t":"HERU"},{"y":"HGAE.MI","c":"BOND","t":"HGAE"},{"y":"HIDIJ.MI","c":"ATTIVO","t":"HIDIJ"},{"y":"HLT.MI","c":"Settoriali","t":"HLT"},{"y":"HLTW.MI","c":"Settoriali","t":"HLTW"},{"y":"HMXJ.MI","c":"ADVICE","t":"HMXJ"},{"y":"HNSC.MI","c":"Tematici","t":"HNSC"},{"y":"HPNA.MI","c":"Settoriali","t":"HPNA"},{"y":"HSTE.MI","c":"Paesi","t":"HSTE"},{"y":"HTWO.MI","c":"Tematici","t":"HTWO"},{"y":"HUCB.MI","c":"BOND","t":"HUCB"},{"y":"HUST.MI","c":"BOND","t":"HUST"},{"y":"HYDE.MI","c":"Tematici","t":"HYDE"},{"y":"HYGN.MI","c":"Tematici","t":"HYGN"},{"y":"HYLD.MI","c":"ADVICE","t":"HYLD"},{"y":"IAPD.MI","c":"NEW AREA","t":"IAPD"},{"y":"IBZL.MI","c":"Paesi","t":"IBZL"},{"y":"ICBR.MI","c":"Tematici","t":"ICBR"},{"y":"IEAA.MI","c":"BOND","t":"IEAA"},{"y":"IEGS.MI","c":"BOND","t":"IEGS"},{"y":"IEMB.MI","c":"ADVICE","t":"IEMB"},{"y":"IEMO.MI","c":"ATTIVO","t":"IEMO"},{"y":"IJPE.MI","c":"NEW AREA","t":"IJPE"},{"y":"IMIB.MI","c":"Paesi","t":"IMIB"},{"y":"INDG.MI","c":"Settoriali","t":"INDG"},{"y":"INDGW.MI","c":"Settoriali","t":"INDGW"},{"y":"INDI.MI","c":"Paesi","t":"INDI"},{"y":"INDO.MI","c":"Paesi","t":"INDO"},{"y":"INF1A.MI","c":"BOND","t":"INF1A"},{"y":"INFU.MI","c":"BOND","t":"INFU"},{"y":"INQQ.MI","c":"Tematici","t":"INQQ"},{"y":"INS.MI","c":"Settoriali","t":"INS"},{"y":"ISAC.MI","c":"NEW AREA","t":"ISAC"},{"y":"ISAG.MI","c":"Tematici","t":"ISAG"},{"y":"ISPY.MI","c":"Tematici","t":"ISPY"},{"y":"ITBL.MI","c":"Paesi","t":"ITBL"},{"y":"IU0E.MI","c":"BOND","t":"IU0E"},{"y":"IUSE.MI","c":"NEW AREA","t":"IUSE"},{"y":"IWDE.MI","c":"NEW AREA","t":"IWDE"},{"y":"IWMO.MI","c":"ATTIVO","t":"IWMO"},{"y":"IWVL.MI","c":"ADVICE","t":"IWVL"},{"y":"JEDI.MI","c":"Tematici","t":"JEDI"},{"y":"JRGE.MI","c":"NEW AREA","t":"JRGE"},{"y":"JU13.MI","c":"BOND","t":"JU13"},{"y":"KARS.MI","c":"Settoriali","t":"KARS"},{"y":"KOR.MI","c":"Paesi","t":"KOR"},{"y":"KRBN.MI","c":"Materie","t":"KRBN"},{"y":"KWBE.MI","c":"Tematici","t":"KWBE"},{"y":"LABL.MI","c":"Tematici","t":"LABL"},{"y":"LAFRI.MI","c":"NEW AREA","t":"LAFRI"},{"y":"LCCN.MI","c":"Paesi","t":"LCCN"},{"y":"LEAD.MI","c":"Materie","t":"LEAD"},{"y":"LGUS.MI","c":"Paesi","t":"LGUS"},{"y":"LINXB.MI","c":"ATTIVO","t":"LINXB"},{"y":"LITM.MI","c":"Tematici","t":"LITM"},{"y":"LITU.MI","c":"Tematici","t":"LITU"},{"y":"LOCK.MI","c":"Tematici","t":"LOCK"},{"y":"LTAM.MI","c":"NEW AREA","t":"LTAM"},{"y":"LVO.MI","c":"Materie","t":"LVO"},{"y":"MACV.MI","c":"ATTIVO","t":"MACV"},{"y":"MAGR.MI","c":"ATTIVO","t":"MAGR"},{"y":"MATW.MI","c":"Settoriali","t":"MATW"},{"y":"MCHN.MI","c":"Paesi","t":"MCHN"},{"y":"MCHT.MI","c":"Tematici","t":"MCHT"},{"y":"META.MI","c":"Materie","t":"META"},{"y":"METAA.MI","c":"Tematici","t":"METAA"},{"y":"METAJ.MI","c":"Tematici","t":"METAJ"},{"y":"METE.MI","c":"Tematici","t":"METE"},{"y":"METL.MI","c":"Tematici","t":"METL"},{"y":"MILL.MI","c":"Tematici","t":"MILL"},{"y":"MLPS.MI","c":"Tematici","t":"MLPS"},{"y":"MODR.MI","c":"ATTIVO","t":"MODR"},{"y":"MTAV.MI","c":"Tematici","t":"MTAV"},{"y":"MTVS.MI","c":"Tematici","t":"MTVS"},{"y":"NATO.MI","c":"Settoriali","t":"NATO"},{"y":"NCLR.MI","c":"Tematici","t":"NCLR"},{"y":"NGAS.MI","c":"Materie","t":"NGAS"},{"y":"NICK.MI","c":"Materie","t":"NICK"},{"y":"NRJC.MI","c":"Tematici","t":"NRJC"},{"y":"NTSG.MI","c":"ATTIVO","t":"NTSG"},{"y":"NUCL.MI","c":"Tematici","t":"NUCL"},{"y":"OCEAN.MI","c":"Settoriali","t":"OCEAN"},{"y":"OIH.MI","c":"Tematici","t":"OIH"},{"y":"OVER.MI","c":"BOND","t":"OVER"},{"y":"PAVE.MI","c":"Tematici","t":"PAVE"},{"y":"PCOM.MI","c":"Materie","t":"PCOM"},{"y":"PHAG.MI","c":"Materie","t":"PHAG"},{"y":"PHPD.MI","c":"Materie","t":"PHPD"},{"y":"PHPM.MI","c":"Materie","t":"PHPM"},{"y":"PHPT.MI","c":"Materie","t":"PHPT"},{"y":"PJSR.MI","c":"BOND","t":"PJSR"},{"y":"QNTM.MI","c":"Tematici","t":"QNTM"},{"y":"QTOP.MI","c":"Paesi","t":"QTOP"},{"y":"QUAD.MI","c":"Tematici","t":"QUAD"},{"y":"RARE.MI","c":"Tematici","t":"RARE"},{"y":"RAYZ.MI","c":"Tematici","t":"RAYZ"},{"y":"RBOT.MI","c":"ADVICE","t":"RBOT"},{"y":"REMX.MI","c":"Tematici","t":"REMX"},{"y":"RENW.MI","c":"Tematici","t":"RENW"},{"y":"REUS.MI","c":"Tematici","t":"REUS"},{"y":"REUSE.MI","c":"Settoriali","t":"REUSE"},{"y":"RNRG.MI","c":"Tematici","t":"RNRG"},{"y":"ROBO.MI","c":"Tematici","t":"ROBO"},{"y":"ROE.MI","c":"Tematici","t":"ROE"},{"y":"SAUDI.MI","c":"Paesi","t":"SAUDI"},{"y":"SAUS.MI","c":"Paesi","t":"SAUS"},{"y":"SBIO.MI","c":"Settoriali","t":"SBIO"},{"y":"SCITY.MI","c":"Tematici","t":"SCITY"},{"y":"SDG9.MI","c":"Tematici","t":"SDG9"},{"y":"SEMA.MI","c":"NEW AREA","t":"SEMA"},{"y":"SEME.MI","c":"Tematici","t":"SEME"},{"y":"SGBS.MI","c":"Materie","t":"SGBS"},{"y":"SHEME.MI","c":"BOND","t":"SHEME"},{"y":"SILV.MI","c":"Tematici","t":"SILV"},{"y":"SJPA.MI","c":"NEW AREA","t":"SJPA"},{"y":"SMCX.MI","c":"ADVICE","t":"SMCX"},{"y":"SMEA.MI","c":"ADVICE","t":"SMEA"},{"y":"SMH.MI","c":"Tematici","t":"SMH"},{"y":"SNSR.MI","c":"Tematici","t":"SNSR"},{"y":"SOLR.MI","c":"Tematici","t":"SOLR"},{"y":"SOYB.MI","c":"Materie","t":"SOYB"},{"y":"SOYO.MI","c":"Materie","t":"SOYO"},{"y":"SP1E.MI","c":"Paesi","t":"SP1E"},{"y":"SP5A.MI","c":"ADVICE","t":"SP5A"},{"y":"SPXE.MI","c":"Paesi","t":"SPXE"},{"y":"SPXJ.MI","c":"Paesi","t":"SPXJ"},{"y":"SPY5.MI","c":"Paesi","t":"SPY5"},{"y":"SRIUC.MI","c":"BOND","t":"SRIUC"},{"y":"SRSA.MI","c":"Paesi","t":"SRSA"},{"y":"STAW.MI","c":"Settoriali","t":"STAW"},{"y":"DFSV.DE","c":"Settoriali SPDR","t":"DFSV"},{"y":"STKX.MI","c":"Settoriali SPDR","t":"STKX"},{"y":"STNX.MI","c":"Settoriali SPDR","t":"STNX"},{"y":"STPX.MI","c":"Settoriali SPDR","t":"STPX"},{"y":"STQX.MI","c":"Settoriali SPDR","t":"STQX"},{"y":"STRX.MI","c":"Settoriali SPDR","t":"STRX"},{"y":"STSX.MI","c":"Settoriali SPDR","t":"STSX"},{"y":"STTX.MI","c":"Settoriali SPDR","t":"STTX"},{"y":"STUX.MI","c":"Settoriali SPDR","t":"STUX"},{"y":"SUGA.MI","c":"Materie","t":"SUGA"},{"y":"SW2CHB.MI","c":"Paesi","t":"SW2CHB"},{"y":"SWDA.MI","c":"ADVICE","t":"SWDA"},{"y":"SXLB.MI","c":"Settoriali SPDR","t":"SXLB"},{"y":"SXLC.MI","c":"Settoriali SPDR","t":"SXLC"},{"y":"SXLF.MI","c":"Settoriali SPDR","t":"SXLF"},{"y":"SXLI.MI","c":"Settoriali SPDR","t":"SXLI"},{"y":"SXLK.MI","c":"Settoriali SPDR","t":"SXLK"},{"y":"SXLP.MI","c":"Settoriali SPDR","t":"SXLP"},{"y":"SXLU.MI","c":"Settoriali SPDR","t":"SXLU"},{"y":"SXLV.MI","c":"Settoriali SPDR","t":"SXLV"},{"y":"SXLY.MI","c":"Settoriali SPDR","t":"SXLY"},{"y":"T10A.MI","c":"BOND","t":"T10A"},{"y":"TELE.MI","c":"Settoriali","t":"TELE"},{"y":"TELEW.MI","c":"Settoriali","t":"TELEW"},{"y":"TIP1A.MI","c":"BOND","t":"TIP1A"},{"y":"TLCO.MI","c":"Tematici","t":"TLCO"},{"y":"TNO.MI","c":"Settoriali","t":"TNO"},{"y":"TNOW.MI","c":"Settoriali","t":"TNOW"},{"y":"TRVL.MI","c":"Settoriali","t":"TRVL"},{"y":"TTFW.MI","c":"Materie","t":"TTFW"},{"y":"TUR.MI","c":"Paesi","t":"TUR"},{"y":"U3O8.MI","c":"Tematici","t":"U3O8"},{"y":"UCRP.MI","c":"BOND","t":"UCRP"},{"y":"UGAS.MI","c":"Materie","t":"UGAS"},{"y":"UKE.MI","c":"Paesi","t":"UKE"},{"y":"UNIC.MI","c":"Tematici","t":"UNIC"},{"y":"URNJ.MI","c":"Tematici","t":"URNJ"},{"y":"URNU.MI","c":"ADVICE","t":"URNU"},{"y":"US1.MI","c":"BOND","t":"US1"},{"y":"US10C.MI","c":"BOND","t":"US10C"},{"y":"US7.MI","c":"BOND","t":"US7"},{"y":"USCBC.MI","c":"BOND","t":"USCBC"},{"y":"USIC.MI","c":"BOND","t":"USIC"},{"y":"USIG.MI","c":"BOND","t":"USIG"},{"y":"USTEC.MI","c":"Tematici","t":"USTEC"},{"y":"UTI.MI","c":"Settoriali","t":"UTI"},{"y":"UTIW.MI","c":"Settoriali","t":"UTIW"},{"y":"VAGF.MI","c":"BOND","t":"VAGF"},{"y":"VCDE.MI","c":"BOND","t":"VCDE"},{"y":"VDCA.MI","c":"BOND","t":"VDCA"},{"y":"VDCE.MI","c":"BOND","t":"VDCE"},{"y":"VDEA.MI","c":"BOND","t":"VDEA"},{"y":"VDST.MI","c":"BOND","t":"VDST"},{"y":"VECA.MI","c":"BOND","t":"VECA"},{"y":"VEGI.MI","c":"Tematici","t":"VEGI"},{"y":"VGEA.MI","c":"BOND","t":"VGEA"},{"y":"VITA.MI","c":"Settoriali","t":"VITA"},{"y":"VITU.MI","c":"Settoriali","t":"VITU"},{"y":"VJPE.MI","c":"Paesi","t":"VJPE"},{"y":"VNGA20.MI","c":"ATTIVO","t":"VNGA20"},{"y":"VNGA40.MI","c":"ATTIVO","t":"VNGA40"},{"y":"VNGA60.MI","c":"ATTIVO","t":"VNGA60"},{"y":"VNGA80.MI","c":"ATTIVO","t":"VNGA80"},{"y":"VOLT.MI","c":"Tematici","t":"VOLT"},{"y":"VPN.MI","c":"Tematici","t":"VPN"},{"y":"VSCF.MI","c":"BOND","t":"VSCF"},{"y":"VSGF.MI","c":"BOND","t":"VSGF"},{"y":"VUCE.MI","c":"BOND","t":"VUCE"},{"y":"VUKE.MI","c":"Paesi","t":"VUKE"},{"y":"VUSA.MI","c":"Paesi","t":"VUSA"},{"y":"WATC.MI","c":"Tematici","t":"WATC"},{"y":"WATT.MI","c":"Materie","t":"WATT"},{"y":"WBLK.MI","c":"Tematici","t":"WBLK"},{"y":"WCBR.MI","c":"Tematici","t":"WCBR"},{"y":"WCCA.MI","c":"Materie","t":"WCCA"},{"y":"WCLD.MI","c":"Settoriali","t":"WCLD"},{"y":"WCOA.MI","c":"Materie","t":"WCOA"},{"y":"WCOD.MI","c":"Settoriali SPDR","t":"WCOD"},{"y":"WCOE.MI","c":"Materie","t":"WCOE"},{"y":"WCOS.MI","c":"Settoriali SPDR","t":"WCOS"},{"y":"WDEF.MI","c":"Tematici","t":"WDEF"},{"y":"WDNA.MI","c":"Tematici","t":"WDNA"},{"y":"WEAT.MI","c":"Materie","t":"WEAT"},{"y":"WEB3.MI","c":"Tematici","t":"WEB3"},{"y":"WENT.MI","c":"Materie","t":"WENT"},{"y":"WENU.MI","c":"Materie","t":"WENU"},{"y":"WFIN.MI","c":"Settoriali SPDR","t":"WFIN"},{"y":"WGRO.MI","c":"Tematici","t":"WGRO"},{"y":"WHEA.MI","c":"Settoriali SPDR","t":"WHEA"},{"y":"WIND.MI","c":"Settoriali SPDR","t":"WIND"},{"y":"WMAT.MI","c":"Settoriali SPDR","t":"WMAT"},{"y":"WMGT.MI","c":"Tematici","t":"WMGT"},{"y":"WMIB.MI","c":"Paesi","t":"WMIB"},{"y":"WNAS.MI","c":"Paesi","t":"WNAS"},{"y":"WNDE.MI","c":"Tematici","t":"WNDE"},{"y":"WNDY.MI","c":"Tematici","t":"WNDY"},{"y":"WNRG.MI","c":"Settoriali SPDR","t":"WNRG"},{"y":"WRNW.MI","c":"Tematici","t":"WRNW"},{"y":"WRTY.MI","c":"Paesi","t":"WRTY"},{"y":"WS5X.MI","c":"Paesi","t":"WS5X"},{"y":"WSLV.MI","c":"Tematici","t":"WSLV"},{"y":"WSPE.MI","c":"Paesi","t":"WSPE"},{"y":"WSPX.MI","c":"Paesi","t":"WSPX"},{"y":"WTAI.MI","c":"Tematici","t":"WTAI"},{"y":"WTEC.MI","c":"Settoriali SPDR","t":"WTEC"},{"y":"WTEL.MI","c":"Settoriali SPDR","t":"WTEL"},{"y":"WTI.MI","c":"Materie","t":"WTI"},{"y":"WTID.MI","c":"Materie","t":"WTID"},{"y":"WTRE.MI","c":"Tematici","t":"WTRE"},{"y":"WUTI.MI","c":"Settoriali SPDR","t":"WUTI"},{"y":"X25E.MI","c":"BOND","t":"X25E"},{"y":"X7PS.MI","c":"Settoriali","t":"X7PS"},{"y":"XAGZ.MI","c":"Materie","t":"XAGZ"},{"y":"XAIX.MI","c":"ADVICE","t":"XAIX"},{"y":"XBAE.MI","c":"BOND","t":"XBAE"},{"y":"XBAG.MI","c":"BOND","t":"XBAG"},{"y":"XBLC.MI","c":"BOND","t":"XBLC"},{"y":"XBNK.MI","c":"BOND","t":"XBNK"},{"y":"XCHA.MI","c":"Paesi","t":"XCHA"},{"y":"XCS5.MI","c":"Paesi","t":"XCS5"},{"y":"XCTE.MI","c":"Tematici","t":"XCTE"},{"y":"XDAX.MI","c":"Paesi","t":"XDAX"},{"y":"XDBC.MI","c":"Materie","t":"XDBC"},{"y":"XDEE.MI","c":"NEW AREA","t":"XDEE"},{"y":"XDER.MI","c":"Tematici","t":"XDER"},{"y":"XDEV.MI","c":"ADVICE","t":"XDEV"},{"y":"XDG3.MI","c":"Tematici","t":"XDG3"},{"y":"XDG6.MI","c":"Tematici","t":"XDG6"},{"y":"XDG7.MI","c":"Tematici","t":"XDG7"},{"y":"XDGI.MI","c":"Tematici","t":"XDGI"},{"y":"XDRE.MI","c":"Settoriali","t":"XDRE"},{"y":"XDW0.MI","c":"Settoriali","t":"XDW0"},{"y":"XDWC.MI","c":"Settoriali","t":"XDWC"},{"y":"XDWF.MI","c":"Settoriali","t":"XDWF"},{"y":"XDWH.MI","c":"Settoriali","t":"XDWH"},{"y":"XDWI.MI","c":"Settoriali","t":"XDWI"},{"y":"XDWM.MI","c":"Settoriali","t":"XDWM"},{"y":"XDWS.MI","c":"Settoriali","t":"XDWS"},{"y":"XDWT.MI","c":"Settoriali","t":"XDWT"},{"y":"XDWU.MI","c":"Settoriali","t":"XDWU"},{"y":"XE01.MI","c":"BOND","t":"XE01"},{"y":"XEON.MI","c":"Liquidità","t":"XEON"},{"y":"XFNT.MI","c":"Tematici","t":"XFNT"},{"y":"XFVT.MI","c":"Paesi","t":"XFVT"},{"y":"XG11.MI","c":"Tematici","t":"XG11"},{"y":"XG12.MI","c":"Tematici","t":"XG12"},{"y":"XGEN.MI","c":"Tematici","t":"XGEN"},{"y":"XGLE.MI","c":"BOND","t":"XGLE"},{"y":"XIFE.MI","c":"Settoriali","t":"XIFE"},{"y":"XLBS.MI","c":"Settoriali","t":"XLBS"},{"y":"XLCS.MI","c":"Settoriali","t":"XLCS"},{"y":"XLES.MI","c":"Settoriali","t":"XLES"},{"y":"XLFS.MI","c":"Settoriali","t":"XLFS"},{"y":"XLIS.MI","c":"Settoriali","t":"XLIS"},{"y":"XLKS.MI","c":"Settoriali","t":"XLKS"},{"y":"XLPE.MI","c":"Tematici","t":"XLPE"},{"y":"XLPS.MI","c":"Settoriali","t":"XLPS"},{"y":"XLUS.MI","c":"Settoriali","t":"XLUS"},{"y":"XLVS.MI","c":"Settoriali","t":"XLVS"},{"y":"XLYS.MI","c":"Settoriali","t":"XLYS"},{"y":"D5BI.DE","c":"Paesi","t":"D5BI"},{"y":"XMME.MI","c":"ADVICE","t":"XMME"},{"y":"XMOV.MI","c":"Tematici","t":"XMOV"},{"y":"XNGI.MI","c":"Tematici","t":"XNGI"},{"y":"XNNV.MI","c":"Tematici","t":"XNNV"},{"y":"XQUI.MI","c":"ATTIVO","t":"XQUI"},{"y":"XRES.MI","c":"Tematici","t":"XRES"},{"y":"XS8R.MI","c":"Tematici","t":"XS8R"},{"y":"XSFR.MI","c":"Paesi","t":"XSFR"},{"y":"XSGI.MI","c":"Tematici","t":"XSGI"},{"y":"XSMI.MI","c":"Paesi","t":"XSMI"},{"y":"XSX6.MI","c":"ADVICE","t":"XSX6"},{"y":"XT01.MI","c":"BOND","t":"XT01"},{"y":"XTC5.MI","c":"BOND","t":"XTC5"},{"y":"XTIP.MI","c":"BOND","t":"XTIP"},{"y":"XUSA.MI","c":"ATTIVO","t":"XUSA"},{"y":"XUTC.MI","c":"Settoriali","t":"XUTC"},{"y":"XWTS.MI","c":"Settoriali","t":"XWTS"},{"y":"XXSC.MI","c":"ATTIVO","t":"XXSC"},{"y":"XYP0.MI","c":"BOND","t":"XYP0"},{"y":"ZINC.MI","c":"Materie","t":"ZINC"},{"y":"EIDO","c":"top4 usa","t":"EIDO"},{"y":"EIRL","c":"top4 usa","t":"EIRL"},{"y":"IMOM","c":"ATTIVO","t":"IMOM"},{"y":"DBMFE.PA","c":"ATTIVO","t":"DBMFE"},{"y":"MEUD.PA","c":"NEW AREA","t":"MEUD"},{"y":"WRD.PA","c":"Paesi","t":"WRD"},{"y":"IB01.SW","c":"BOND","t":"IB01"},{"y":"SDGPEX.SW","c":"ATTIVO","t":"SDGPEX"},{"y":"X13E.MI","c":"Liquidità","t":"X13E"},{"y":"EM13.MI","c":"Liquidità","t":"EM13"},{"y":"ERNE.MI","c":"Liquidità","t":"ERNE"},{"y":"INFR.MI","c":"REAL ESTATE","t":"INFR"},{"y":"XDWD.MI","c":"Benchmark","t":"XDWD"},{"y":"CW8.MI","c":"Benchmark","t":"CW8"},{"y":"IMEU.MI","c":"Benchmark","t":"IMEU"},{"y":"INAA.MI","c":"Benchmark","t":"INAA"},{"y":"XDEM.MI","c":"Benchmark","t":"XDEM"},{"y":"SXLE.MI","c":"Settoriali SPDR","t":"SXLE"},{"y":"MGIN.MI","c":"Settoriali SPDR","t":"MGIN"},{"y":"STWX.MI","c":"Settoriali SPDR","t":"STWX"},{"y":"STZX.MI","c":"Settoriali SPDR","t":"STZX"},{"y":"SWRD.MI","c":"Benchmark","t":"SWRD"},{"y":"600X.MI","c":"Benchmark","t":"600X"},{"y":"EIS","c":"top4 usa","t":"EIS"},{"y":"ENZL","c":"top4 usa","t":"ENZL"},{"y":"EPHE","c":"top4 usa","t":"EPHE"},{"y":"EPI","c":"top4 usa","t":"EPI"},{"y":"EPOL","c":"top4 usa","t":"EPOL"},{"y":"EPU","c":"top4 usa","t":"EPU"},{"y":"EWA","c":"top4 usa","t":"EWA"},{"y":"EWC","c":"top4 usa","t":"EWC"},{"y":"EWD","c":"top4 usa","t":"EWD"},{"y":"EWG","c":"top4 usa","t":"EWG"},{"y":"EWH","c":"top4 usa","t":"EWH"},{"y":"EWI","c":"top4 usa","t":"EWI"},{"y":"EWJ","c":"top4 usa","t":"EWJ"},{"y":"EWK","c":"top4 usa","t":"EWK"},{"y":"EWL","c":"top4 usa","t":"EWL"},{"y":"EWM","c":"top4 usa","t":"EWM"},{"y":"EWN","c":"top4 usa","t":"EWN"},{"y":"EWO","c":"top4 usa","t":"EWO"},{"y":"EWP","c":"top4 usa","t":"EWP"},{"y":"EWQ","c":"top4 usa","t":"EWQ"},{"y":"EWS","c":"top4 usa","t":"EWS"},{"y":"EWT","c":"top4 usa","t":"EWT"},{"y":"EWU","c":"top4 usa","t":"EWU"},{"y":"EWW","c":"top4 usa","t":"EWW"},{"y":"EWY","c":"top4 usa","t":"EWY"},{"y":"EWZ","c":"top4 usa","t":"EWZ"},{"y":"EZA","c":"top4 usa","t":"EZA"},{"y":"FM.TO","c":"top4 usa","t":"FM"},{"y":"GREK","c":"top4 usa","t":"GREK"},{"y":"GXG","c":"top4 usa","t":"GXG"},{"y":"ICLN","c":"top4 usa","t":"ICLN"},{"y":"ILF","c":"top4 usa","t":"ILF"},{"y":"MES","c":"top4 usa","t":"MES"},{"y":"NORW","c":"top4 usa","t":"NORW"},{"y":"QQQ","c":"top4 usa","t":"QQQ"},{"y":"SPLV","c":"top4 usa","t":"SPLV"},{"y":"SPY","c":"top4 usa","t":"SPY"},{"y":"THD","c":"top4 usa","t":"THD"},{"y":"UAE","c":"top4 usa","t":"UAE"},{"y":"VNM","c":"top4 usa","t":"VNM"},{"y":"VPL","c":"top4 usa","t":"VPL"},{"y":"ADS.DE","c":"EUROGROW","t":"ADS"},{"y":"ADYEN.AS","c":"EUROGROW","t":"ADYEN"},{"y":"AI.PA","c":"EUROGROW","t":"AI"},{"y":"AIR.PA","c":"EUROGROW","t":"AIR"},{"y":"AM.PA","c":"EUROGROW","t":"AM"},{"y":"ARGX","c":"EUROGROW","t":"ARGX"},{"y":"ASML.SW","c":"EUROGROW","t":"ASML"},{"y":"BEI.DE","c":"EUROGROW","t":"BEI"},{"y":"CBK.DE","c":"EUROGROW","t":"CBK"},{"y":"DB1.DE","c":"EUROGROW","t":"DB1"},{"y":"DIM.PA","c":"EUROGROW","t":"DIM"},{"y":"DSY.PA","c":"EUROGROW","t":"DSY"},{"y":"DTE.DE","c":"EUROGROW","t":"DTE"},{"y":"EL.PA","c":"EUROGROW","t":"EL"},{"y":"ENR.DE","c":"EUROGROW","t":"ENR"},{"y":"HEI.DE","c":"EUROGROW","t":"HEI"},{"y":"HO.PA","c":"EUROGROW","t":"HO"},{"y":"IFX.DE","c":"EUROGROW","t":"IFX"},{"y":"KNEBV.HE","c":"EUROGROW","t":"KNEBV"},{"y":"LDO.MI","c":"EUROGROW","t":"LDO"},{"y":"LR.PA","c":"EUROGROW","t":"LR"},{"y":"MC.PA","c":"EUROGROW","t":"MC"},{"y":"NOKIA.HE","c":"EUROGROW","t":"NOKIA"},{"y":"OR.PA","c":"EUROGROW","t":"OR"},{"y":"PRX.AS","c":"EUROGROW","t":"PRX"},{"y":"PRY.MI","c":"EUROGROW","t":"PRY"},{"y":"RACE.MI","c":"EUROGROW","t":"RACE"},{"y":"RHM.DE","c":"EUROGROW","t":"RHM"},{"y":"RMS.PA","c":"EUROGROW","t":"RMS"},{"y":"SAF.PA","c":"EUROGROW","t":"SAF"},{"y":"SAP.DE","c":"EUROGROW","t":"SAP"},{"y":"SHL.DE","c":"EUROGROW","t":"SHL"},{"y":"SIE.DE","c":"EUROGROW","t":"SIE"},{"y":"SRT.DE","c":"EUROGROW","t":"SRT"},{"y":"SU.PA","c":"EUROGROW","t":"SU"},{"y":"UCG.MI","c":"EUROGROW","t":"UCG"},{"y":"UMG.AS","c":"EUROGROW","t":"UMG"},{"y":"BAYN.F","c":"PORTAFOGLIO","t":"BAYN"}];
+
+// ═══════════════════════════════════════════
+//  CONFIG
+// ═══════════════════════════════════════════
+const BATCH = 5;
+const DELAY = 600;
+const PROXIES = [
+  u => 'https://corsproxy.io/?' + encodeURIComponent(u),
+  u => 'https://api.allorigins.win/raw?url=' + encodeURIComponent(u),
+];
+const YF_URL = s => `https://query1.finance.yahoo.com/v8/finance/chart/${s}?interval=1d&range=1y`;
+
+// ═══════════════════════════════════════════
+//  STATE
+// ═══════════════════════════════════════════
+let allResults = [];
+let currentFilter = 'ALL';
+let currentCat = '';
+let sortCol = 'score';
+let sortDir = -1;
+let dataMode = 'live'; // 'live' | 'json' | 'cache'
+
+// ═══════════════════════════════════════════
+//  TENTATIVO CARICAMENTO JSON PRE-CALCOLATO
+// ═══════════════════════════════════════════
+async function tryLoadJSON() {
+  try {
+    const r = await fetch('./data/etf.json?t=' + Date.now(), { signal: AbortSignal.timeout(5000) });
+    if (!r.ok) return false;
+    const json = await r.json();
+    if (!json.data || !json.data.length) return false;
+    allResults = json.data;
+    dataMode = 'json';
+    const bar = document.getElementById('dataSourceBar');
+    bar.style.display = 'flex';
+    document.getElementById('dsBadge').innerHTML = '<span class="ds-badge">📦 JSON pre-calcolato</span>';
+    document.getElementById('dsInfo').textContent = 'Aggiornato: ' + json.updated;
+    document.getElementById('tsBar').textContent = '⏱ Dati dal server · ' + json.updated + ' · ' + json.data.length + ' ETF';
+    document.getElementById('tsBar').style.display = 'block';
+    document.getElementById('logoSub').textContent = 'v3.1 · ' + json.data.length + ' ETF · JSON Server';
+    document.getElementById('btnRun').textContent = '🔄 AGGIORNA LIVE';
+    updateStats();
+    renderTable();
+    return true;
+  } catch(e) { return false; }
+}
+
+// ═══════════════════════════════════════════
+//  FETCH Yahoo con proxy
+// ═══════════════════════════════════════════
+async function fetchYahoo(symbol) {
+  const url = YF_URL(symbol);
+  for (const proxy of PROXIES) {
+    try {
+      const r = await fetch(proxy(url), { signal: AbortSignal.timeout(9000) });
+      if (!r.ok) continue;
+      const j = await r.json();
+      const result = j?.chart?.result?.[0];
+      if (!result) continue;
+      return result;
+    } catch(e) {}
+  }
+  throw new Error('N/D');
+}
+
+// ═══════════════════════════════════════════
+//  INDICATORI
+// ═══════════════════════════════════════════
+function emaArr(arr, p) {
+  const k = 2/(p+1); const out = [arr[0]];
+  for(let i=1;i<arr.length;i++) out.push(arr[i]*k + out[i-1]*(1-k));
+  return out;
+}
+function sma(arr, p) {
+  if(arr.length < p) return null;
+  return arr.slice(-p).reduce((a,b)=>a+b,0)/p;
+}
+function calcKAMA(close, n=10, fast=2, slow=30) {
+  const fast_sc = 2/(fast+1), slow_sc = 2/(slow+1);
+  const out = new Array(close.length).fill(null);
+  if(close.length < n+1) return out;
+  out[n] = close[n];
+  for(let i=n+1;i<close.length;i++) {
+    const dir = Math.abs(close[i]-close[i-n]);
+    let noise = 0;
+    for(let j=i-n+1;j<=i;j++) noise += Math.abs(close[j]-close[j-1]);
+    const er = noise===0?0:dir/noise;
+    const sc = Math.pow(er*(fast_sc-slow_sc)+slow_sc,2);
+    out[i] = out[i-1] + sc*(close[i]-out[i-1]);
+  }
+  return out;
+}
+function calcAO(high, low) {
+  const mid = high.map((h,i)=>(h+low[i])/2);
+  const e7 = emaArr(mid,7), e34 = emaArr(mid,34);
+  return e7.map((v,i)=>v-e34[i]);
+}
+function calcRSI(close, p=14) {
+  if(close.length < p+1) return null;
+  let gains=0, losses=0;
+  for(let i=1;i<=p;i++){const d=close[i]-close[i-1];d>=0?gains+=d:losses-=d;}
+  let ag=gains/p, al=losses/p;
+  for(let i=p+1;i<close.length;i++){const d=close[i]-close[i-1];d>=0?(ag=(ag*(p-1)+d)/p):(al=(al*(p-1)-d)/p);}
+  return al===0?100:100-100/(1+ag/al);
+}
+function calcER(close, n=10) {
+  if(close.length < n+1) return 0;
+  const dir = Math.abs(close[close.length-1]-close[close.length-1-n]);
+  let noise=0;
+  for(let i=close.length-n;i<close.length;i++) noise+=Math.abs(close[i]-close[i-1]);
+  return noise===0?0:dir/noise;
+}
+function calcVolRatio(volume) {
+  if(volume.length < 21) return 1;
+  const avg20 = volume.slice(-21,-1).reduce((a,b)=>a+b,0)/20;
+  return avg20===0?1:volume[volume.length-1]/avg20;
+}
+function trendycator(close) {
+  if(close.length < 55) return 'GRIGIO';
+  const e21 = emaArr(close,21), e55 = emaArr(close,55);
+  const n = e21.length-1;
+  if(e21[n]>e55[n] && e21[n]>e21[n-1]) return 'VERDE';
+  if(e21[n]<e55[n] && e21[n]<e21[n-1]) return 'ROSSO';
+  return 'GRIGIO';
+}
+function calcBaffetti(ao) {
+  let b=0;
+  for(let i=ao.length-1;i>0;i--){if(ao[i]>ao[i-1])b++;else break;}
+  return b;
+}
+function entryDate(close, kama, timestamps) {
+  for(let i=close.length-1;i>0;i--) {
+    if(kama[i]!==null && kama[i-1]!==null)
+      if(close[i]>kama[i] && close[i-1]<=kama[i-1]) {
+        const d=new Date(timestamps[i]*1000);
+        return d.getDate().toString().padStart(2,'0')+'/'+(d.getMonth()+1).toString().padStart(2,'0')+'/'+d.getFullYear();
+      }
+  }
+  return '—';
+}
+function crossDays(close, kama) {
+  for(let i=close.length-1;i>0;i--){
+    if(kama[i]!==null && kama[i-1]!==null)
+      if(close[i]>kama[i] && close[i-1]<=kama[i-1]) return close.length-1-i;
+  }
+  return 999;
+}
+
+// ═══════════════════════════════════════════
+//  ANALISI SINGOLO TICKER
+// ═══════════════════════════════════════════
+async function analyzeTicker(info) {
+  try {
+    const raw = await fetchYahoo(info.y);
+    const q = raw.indicators.quote[0];
+    const ts = raw.timestamp;
+    const closes = q.close, highs = q.high, lows = q.low, vols = q.volume;
+    const c=[], h=[], l=[], v=[], t=[];
+    for(let i=0;i<ts.length;i++){
+      if(closes[i]!=null&&highs[i]!=null&&lows[i]!=null){
+        c.push(closes[i]);h.push(highs[i]);l.push(lows[i]);
+        v.push(vols[i]||0);t.push(ts[i]);
+      }
+    }
+    if(c.length<60) return {ticker:info.t,display:info.t,categoria:info.c,error:'Dati insuff.'};
+
+    const kama = calcKAMA(c);
+    const ao = calcAO(h,l);
+    const baff = calcBaffetti(ao);
+    const er = calcER(c);
+    const trd = trendycator(c);
+    const rsi = calcRSI(c);
+    const mm20 = sma(c,20), mm50 = sma(c,50);
+    const price = c[c.length-1];
+    const kNow = kama[kama.length-1];
+    const aoNow = ao[ao.length-1];
+    const aboveKama = kNow!==null && price>kNow;
+    const pkPct = kNow ? ((price-kNow)/kNow*100) : 0;
+    const mmAlign = mm20&&mm50 ? price>mm20 && mm20>mm50 : false;
+    const cross = crossDays(c,kama);
+    const perfSett = c.length>=6 ? (price/c[c.length-6]-1)*100 : 0;
+    const perfMese = c.length>=23 ? (price/c[c.length-23]-1)*100 : 0;
+    const volRatio = calcVolRatio(v);
+    const eDate = entryDate(c,kama,t);
+
+    let tipo='';
+    if(trd==='VERDE'&&aboveKama&&er>=0.50&&baff>=3&&mmAlign) tipo='LONG';
+    else if(aboveKama&&baff>=3&&(trd==='VERDE'||trd==='GRIGIO')) tipo='EARLY';
+    else if(aboveKama&&baff>=1&&(trd==='VERDE'||trd==='GRIGIO')) tipo='WATCH';
+    else if(trd==='ROSSO'&&cross<=3&&baff>=3) tipo='ROSSO+';
+
+    let uscita='';
+    if(!aboveKama && trd==='ROSSO') uscita='STOP';
+    else if(!aboveKama) uscita='USCITA';
+    else if(aboveKama&&(aoNow<=0||trd==='GRIGIO')) uscita='ATTENZIONE';
+
+    let score = er*30 + Math.min(baff,10)*5 + Math.min(Math.abs(pkPct),5)*3
+      + Math.max(-10,Math.min(5,perfSett))*4
+      + Math.max(-20,Math.min(10,perfMese))*2
+      + (mmAlign?10:0) + (aoNow>0?5:0)
+      + (cross<=3?20:cross<=10?12:cross<=20?5:0);
+    if(trd==='ROSSO') score*=0.6;
+    score = Math.round(Math.max(0,Math.min(200,score)));
+
+    return {
+      ticker:info.t, display:info.t, categoria:info.c,
+      price, kama:kNow, er:+er.toFixed(3), baff, trendycator:trd,
+      rsi:rsi?+rsi.toFixed(1):null, mmAlign,
+      aoPos:aoNow>0, pkPct:+pkPct.toFixed(2),
+      perfSett:+perfSett.toFixed(2), perfMese:+perfMese.toFixed(2),
+      volRatio:+volRatio.toFixed(2), score, tipo, uscita,
+      entryDate:eDate, cross, error:null
+    };
+  } catch(e) {
+    return {ticker:info.t,display:info.t,categoria:info.c,error:e.message,score:0,tipo:'',uscita:''};
+  }
+}
+
+// ═══════════════════════════════════════════
+//  SCAN LIVE
+// ═══════════════════════════════════════════
+async function startScan() {
+  const btn = document.getElementById('btnRun');
+  if(btn.disabled) return;
+  btn.disabled=true; btn.classList.add('running'); btn.textContent='⏳ Analisi live...';
+  document.getElementById('progressWrap').style.display='block';
+  document.getElementById('dataSourceBar').style.display='flex';
+  document.getElementById('dsBadge').innerHTML='<span class="ds-badge live">🔴 LIVE Yahoo Finance</span>';
+  document.getElementById('dsInfo').textContent='Analisi in corso...';
+  allResults=[];
+  const total=TICKERS.length;
+  let done=0, errors=0;
+
+  for(let b=0;b<total;b+=BATCH){
+    const batch=TICKERS.slice(b,b+BATCH);
+    const results=await Promise.all(batch.map(t=>analyzeTicker(t)));
+    allResults.push(...results);
+    done+=batch.length;
+    errors+=results.filter(r=>r.error).length;
+    const pct=Math.round(done/total*100);
+    document.getElementById('progressBar').style.width=pct+'%';
+    document.getElementById('progressTxt').textContent=done+'/'+total+' · '+errors+' errori · '+pct+'%';
+    document.getElementById('progressTicker').textContent=batch[batch.length-1]?.display||'';
+    if(done%(BATCH*5)===0||done===total) renderTable();
+    if(b+BATCH<total) await new Promise(r=>setTimeout(r,DELAY));
+  }
+
+  // retry pass
+  const failedIdx = allResults.map((r,i)=>r.error?i:-1).filter(i=>i>=0);
+  if(failedIdx.length > 0){
+    document.getElementById('progressBar').style.width='0%';
+    document.getElementById('progressTxt').textContent='🔄 Retry '+failedIdx.length+' ticker...';
+    await new Promise(r=>setTimeout(r,1200));
+    let retryDone=0;
+    for(let b=0;b<failedIdx.length;b+=BATCH){
+      const batchIdx=failedIdx.slice(b,b+BATCH);
+      const results=await Promise.all(batchIdx.map(i=>analyzeTicker(TICKERS[i])));
+      results.forEach((r,j)=>{ allResults[batchIdx[j]]=r; });
+      retryDone+=batchIdx.length;
+      const pct=Math.round(retryDone/failedIdx.length*100);
+      document.getElementById('progressBar').style.width=pct+'%';
+      document.getElementById('progressTxt').textContent='🔄 Retry '+retryDone+'/'+failedIdx.length;
+      if(b+BATCH<failedIdx.length) await new Promise(r=>setTimeout(r,800));
+    }
+  }
+
+  const ts=new Date();
+  const tsStr=ts.toLocaleDateString('it-IT')+' '+ts.toLocaleTimeString('it-IT');
+  const finalErrors=allResults.filter(r=>r.error).length;
+  document.getElementById('tsBar').textContent='⏱ Aggiornato: '+tsStr+' · '+finalErrors+' errori residui';
+  document.getElementById('tsBar').style.display='block';
+  document.getElementById('dsInfo').textContent='Aggiornato: '+tsStr;
+  try{localStorage.setItem('raptor_alert',JSON.stringify({ts:tsStr,data:allResults}));}catch(e){}
+
+  updateStats();
+  renderTable();
+  btn.disabled=false; btn.classList.remove('running'); btn.textContent='🔄 AGGIORNA';
+  document.getElementById('progressWrap').style.display='none';
+}
+
+// ═══════════════════════════════════════════
+//  STATS & CATEGORIE
+// ═══════════════════════════════════════════
+function updateStats(){
+  updateCatCounts();
+  const sigs=allResults.filter(r=>!r.error);
+  document.getElementById('s-long').textContent=sigs.filter(r=>r.tipo==='LONG').length;
+  document.getElementById('s-early').textContent=sigs.filter(r=>r.tipo==='EARLY').length;
+  document.getElementById('s-watch').textContent=sigs.filter(r=>r.tipo==='WATCH').length;
+  document.getElementById('s-rosso').textContent=sigs.filter(r=>r.tipo==='ROSSO+').length;
+}
+
+function updateCatCounts(){
+  if(!allResults.length) return;
+  const valid = allResults.filter(r=>!r.error);
+  const catMap = {
+    '':'all','Tematici':'Tematici','BOND':'BOND','Materie':'Materie',
+    'Settoriali':'Settoriali','Paesi':'Paesi','ADVICE':'ADVICE',
+    'ATTIVO':'ATTIVO','NEW AREA':'NEWAREA','Settoriali SPDR':'SPDR',
+    'EUROGROW':'EUROGROW','top4 usa':'top4','Lazy':'Lazy',
+    'Benchmark':'Benchmark','Liquidità':'Liquidita','REAL ESTATE':'REALESTATE'
+  };
+  const allEl = document.getElementById('cn-all');
+  if(allEl) allEl.textContent = valid.length;
+  Object.entries(catMap).forEach(([cat, id])=>{
+    if(!cat) return;
+    const el = document.getElementById('cn-'+id);
+    if(!el) return;
+    const cnt = valid.filter(r=>r.categoria && r.categoria.includes(cat)).length;
+    el.textContent = cnt || '';
+  });
+}
+
+function setCat(el){
+  currentCat = el.dataset.cat;
+  document.querySelectorAll('.ctab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  renderTable();
+}
+
+function setFilter(f,el){
+  currentFilter=f;
+  document.querySelectorAll('.ftab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  renderTable();
+}
+
+// ═══════════════════════════════════════════
+//  SORT
+// ═══════════════════════════════════════════
+function sortBy(col){
+  if(sortCol===col) sortDir*=-1; else{sortCol=col;sortDir=-1;}
+  document.querySelectorAll('th').forEach(t=>{t.classList.remove('sort-asc','sort-desc');});
+  const colMap={rank:0,ticker:1,segnale:2,score:3,trendycator:4,er:5,baff:6,volume:7,perfSett:8,perfMese:9,pkPct:10,entryDate:11,uscita:12};
+  const idx=colMap[col];
+  if(idx!==undefined){
+    document.querySelectorAll('th')[idx].classList.add(sortDir===1?'sort-asc':'sort-desc');
+  }
+  renderTable();
+}
+
+// ═══════════════════════════════════════════
+//  RENDER
+// ═══════════════════════════════════════════
+function renderTable(){
+  updateStats();
+  let rows=[...allResults];
+  const tkSearch=(document.getElementById('tickerSearch')||{}).value||'';
+  if(tkSearch) rows=rows.filter(r=>r.display&&r.display.toUpperCase().includes(tkSearch.toUpperCase()));
+  if(currentCat) rows=rows.filter(r=>r.categoria&&r.categoria.includes(currentCat));
+
+  if(currentFilter==='LONG') rows=rows.filter(r=>r.tipo==='LONG');
+  else if(currentFilter==='EARLY') rows=rows.filter(r=>r.tipo==='EARLY');
+  else if(currentFilter==='WATCH') rows=rows.filter(r=>r.tipo==='WATCH');
+  else if(currentFilter==='ROSSO') rows=rows.filter(r=>r.tipo==='ROSSO+');
+  else if(currentFilter==='USCITA') rows=rows.filter(r=>r.uscita&&r.uscita!=='');
+  else if(currentFilter==='FRESH') rows=rows.filter(r=>r.cross!=null&&r.cross<=5&&r.tipo!=='');
+
+  const ord={LONG:4,EARLY:3,WATCH:2,'ROSSO+':1,'':0};
+  rows.sort((a,b)=>{
+    let va,vb;
+    if(sortCol==='score'){va=a.score||0;vb=b.score||0;}
+    else if(sortCol==='ticker'){va=a.display;vb=b.display;return sortDir*(va<vb?-1:1);}
+    else if(sortCol==='segnale'){va=ord[a.tipo]||0;vb=ord[b.tipo]||0;}
+    else if(sortCol==='trendycator'){va=a.trendycator||'';vb=b.trendycator||'';return sortDir*(va<vb?-1:1);}
+    else if(sortCol==='er'){va=a.er||0;vb=b.er||0;}
+    else if(sortCol==='baff'){va=a.baff||0;vb=b.baff||0;}
+    else if(sortCol==='volume'){va=a.volRatio||0;vb=b.volRatio||0;}
+    else if(sortCol==='perfSett'){va=a.perfSett||0;vb=b.perfSett||0;}
+    else if(sortCol==='perfMese'){va=a.perfMese||0;vb=b.perfMese||0;}
+    else if(sortCol==='pkPct'){va=a.pkPct||0;vb=b.pkPct||0;}
+    else if(sortCol==='entryDate'){va=a.cross||999;vb=b.cross||999;return -sortDir*(va-vb);}
+    else if(sortCol==='uscita'){const uo={STOP:3,USCITA:2,ATTENZIONE:1,'':0};va=uo[a.uscita]||0;vb=uo[b.uscita]||0;}
+    else{va=a.score||0;vb=b.score||0;}
+    return sortDir*(va-vb);
+  });
+
+  const tbody=document.getElementById('tableBody');
+  if(rows.length===0){
+    tbody.innerHTML='<tr><td colspan="13"><div class="empty"><div class="empty-icon">🔍</div><div class="empty-title">Nessun segnale in questa categoria</div></div></td></tr>';
+    return;
+  }
+
+  tbody.innerHTML=rows.map((r,i)=>{
+    if(r.error&&!r.price){
+      return `<tr class="err-row"><td>${i+1}</td><td class="tk">${r.display}</td><td colspan="11" style="color:#94a3b8;font-size:10px">${r.error}</td></tr>`;
+    }
+    let sigHtml='<span class="sig-none">—</span>';
+    if(r.tipo==='LONG') sigHtml='<span class="sig sig-long">🟢 LONG</span>';
+    else if(r.tipo==='EARLY') sigHtml='<span class="sig sig-early">🔵 EARLY</span>';
+    else if(r.tipo==='WATCH') sigHtml='<span class="sig sig-watch">🟡 WATCH</span>';
+    else if(r.tipo==='ROSSO+') sigHtml='<span class="sig sig-rosso">🔴 ROSSO+</span>';
+
+    const trdDot=r.trendycator==='VERDE'?'trd-verde':r.trendycator==='ROSSO'?'trd-rosso':'trd-grigio';
+    const trdHtml=`<span class="trd ${trdDot}"></span>${r.trendycator||'—'}`;
+
+    const vr=r.volRatio||1;
+    const vPct=Math.min(100,Math.round(vr/3*100));
+    const vClass=vr>=2?'vol-high':vr>=0.8?'vol-normal':'vol-low';
+    const volHtml=`<div class="vol-cell ${vClass}"><span class="vol-txt">${vr.toFixed(1)}x</span><div class="vol-bar-wrap"><div class="vol-bar" style="width:${vPct}%"></div></div></div>`;
+
+    const fmtPct=(v)=>{
+      if(v==null) return '<span class="neu">—</span>';
+      const cls=v>0?'pos':v<0?'neg':'neu';
+      return `<span class="${cls}">${v>0?'+':''}${v.toFixed(1)}%</span>`;
+    };
+
+    const sPct=Math.round((r.score||0)/200*100);
+    const scoreHtml=`<div class="score-cell"><span class="score-n">${r.score||0}</span><div class="score-bar-wrap"><div class="score-bar" style="width:${sPct}%"></div></div></div>`;
+
+    let uscHtml='<span class="neu">—</span>';
+    if(r.uscita==='STOP') uscHtml='<span class="exit exit-stop">⛔ STOP</span>';
+    else if(r.uscita==='USCITA') uscHtml='<span class="exit exit-out">🔴 USCITA</span>';
+    else if(r.uscita==='ATTENZIONE') uscHtml='<span class="exit exit-att">🟡 ATT.</span>';
+
+    return `<tr>
+      <td style="color:var(--muted);font-family:var(--mono);font-size:11px">${i+1}</td>
+      <td><div class="tk">${r.display}</div><div class="cat">${r.categoria}</div></td>
+      <td>${sigHtml}</td>
+      <td>${scoreHtml}</td>
+      <td style="font-size:11px;white-space:nowrap">${trdHtml}</td>
+      <td style="font-family:var(--mono);font-size:11px">${r.er!=null?r.er.toFixed(2):'—'}</td>
+      <td style="font-family:var(--mono)">${r.baff!=null?r.baff:'—'}</td>
+      <td>${volHtml}</td>
+      <td>${fmtPct(r.perfSett)}</td>
+      <td>${fmtPct(r.perfMese)}</td>
+      <td style="font-family:var(--mono);font-size:11px">${r.pkPct!=null?(r.pkPct>0?'+':'')+r.pkPct.toFixed(1)+'%':'—'}</td>
+      <td style="font-family:var(--mono);font-size:10px;color:var(--muted)">${r.entryDate||'—'}</td>
+      <td>${uscHtml}</td>
+    </tr>`;
+  }).join('');
+}
+
+// ═══════════════════════════════════════════
+//  AVVIO: prova JSON → poi cache localStorage
+// ═══════════════════════════════════════════
+(async()=>{
+  const jsonLoaded = await tryLoadJSON();
+  if(!jsonLoaded){
+    try{
+      const saved=localStorage.getItem('raptor_alert');
+      if(saved){
+        const {ts,data}=JSON.parse(saved);
+        allResults=data;
+        dataMode='cache';
+        document.getElementById('tsBar').textContent=ts+' (cache locale)';
+        document.getElementById('tsBar').style.display='block';
+        document.getElementById('btnRun').textContent='🔄 AGGIORNA';
+        updateStats();
+        renderTable();
+      }
+    }catch(e){}
+  }
+})();
+
+// ═══════════════════════════════════════════
+//  TITOLO MODIFICABILE
+// ═══════════════════════════════════════════
+function editTitle(){
+  const el=document.getElementById('appTitle');
+  const cur=el.textContent;
+  const inp=document.createElement('input');
+  inp.type='text';inp.value=cur;
+  inp.style.cssText='font-size:16px;font-weight:700;border:none;border-bottom:2px solid #2563eb;background:transparent;color:inherit;outline:none;width:180px;';
+  el.replaceWith(inp);
+  inp.focus();inp.select();
+  function save(){
+    const val=inp.value.trim()||'RAPTOR Alert';
+    const div=document.createElement('div');
+    div.className='logo-text';div.id='appTitle';
+    div.title='Clicca per rinominare';div.textContent=val;
+    div.onclick=editTitle;
+    inp.replaceWith(div);
+    document.title='🦅 '+val;
+    try{localStorage.setItem('raptor_title',val);}catch(e){}
+  }
+  inp.onblur=save;
+  inp.onkeydown=e=>{if(e.key==='Enter')inp.blur();if(e.key==='Escape'){inp.value=cur;inp.blur();}};
+}
+try{
+  const t=localStorage.getItem('raptor_title');
+  if(t){const el=document.getElementById('appTitle');if(el){el.textContent=t;document.title='🦅 '+t;}}
+}catch(e){}
+</script>
+</body>
+</html>
