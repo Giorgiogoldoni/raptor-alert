@@ -1,0 +1,35 @@
+name: 🦅 RAPTOR Alert - Aggiorna dati ETF
+on:
+  schedule:
+    - cron: '15 7 * * 1-5'   # 09:15 Italia — apertura
+    - cron: '0 10 * * 1-5'   # 12:00 Italia — metà seduta
+    - cron: '0 14 * * 1-5'   # 16:00 Italia — pre-chiusura EU
+    - cron: '30 16 * * 1-5'  # 18:30 Italia — dopo chiusura EU
+  workflow_dispatch:
+jobs:
+  update-etf-data:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Installa dipendenze
+        run: pip install requests
+      - name: Scarica e analizza ETF
+        env:
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+          MAIL_TO:    ${{ secrets.MAIL_TO }}
+        run: python fetch_data.py
+      - name: Commit dati aggiornati
+        run: |
+          git config user.name  "raptor-bot"
+          git config user.email "raptor-bot@github.com"
+          git add data/
+          git diff --staged --quiet || git commit -m "🦅 Update ETF data - $(date -u '+%d/%m/%Y %H:%M UTC')"
+          git push
