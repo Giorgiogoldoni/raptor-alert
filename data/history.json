@@ -1,12 +1,12 @@
 {
   "IAEX": {
-    "tipo": "BUY1",
+    "tipo": "WATCH",
     "uscita": "",
     "entry_price": 103.6,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 111.0864,
-    "target_price": 119.5272
+    "stop_price": 111.4197,
+    "target_price": 116.5806
   },
   "TOF": {
     "tipo": "NONE",
@@ -14,7 +14,7 @@
     "entry_price": 90.37,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 95.3404,
+    "stop_price": 95.2978,
     "target_price": null
   },
   "18MN": {
@@ -23,8 +23,8 @@
     "entry_price": 13.428,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 13.9142,
-    "target_price": 15.2156
+    "stop_price": 13.9593,
+    "target_price": 15.2994
   },
   "7USH": {
     "tipo": "WATCH",
@@ -32,8 +32,8 @@
     "entry_price": 41.357,
     "entry_date": "15/10/2026",
     "entry_time": "12:40",
-    "stop_price": 40.909,
-    "target_price": 41.848
+    "stop_price": 40.9162,
+    "target_price": 41.8576
   },
   "CEB1": {
     "tipo": "",
@@ -41,7 +41,7 @@
     "entry_price": 4.3013,
     "entry_date": "15/10/2026",
     "entry_time": "12:40",
-    "stop_price": 4.2744,
+    "stop_price": 4.2716,
     "target_price": null
   },
   "CEB4": {
@@ -50,8 +50,8 @@
     "entry_price": 6.482,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 6.6417,
-    "target_price": 6.8466
+    "stop_price": 6.6419,
+    "target_price": 6.7352
   },
   "DBZB": {
     "tipo": "WATCH",
@@ -59,8 +59,8 @@
     "entry_price": 209.14,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 203.5287,
-    "target_price": 205.0326
+    "stop_price": 203.5356,
+    "target_price": 206.4588
   },
   "EUNY": {
     "tipo": "WATCH",
@@ -68,8 +68,8 @@
     "entry_price": 16.75,
     "entry_date": "05/05/2026",
     "entry_time": "11:15",
-    "stop_price": 17.1874,
-    "target_price": 17.8432
+    "stop_price": 17.251,
+    "target_price": 17.86
   },
   "FTGM": {
     "tipo": "NONE",
@@ -77,7 +77,7 @@
     "entry_price": 24.62,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 27.7837,
+    "stop_price": 27.7448,
     "target_price": null
   },
   "IBC5": {
@@ -86,26 +86,26 @@
     "entry_price": 5.2164,
     "entry_date": "14/10/2026",
     "entry_time": "14:51",
-    "stop_price": 5.2155,
-    "target_price": 5.349
+    "stop_price": 5.2158,
+    "target_price": 5.3784
   },
   "IBCJ": {
-    "tipo": "BUY1",
+    "tipo": "WATCH",
     "uscita": "",
     "entry_price": 32.005,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 36.7084,
-    "target_price": 40.0132
+    "stop_price": 36.7136,
+    "target_price": 37.3478
   },
   "IQQ9": {
-    "tipo": "WATCH",
-    "uscita": "",
+    "tipo": "NONE",
+    "uscita": "USCITA",
     "entry_price": 20.98,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 20.0688,
-    "target_price": 20.3574
+    "stop_price": 20.0687,
+    "target_price": null
   },
   "IQQF": {
     "tipo": "NONE",
@@ -113,7 +113,7 @@
     "entry_price": 77.68,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 87.5504,
+    "stop_price": 87.1468,
     "target_price": null
   },
   "IS04": {
@@ -122,16 +122,16 @@
     "entry_price": 2.6282,
     "entry_date": "14/10/2026",
     "entry_time": "14:51",
-    "stop_price": 2.6269,
-    "target_price": 2.7034
+    "stop_price": 2.6273,
+    "target_price": 2.7491
   },
   "IS3C": {
     "tipo": "NONE",
-    "uscita": "USCITA",
+    "uscita": "STOP",
     "entry_price": 68.97,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 64.5008,
+    "stop_price": 64.912,
     "target_price": null
   },
   "IS3N": {
@@ -140,7 +140,7 @@
     "entry_price": 45.035,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 49.7966,
+    "stop_price": 49.6312,
     "target_price": null
   },
   "IS3U": {
@@ -149,7 +149,7 @@
     "entry_price": 64.6,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 62.8213,
+    "stop_price": 62.7462,
     "target_price": null
   },
   "ISPA": {
@@ -158,16 +158,16 @@
     "entry_price": 36.98,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 39.812,
+    "stop_price": 39.8046,
     "target_price": null
   },
   "IUSQ": {
     "tipo": "NONE",
-    "uscita": "ATTENZIONE",
+    "uscita": "STOP",
     "entry_price": 99.29,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 111.3044,
+    "stop_price": 111.2483,
     "target_price": null
   },
   "IUSS": {
@@ -176,16 +176,16 @@
     "entry_price": 5.496,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 5.5933,
+    "stop_price": 5.5796,
     "target_price": null
   },
   "LCUJ": {
     "tipo": "NONE",
-    "uscita": "ATTENZIONE",
+    "uscita": "STOP",
     "entry_price": 20.866,
     "entry_date": "30/04/2026",
     "entry_time": "17:50",
-    "stop_price": 24.5133,
+    "stop_price": 24.4587,
     "target_price": null
   },
   "MJMT": {
@@ -194,7 +194,7 @@
     "entry_price": 147.2,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 151.0611,
+    "stop_price": 150.9883,
     "target_price": null
   },
   "QDVA": {
@@ -203,7 +203,7 @@
     "entry_price": 16.84,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 20.0396,
+    "stop_price": 19.9956,
     "target_price": null
   },
   "SPP5": {
@@ -212,7 +212,7 @@
     "entry_price": 8.8812,
     "entry_date": "16/09/2026",
     "entry_time": "12:37",
-    "stop_price": 9.1787,
+    "stop_price": 9.1772,
     "target_price": null
   },
   "SPYX": {
@@ -221,7 +221,7 @@
     "entry_price": 134.88,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 142.0101,
+    "stop_price": 141.8978,
     "target_price": null
   },
   "SXR1": {
@@ -230,8 +230,8 @@
     "entry_price": 204.3,
     "entry_date": "05/05/2026",
     "entry_time": "11:15",
-    "stop_price": 215.956,
-    "target_price": 218.338
+    "stop_price": 215.9594,
+    "target_price": 217.2812
   },
   "SXRT": {
     "tipo": "NONE",
@@ -239,7 +239,7 @@
     "entry_price": 233.7,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 245.6273,
+    "stop_price": 245.1491,
     "target_price": null
   },
   "SXRU": {
@@ -248,35 +248,35 @@
     "entry_price": 514.3,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 559.2784,
-    "target_price": 578.8432
+    "stop_price": 560.589,
+    "target_price": 575.022
   },
   "SXRW": {
-    "tipo": "BUY2",
+    "tipo": "WATCH",
     "uscita": "",
     "entry_price": 246.7,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 258.2962,
-    "target_price": 274.3576
+    "stop_price": 258.4252,
+    "target_price": 272.5996
   },
   "VGWE": {
-    "tipo": "BUY1",
+    "tipo": "WATCH",
     "uscita": "",
     "entry_price": 86.08,
     "entry_date": "30/04/2026",
     "entry_time": "17:50",
-    "stop_price": 93.2909,
-    "target_price": 97.4582
+    "stop_price": 93.4721,
+    "target_price": 95.8058
   },
   "VUKG": {
-    "tipo": "BUY2",
+    "tipo": "WATCH",
     "uscita": "",
     "entry_price": 64.31,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 67.4478,
-    "target_price": 71.7144
+    "stop_price": 67.4778,
+    "target_price": 71.0844
   },
   "XBAS": {
     "tipo": "NONE",
@@ -284,7 +284,7 @@
     "entry_price": 2.034,
     "entry_date": "30/04/2026",
     "entry_time": "17:50",
-    "stop_price": 2.443,
+    "stop_price": 2.4371,
     "target_price": null
   },
   "XCS3": {
@@ -293,7 +293,7 @@
     "entry_price": 12.948,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 12.6027,
+    "stop_price": 12.5843,
     "target_price": null
   },
   "XCS4": {
@@ -302,17 +302,17 @@
     "entry_price": 24.665,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 24.8358,
+    "stop_price": 24.8277,
     "target_price": null
   },
   "XD9E": {
-    "tipo": "WATCH",
-    "uscita": "",
+    "tipo": "NONE",
+    "uscita": "USCITA",
     "entry_price": 143.745,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 152.4162,
-    "target_price": 154.9326
+    "stop_price": 152.4145,
+    "target_price": null
   },
   "XD9U": {
     "tipo": "NONE",
@@ -320,7 +320,7 @@
     "entry_price": 181.745,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 208.2718,
+    "stop_price": 208.156,
     "target_price": null
   },
   "XDEM": {
@@ -329,7 +329,7 @@
     "entry_price": 77.9,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 89.7885,
+    "stop_price": 89.5042,
     "target_price": null
   },
   "XESD": {
@@ -338,17 +338,17 @@
     "entry_price": 42.085,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 45.6658,
+    "stop_price": 45.5825,
     "target_price": null
   },
   "XGIN": {
-    "tipo": "BUY1",
+    "tipo": "WATCH",
     "uscita": "",
     "entry_price": 219.79,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 213.3405,
-    "target_price": 215.979
+    "stop_price": 213.3648,
+    "target_price": 215.6004
   },
   "XMKA": {
     "tipo": "NONE",
@@ -356,7 +356,7 @@
     "entry_price": 9.468,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 8.9757,
+    "stop_price": 8.9719,
     "target_price": null
   },
   "XPQP": {
@@ -365,7 +365,7 @@
     "entry_price": 1.2794,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 1.2728,
+    "stop_price": 1.2727,
     "target_price": null
   },
   "XWEM": {
@@ -374,16 +374,16 @@
     "entry_price": 53.35,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 59.8579,
+    "stop_price": 59.6548,
     "target_price": null
   },
   "F701": {
     "tipo": "NONE",
-    "uscita": "STOP",
+    "uscita": "ATTENZIONE",
     "entry_price": 182.84,
     "entry_date": "27/04/2026",
     "entry_time": "11:44",
-    "stop_price": 198.4512,
+    "stop_price": 198.3054,
     "target_price": null
   },
   "F702": {
@@ -392,8 +392,8 @@
     "entry_price": 144.94,
     "entry_date": "07/05/2026",
     "entry_time": "11:48",
-    "stop_price": 146.6678,
-    "target_price": 147.9644
+    "stop_price": 146.672,
+    "target_price": 147.476
   },
   "F703": {
     "tipo": "NONE",
@@ -401,7 +401,7 @@
     "entry_price": 184.0,
     "entry_date": "01/05/2026",
     "entry_time": "11:06",
-    "stop_price": 199.0686,
+    "stop_price": 198.8782,
     "target_price": null
   },
   "IUSN": {
@@ -410,7 +410,7 @@
     "entry_price": 8.504,
     "entry_date": "05/05/2026",
     "entry_time": "11:15",
-    "stop_price": 9.1699,
+    "stop_price": 9.165,
     "target_price": null
   },
   "IVAI": {
@@ -419,7 +419,7 @@
     "entry_price": 7.474,
     "entry_date": "30/04/2026",
     "entry_time": "17:50",
-    "stop_price": 10.0916,
+    "stop_price": 10.0345,
     "target_price": null
   },
   "IVDF": {
@@ -428,7 +428,7 @@
     "entry_price": 8.584,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 8.499,
+    "stop_price": 8.4617,
     "target_price": null
   },
   "NQSE": {
@@ -437,7 +437,7 @@
     "entry_price": 16.116,
     "entry_date": "05/05/2026",
     "entry_time": "11:15",
-    "stop_price": 18.1161,
+    "stop_price": 18.0634,
     "target_price": null
   },
   "NTSZ": {
@@ -446,7 +446,7 @@
     "entry_price": 27.35,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 27.3896,
+    "stop_price": 27.3561,
     "target_price": null
   },
   "IEFM": {
@@ -455,7 +455,7 @@
     "entry_price": 1340.156,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 1360.6149,
+    "stop_price": 1358.5352,
     "target_price": null
   },
   "A01U": {
@@ -478,11 +478,11 @@
   },
   "ACT60": {
     "tipo": "NONE",
-    "uscita": "USCITA",
+    "uscita": "STOP",
     "entry_price": 11.016,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 11.5359,
+    "stop_price": 12.068,
     "target_price": null
   },
   "ACTEQ": {
@@ -491,7 +491,7 @@
     "entry_price": 11.854,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 13.2377,
+    "stop_price": 13.2208,
     "target_price": null
   },
   "ADLU": {
@@ -500,8 +500,8 @@
     "entry_price": 7.9645,
     "entry_date": "14/10/2026",
     "entry_time": "12:53",
-    "stop_price": 7.9454,
-    "target_price": 8.5337
+    "stop_price": 7.9493,
+    "target_price": 8.5259
   },
   "AEGE": {
     "tipo": "",
@@ -509,7 +509,7 @@
     "entry_price": 4.528,
     "entry_date": "15/10/2026",
     "entry_time": "12:40",
-    "stop_price": 4.5178,
+    "stop_price": 4.5177,
     "target_price": null
   },
   "AGEB": {
@@ -518,8 +518,8 @@
     "entry_price": 133.65,
     "entry_date": "07/10/2026",
     "entry_time": "14:32",
-    "stop_price": 133.9495,
-    "target_price": 135.691
+    "stop_price": 133.9509,
+    "target_price": 134.9082
   },
   "AGED": {
     "tipo": "NONE",
@@ -527,7 +527,7 @@
     "entry_price": 8.319,
     "entry_date": "04/05/2026",
     "entry_time": "18:00",
-    "stop_price": 9.2439,
+    "stop_price": 9.2435,
     "target_price": null
   },
   "AGGH": {
@@ -536,8 +536,8 @@
     "entry_price": 4.8435,
     "entry_date": "15/10/2026",
     "entry_time": "12:40",
-    "stop_price": 4.8164,
-    "target_price": 4.8527
+    "stop_price": 4.8166,
+    "target_price": 4.8763
   },
   "AI4UJ": {
     "tipo": "WATCH",
@@ -545,8 +545,8 @@
     "entry_price": 11841.6504,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 14394.5888,
-    "target_price": 14525.543
+    "stop_price": 14407.3191,
+    "target_price": 14500.0824
   },
   "AIAA": {
     "tipo": "NONE",
@@ -563,17 +563,17 @@
     "entry_price": 27.855,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 39.6822,
+    "stop_price": 39.4589,
     "target_price": null
   },
   "AICU": {
-    "tipo": "WATCH",
-    "uscita": "",
+    "tipo": "",
+    "uscita": "STOP",
     "entry_price": 9.5165,
     "entry_date": "02/10/2026",
     "entry_time": "13:53",
-    "stop_price": 9.5243,
-    "target_price": 9.6419
+    "stop_price": 9.613,
+    "target_price": null
   },
   "AIGA": {
     "tipo": "NONE",
@@ -581,7 +581,7 @@
     "entry_price": 5.49,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 6.3218,
+    "stop_price": 6.3178,
     "target_price": null
   },
   "AIGC": {
@@ -590,17 +590,17 @@
     "entry_price": 13.732,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 15.2582,
-    "target_price": 16.1456
+    "stop_price": 15.2717,
+    "target_price": 16.4846
   },
   "AIGE": {
-    "tipo": "WATCH",
+    "tipo": "BUY2",
     "uscita": "",
     "entry_price": 4.304,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 5.3541,
-    "target_price": 6.3888
+    "stop_price": 5.3783,
+    "target_price": 6.6674
   },
   "AIGG": {
     "tipo": "NONE",
@@ -608,7 +608,7 @@
     "entry_price": 3.0825,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 3.3961,
+    "stop_price": 3.3789,
     "target_price": null
   },
   "AIGI": {
@@ -617,7 +617,7 @@
     "entry_price": 16.806,
     "entry_date": "05/05/2026",
     "entry_time": "17:58",
-    "stop_price": 17.6519,
+    "stop_price": 17.6402,
     "target_price": null
   },
   "AIGL": {
@@ -626,17 +626,17 @@
     "entry_price": 3.1405,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 2.9835,
-    "target_price": 3.009
+    "stop_price": 2.9847,
+    "target_price": 3.0066
   },
   "AIGO": {
-    "tipo": "BUY1",
+    "tipo": "BUY2",
     "uscita": "",
     "entry_price": 28.635,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 37.0627,
-    "target_price": 45.6796
+    "stop_price": 37.2375,
+    "target_price": 46.785
   },
   "AIGP": {
     "tipo": "NONE",
@@ -644,17 +644,17 @@
     "entry_price": 46.965,
     "entry_date": "06/05/2026",
     "entry_time": "17:59",
-    "stop_price": 43.5067,
+    "stop_price": 43.4473,
     "target_price": null
   },
   "AIGS": {
-    "tipo": "BUY1",
+    "tipo": "WATCH",
     "uscita": "",
     "entry_price": 5.242,
     "entry_date": "23/04/2026",
     "entry_time": "11:10",
-    "stop_price": 6.6172,
-    "target_price": 7.4176
+    "stop_price": 6.6505,
+    "target_price": 7.342
   },
   "AINF": {
     "tipo": "NONE",
@@ -662,7 +662,7 @@
     "entry_price": 7.681,
     "entry_date": "30/04/2026",
     "entry_time": "11:37",
-    "stop_price": 10.7737,
+    "stop_price": 10.733,
     "target_price": null
   },
   "AIQE": {
@@ -671,7 +671,7 @@
     "entry_price": 21.145,
     "entry_date": "29/04/2026",
     "entry_time": "11:38",
-    "stop_price": 26.8506,
+    "stop_price": 26.8264,
     "target_price": null
   },
   "ALAT": {
@@ -680,8 +680,8 @@
     "entry_price": 21.86,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 22.9218,
-    "target_price": 25.4664
+    "stop_price": 23.0058,
+    "target_price": 25.6584
   },
   "ALUM": {
     "tipo": "NONE",
@@ -689,7 +689,7 @@
     "entry_price": 3.956,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 3.7278,
+    "stop_price": 3.7067,
     "target_price": null
   },
   "ANAU": {
@@ -698,7 +698,7 @@
     "entry_price": 20.205,
     "entry_date": "30/04/2026",
     "entry_time": "11:37",
-    "stop_price": 24.2689,
+    "stop_price": 24.2252,
     "target_price": null
   },
   "AQWA": {
@@ -707,17 +707,17 @@
     "entry_price": 27.52,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 27.4412,
+    "stop_price": 27.4224,
     "target_price": null
   },
   "ARMI": {
-    "tipo": "WATCH",
-    "uscita": "",
+    "tipo": "NONE",
+    "uscita": "USCITA",
     "entry_price": 10.192,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 9.7309,
-    "target_price": 9.9922
+    "stop_price": 9.7304,
+    "target_price": null
   },
   "ARMR": {
     "tipo": "WATCH",
@@ -725,8 +725,8 @@
     "entry_price": 25.52,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 24.3667,
-    "target_price": 25.5616
+    "stop_price": 24.3681,
+    "target_price": 25.0638
   },
   "ASRD": {
     "tipo": "WATCH",
@@ -743,8 +743,8 @@
     "entry_price": 26.4,
     "entry_date": "06/10/2026",
     "entry_time": "14:13",
-    "stop_price": 26.3668,
-    "target_price": 26.6314
+    "stop_price": 26.3669,
+    "target_price": 26.4062
   },
   "AUCO": {
     "tipo": "NONE",
@@ -752,7 +752,7 @@
     "entry_price": 100.75,
     "entry_date": "07/05/2026",
     "entry_time": "11:48",
-    "stop_price": 101.9368,
+    "stop_price": 101.8148,
     "target_price": null
   },
   "AUHEUA": {
@@ -770,7 +770,7 @@
     "entry_price": 33.3,
     "entry_date": "30/04/2026",
     "entry_time": "11:37",
-    "stop_price": 26.4803,
+    "stop_price": 26.3281,
     "target_price": null
   },
   "BBTR": {
@@ -779,8 +779,8 @@
     "entry_price": 92.43,
     "entry_date": "01/10/2026",
     "entry_time": "16:52",
-    "stop_price": 92.8517,
-    "target_price": 95.1266
+    "stop_price": 92.9112,
+    "target_price": 94.9176
   },
   "BCHN": {
     "tipo": "NONE",
@@ -788,17 +788,17 @@
     "entry_price": 147.8,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 172.616,
+    "stop_price": 171.0617,
     "target_price": null
   },
   "BENE": {
-    "tipo": "WATCH",
+    "tipo": "BUY2",
     "uscita": "",
     "entry_price": 37.57,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 46.6616,
-    "target_price": 54.2768
+    "stop_price": 46.8312,
+    "target_price": 56.3376
   },
   "BIODV": {
     "tipo": "WATCH",
@@ -815,7 +815,7 @@
     "entry_price": 11.824,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 12.9987,
+    "stop_price": 12.9979,
     "target_price": null
   },
   "BKCH": {
@@ -824,7 +824,7 @@
     "entry_price": 14.562,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 14.5295,
+    "stop_price": 14.2592,
     "target_price": null
   },
   "BLTH": {
@@ -833,7 +833,7 @@
     "entry_price": 14.926,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 15.6554,
+    "stop_price": 15.4245,
     "target_price": null
   },
   "BNK": {
@@ -842,7 +842,7 @@
     "entry_price": 63.55,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 72.2279,
+    "stop_price": 71.9228,
     "target_price": null
   },
   "BNKE": {
@@ -851,7 +851,7 @@
     "entry_price": 336.3,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 381.9667,
+    "stop_price": 379.5552,
     "target_price": null
   },
   "BOTZ": {
@@ -860,17 +860,17 @@
     "entry_price": 21.665,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 21.8367,
+    "stop_price": 21.8107,
     "target_price": null
   },
   "BRENT": {
-    "tipo": "BUY1",
+    "tipo": "BUY2",
     "uscita": "",
     "entry_price": 24.015,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 28.3881,
-    "target_price": 35.5938
+    "stop_price": 28.6846,
+    "target_price": 37.0108
   },
   "BRES": {
     "tipo": "NONE",
@@ -878,7 +878,7 @@
     "entry_price": 138.64,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 140.2448,
+    "stop_price": 140.0167,
     "target_price": null
   },
   "BRIJ": {
@@ -887,7 +887,7 @@
     "entry_price": 20.695,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 18.7792,
+    "stop_price": 18.7437,
     "target_price": null
   },
   "BRND": {
@@ -900,13 +900,13 @@
     "target_price": null
   },
   "BRNT": {
-    "tipo": "BUY1",
+    "tipo": "BUY2",
     "uscita": "",
     "entry_price": 70.91,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 88.4873,
-    "target_price": 110.6354
+    "stop_price": 89.3176,
+    "target_price": 113.6848
   },
   "BTC": {
     "tipo": "NONE",
@@ -914,7 +914,7 @@
     "entry_price": 15.998,
     "entry_date": "04/05/2026",
     "entry_time": "18:00",
-    "stop_price": 17.6456,
+    "stop_price": 17.3758,
     "target_price": null
   },
   "BTECH": {
@@ -923,7 +923,7 @@
     "entry_price": 99.74,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 154.8908,
+    "stop_price": 154.5362,
     "target_price": null
   },
   "BTP10": {
@@ -932,7 +932,7 @@
     "entry_price": 147.63,
     "entry_date": "16/10/2026",
     "entry_time": "14:30",
-    "stop_price": 147.5494,
+    "stop_price": 147.5194,
     "target_price": null
   },
   "BUG": {
@@ -941,7 +941,7 @@
     "entry_price": 10.35,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 20.0066,
+    "stop_price": 19.9448,
     "target_price": null
   },
   "C40": {
@@ -950,7 +950,7 @@
     "entry_price": 144.66,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 139.7457,
+    "stop_price": 139.5382,
     "target_price": null
   },
   "CARB": {
@@ -977,8 +977,8 @@
     "entry_price": 18.128,
     "entry_date": "01/10/2026",
     "entry_time": "16:52",
-    "stop_price": 18.2531,
-    "target_price": 18.6698
+    "stop_price": 18.2632,
+    "target_price": 18.6496
   },
   "CHIP": {
     "tipo": "NONE",
@@ -986,7 +986,7 @@
     "entry_price": 96.88,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 123.1387,
+    "stop_price": 122.5483,
     "target_price": null
   },
   "CHM": {
@@ -1004,7 +1004,7 @@
     "entry_price": 36.005,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 61.6769,
+    "stop_price": 61.4289,
     "target_price": null
   },
   "CIT": {
@@ -1013,7 +1013,7 @@
     "entry_price": 6.83,
     "entry_date": "04/05/2026",
     "entry_time": "18:00",
-    "stop_price": 6.0773,
+    "stop_price": 6.0499,
     "target_price": null
   },
   "CLIP": {
@@ -1027,21 +1027,21 @@
   },
   "CLOU": {
     "tipo": "NONE",
-    "uscita": "STOP",
+    "uscita": "ATTENZIONE",
     "entry_price": 8.919,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 13.3857,
+    "stop_price": 13.354,
     "target_price": null
   },
   "CN1": {
-    "tipo": "BUY1",
-    "uscita": "",
+    "tipo": "NONE",
+    "uscita": "USCITA",
     "entry_price": 689.5,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 709.1018,
-    "target_price": 724.0964
+    "stop_price": 709.0687,
+    "target_price": null
   },
   "CO2": {
     "tipo": "NONE",
@@ -1053,22 +1053,22 @@
     "target_price": null
   },
   "COFF": {
-    "tipo": "BUY1",
+    "tipo": "WATCH",
     "uscita": "",
     "entry_price": 49.27,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 57.7191,
-    "target_price": 74.9118
+    "stop_price": 58.2124,
+    "target_price": 70.3852
   },
   "COMO": {
-    "tipo": "WATCH",
+    "tipo": "BUY1",
     "uscita": "",
     "entry_price": 36.265,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 38.5065,
-    "target_price": 39.237
+    "stop_price": 38.5104,
+    "target_price": 39.7092
   },
   "COPA": {
     "tipo": "WATCH",
@@ -1076,8 +1076,8 @@
     "entry_price": 45.395,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 49.61,
-    "target_price": 50.465
+    "stop_price": 49.665,
+    "target_price": 50.55
   },
   "COPM": {
     "tipo": "NONE",
@@ -1085,7 +1085,7 @@
     "entry_price": 9.21,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 10.2224,
+    "stop_price": 10.2128,
     "target_price": null
   },
   "COPX": {
@@ -1094,7 +1094,7 @@
     "entry_price": 55.36,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 60.374,
+    "stop_price": 60.2371,
     "target_price": null
   },
   "CORN": {
@@ -1103,7 +1103,7 @@
     "entry_price": 16.404,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 17.5886,
+    "stop_price": 17.422,
     "target_price": null
   },
   "CROP": {
@@ -1112,7 +1112,7 @@
     "entry_price": 8.72,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 9.0157,
+    "stop_price": 8.9933,
     "target_price": null
   },
   "CRUD": {
@@ -1121,8 +1121,8 @@
     "entry_price": 12.324,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 15.2096,
-    "target_price": 19.5308
+    "stop_price": 15.3586,
+    "target_price": 19.8688
   },
   "CSSPX": {
     "tipo": "NONE",
@@ -1130,7 +1130,7 @@
     "entry_price": 663.05,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 755.052,
+    "stop_price": 754.7208,
     "target_price": null
   },
   "CTEK": {
@@ -1139,7 +1139,7 @@
     "entry_price": 8.8,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 7.7068,
+    "stop_price": 7.6897,
     "target_price": null
   },
   "CURE": {
@@ -1148,7 +1148,7 @@
     "entry_price": 17.246,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 25.6809,
+    "stop_price": 25.6595,
     "target_price": null
   },
   "CYBR": {
@@ -1157,7 +1157,7 @@
     "entry_price": 6.654,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 11.7117,
+    "stop_price": 11.6799,
     "target_price": null
   },
   "DAPP": {
@@ -1166,17 +1166,17 @@
     "entry_price": 11.614,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 12.1885,
+    "stop_price": 11.9755,
     "target_price": null
   },
   "DEFS": {
-    "tipo": "WATCH",
-    "uscita": "",
+    "tipo": "NONE",
+    "uscita": "USCITA",
     "entry_price": 5.934,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 5.7971,
-    "target_price": 5.9258
+    "stop_price": 5.7957,
+    "target_price": null
   },
   "DFNS": {
     "tipo": "NONE",
@@ -1184,17 +1184,17 @@
     "entry_price": 55.41,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 51.9147,
+    "stop_price": 51.8809,
     "target_price": null
   },
   "DJE": {
-    "tipo": "BUY2",
+    "tipo": "WATCH",
     "uscita": "",
     "entry_price": 428.0,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 465.8456,
-    "target_price": 483.5588
+    "stop_price": 466.9681,
+    "target_price": 476.0638
   },
   "DMAT": {
     "tipo": "NONE",
@@ -1202,7 +1202,7 @@
     "entry_price": 22.7,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 20.7208,
+    "stop_price": 20.5611,
     "target_price": null
   },
   "DOCT": {
@@ -1211,7 +1211,7 @@
     "entry_price": 12.014,
     "entry_date": "05/05/2026",
     "entry_time": "11:15",
-    "stop_price": 16.6459,
+    "stop_price": 16.6158,
     "target_price": null
   },
   "DRVE": {
@@ -1220,16 +1220,16 @@
     "entry_price": 16.372,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 15.2753,
+    "stop_price": 15.0988,
     "target_price": null
   },
   "DXJF": {
     "tipo": "NONE",
-    "uscita": "ATTENZIONE",
+    "uscita": "STOP",
     "entry_price": 50.78,
     "entry_date": "05/05/2026",
     "entry_time": "17:58",
-    "stop_price": 57.343,
+    "stop_price": 57.3103,
     "target_price": null
   },
   "EBIZ": {
@@ -1247,7 +1247,7 @@
     "entry_price": 17.806,
     "entry_date": "29/04/2026",
     "entry_time": "17:56",
-    "stop_price": 23.1872,
+    "stop_price": 23.1241,
     "target_price": null
   },
   "ECAR": {
@@ -1256,7 +1256,7 @@
     "entry_price": 10.12,
     "entry_date": "29/04/2026",
     "entry_time": "11:38",
-    "stop_price": 11.4257,
+    "stop_price": 11.3599,
     "target_price": null
   },
   "ECO": {
@@ -1265,8 +1265,8 @@
     "entry_price": 11.442,
     "entry_date": "02/10/2026",
     "entry_time": "13:53",
-    "stop_price": 11.4373,
-    "target_price": 11.6434
+    "stop_price": 11.4559,
+    "target_price": 11.6002
   },
   "ECOM": {
     "tipo": "WATCH",
@@ -1274,8 +1274,8 @@
     "entry_price": 15.658,
     "entry_date": "07/05/2026",
     "entry_time": "11:48",
-    "stop_price": 17.6601,
-    "target_price": 18.5958
+    "stop_price": 17.77,
+    "target_price": 18.166
   },
   "ECR1": {
     "tipo": "WATCH",
@@ -1283,8 +1283,8 @@
     "entry_price": 55.28,
     "entry_date": "15/09/2026",
     "entry_time": "18:02",
-    "stop_price": 55.3633,
-    "target_price": 55.5334
+    "stop_price": 55.3658,
+    "target_price": 55.4684
   },
   "EDOC": {
     "tipo": "NONE",
@@ -1301,8 +1301,8 @@
     "entry_price": 9.149,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 7.8946,
-    "target_price": 7.9708
+    "stop_price": 7.8972,
+    "target_price": 7.9656
   },
   "EEIA": {
     "tipo": "NONE",
@@ -1310,7 +1310,7 @@
     "entry_price": 26.99,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 28.233,
+    "stop_price": 28.2202,
     "target_price": null
   },
   "EENG": {
@@ -1319,7 +1319,7 @@
     "entry_price": 100.33,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 101.94,
+    "stop_price": 101.8878,
     "target_price": null
   },
   "EGOV": {
@@ -1328,7 +1328,7 @@
     "entry_price": 48.38,
     "entry_date": "15/10/2026",
     "entry_time": "12:40",
-    "stop_price": 48.1544,
+    "stop_price": 48.1511,
     "target_price": null
   },
   "EIMI": {
@@ -1337,7 +1337,7 @@
     "entry_price": 45.045,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 49.8123,
+    "stop_price": 49.6457,
     "target_price": null
   },
   "ELCR": {
@@ -1346,7 +1346,7 @@
     "entry_price": 24.4,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 26.2112,
+    "stop_price": 26.1825,
     "target_price": null
   },
   "EMI": {
@@ -1355,8 +1355,8 @@
     "entry_price": 166.39,
     "entry_date": "14/10/2026",
     "entry_time": "14:51",
-    "stop_price": 166.2847,
-    "target_price": 166.4506
+    "stop_price": 166.287,
+    "target_price": 166.446
   },
   "EMOVE": {
     "tipo": "NONE",
@@ -1364,7 +1364,7 @@
     "entry_price": 155.0,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 135.7156,
+    "stop_price": 135.0462,
     "target_price": null
   },
   "EMQQ": {
@@ -1373,26 +1373,26 @@
     "entry_price": 8.69,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 8.3243,
-    "target_price": 8.5274
+    "stop_price": 8.3246,
+    "target_price": 8.4398
   },
   "ENCO": {
-    "tipo": "WATCH",
+    "tipo": "BUY1",
     "uscita": "",
     "entry_price": 15.826,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 17.5859,
-    "target_price": 18.8762
+    "stop_price": 17.6251,
+    "target_price": 19.0138
   },
   "ENRG": {
-    "tipo": "BUY2",
+    "tipo": "BUY1",
     "uscita": "",
     "entry_price": 106.18,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 112.3378,
-    "target_price": 124.7044
+    "stop_price": 112.6071,
+    "target_price": 123.7458
   },
   "EPRA": {
     "tipo": "NONE",
@@ -1400,7 +1400,7 @@
     "entry_price": 69.53,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 68.3342,
+    "stop_price": 68.3323,
     "target_price": null
   },
   "EPRE": {
@@ -1409,8 +1409,8 @@
     "entry_price": 332.35,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 307.628,
-    "target_price": 310.694
+    "stop_price": 307.6686,
+    "target_price": 309.8628
   },
   "EROX": {
     "tipo": "NONE",
@@ -1418,7 +1418,7 @@
     "entry_price": 392.8,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 407.3289,
+    "stop_price": 407.311,
     "target_price": null
   },
   "ESGO": {
@@ -1436,8 +1436,8 @@
     "entry_price": 51.0,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 58.2192,
-    "target_price": 61.7616
+    "stop_price": 58.5048,
+    "target_price": 61.3704
   },
   "ESPY": {
     "tipo": "NONE",
@@ -1445,17 +1445,17 @@
     "entry_price": 17.26,
     "entry_date": "30/04/2026",
     "entry_time": "17:50",
-    "stop_price": 26.4157,
+    "stop_price": 26.2338,
     "target_price": null
   },
   "EST": {
-    "tipo": "WATCH",
-    "uscita": "",
+    "tipo": "NONE",
+    "uscita": "USCITA",
     "entry_price": 43.005,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 47.7868,
-    "target_price": 50.2414
+    "stop_price": 47.7807,
+    "target_price": null
   },
   "EUC": {
     "tipo": "WATCH",
@@ -1463,8 +1463,8 @@
     "entry_price": 9.513,
     "entry_date": "06/10/2026",
     "entry_time": "14:13",
-    "stop_price": 9.4958,
-    "target_price": 9.5804
+    "stop_price": 9.4959,
+    "target_price": 9.5802
   },
   "EXS1": {
     "tipo": "NONE",
@@ -1472,7 +1472,7 @@
     "entry_price": 201.65,
     "entry_date": "05/05/2026",
     "entry_time": "17:58",
-    "stop_price": 210.7457,
+    "stop_price": 210.6758,
     "target_price": null
   },
   "EXXY": {
@@ -1481,8 +1481,8 @@
     "entry_price": 33.67,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 37.2444,
-    "target_price": 38.6412
+    "stop_price": 37.2624,
+    "target_price": 39.2802
   },
   "FINX": {
     "tipo": "NONE",
@@ -1499,8 +1499,8 @@
     "entry_price": 35.755,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 34.9223,
-    "target_price": 35.9804
+    "stop_price": 34.9242,
+    "target_price": 36.2316
   },
   "FMI": {
     "tipo": "NONE",
@@ -1508,7 +1508,7 @@
     "entry_price": 120.34,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 125.6412,
+    "stop_price": 124.7717,
     "target_price": null
   },
   "FOO": {
@@ -1517,8 +1517,8 @@
     "entry_price": 91.02,
     "entry_date": "05/05/2026",
     "entry_time": "11:15",
-    "stop_price": 95.3031,
-    "target_price": 108.9738
+    "stop_price": 96.166,
+    "target_price": 108.568
   },
   "FOOD": {
     "tipo": "NONE",
@@ -1530,13 +1530,13 @@
     "target_price": null
   },
   "FUSU": {
-    "tipo": "BUY3",
+    "tipo": "BUY2",
     "uscita": "",
     "entry_price": 11.662,
     "entry_date": "06/05/2026",
     "entry_time": "17:59",
-    "stop_price": 12.2109,
-    "target_price": 12.6762
+    "stop_price": 12.2168,
+    "target_price": 12.6644
   },
   "GAGG": {
     "tipo": "WATCH",
@@ -1544,17 +1544,17 @@
     "entry_price": 48.82,
     "entry_date": "01/10/2026",
     "entry_time": "16:52",
-    "stop_price": 49.0382,
-    "target_price": 49.8836
+    "stop_price": 49.0641,
+    "target_price": 50.0268
   },
   "GAS": {
-    "tipo": "WATCH",
-    "uscita": "",
+    "tipo": "NONE",
+    "uscita": "STOP",
     "entry_price": 4.005,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 4.2283,
-    "target_price": 4.2829
+    "stop_price": 4.56,
+    "target_price": null
   },
   "GCLE": {
     "tipo": "NONE",
@@ -1562,7 +1562,7 @@
     "entry_price": 23.89,
     "entry_date": "29/04/2026",
     "entry_time": "11:38",
-    "stop_price": 20.7432,
+    "stop_price": 20.6594,
     "target_price": null
   },
   "GDX": {
@@ -1571,7 +1571,7 @@
     "entry_price": 90.92,
     "entry_date": "07/05/2026",
     "entry_time": "11:48",
-    "stop_price": 90.7228,
+    "stop_price": 90.5216,
     "target_price": null
   },
   "GDXJ": {
@@ -1580,7 +1580,7 @@
     "entry_price": 96.54,
     "entry_date": "06/05/2026",
     "entry_time": "17:59",
-    "stop_price": 94.5911,
+    "stop_price": 94.0818,
     "target_price": null
   },
   "GLUX": {
@@ -1589,8 +1589,8 @@
     "entry_price": 200.48,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 191.9156,
-    "target_price": 208.8788
+    "stop_price": 192.6671,
+    "target_price": 206.9858
   },
   "GNOM": {
     "tipo": "NONE",
@@ -1598,7 +1598,7 @@
     "entry_price": 7.056,
     "entry_date": "06/05/2026",
     "entry_time": "17:59",
-    "stop_price": 11.5405,
+    "stop_price": 11.4786,
     "target_price": null
   },
   "GOAI": {
@@ -1607,7 +1607,7 @@
     "entry_price": 120.62,
     "entry_date": "01/05/2026",
     "entry_time": "11:06",
-    "stop_price": 158.7506,
+    "stop_price": 157.8842,
     "target_price": null
   },
   "GOVA": {
@@ -1616,7 +1616,7 @@
     "entry_price": 25.29,
     "entry_date": "15/10/2026",
     "entry_time": "12:40",
-    "stop_price": 25.175,
+    "stop_price": 25.1739,
     "target_price": null
   },
   "GRC": {
@@ -1625,7 +1625,7 @@
     "entry_price": 2.53,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 3.04,
+    "stop_price": 3.0339,
     "target_price": null
   },
   "GSCE": {
@@ -1643,7 +1643,7 @@
     "entry_price": 14.322,
     "entry_date": "06/05/2026",
     "entry_time": "17:59",
-    "stop_price": 13.8693,
+    "stop_price": 13.8348,
     "target_price": null
   },
   "HDRO": {
@@ -1652,7 +1652,7 @@
     "entry_price": 8.544,
     "entry_date": "29/04/2026",
     "entry_time": "11:38",
-    "stop_price": 7.6213,
+    "stop_price": 7.5687,
     "target_price": null
   },
   "HEAL": {
@@ -1661,7 +1661,7 @@
     "entry_price": 7.46,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 9.7773,
+    "stop_price": 9.7695,
     "target_price": null
   },
   "HERU": {
@@ -1670,8 +1670,8 @@
     "entry_price": 10.902,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 11.5516,
-    "target_price": 12.2068
+    "stop_price": 11.581,
+    "target_price": 12.148
   },
   "HLT": {
     "tipo": "BUY2",
@@ -1679,8 +1679,8 @@
     "entry_price": 147.56,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 150.3818,
-    "target_price": 162.1364
+    "stop_price": 150.6588,
+    "target_price": 167.3424
   },
   "HTWO": {
     "tipo": "NONE",
@@ -1688,7 +1688,7 @@
     "entry_price": 7.398,
     "entry_date": "29/04/2026",
     "entry_time": "11:38",
-    "stop_price": 6.7603,
+    "stop_price": 6.7373,
     "target_price": null
   },
   "HYGN": {
@@ -1697,7 +1697,7 @@
     "entry_price": 11.76,
     "entry_date": "29/04/2026",
     "entry_time": "11:38",
-    "stop_price": 9.2935,
+    "stop_price": 9.2109,
     "target_price": null
   },
   "HYLD": {
@@ -1706,7 +1706,7 @@
     "entry_price": 76.82,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 76.5237,
+    "stop_price": 76.5012,
     "target_price": null
   },
   "IAPD": {
@@ -1715,8 +1715,8 @@
     "entry_price": 27.045,
     "entry_date": "30/04/2026",
     "entry_time": "17:50",
-    "stop_price": 28.0462,
-    "target_price": 28.5676
+    "stop_price": 28.0474,
+    "target_price": 28.3552
   },
   "IBZL": {
     "tipo": "WATCH",
@@ -1724,8 +1724,8 @@
     "entry_price": 27.37,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 28.8962,
-    "target_price": 31.8326
+    "stop_price": 28.9765,
+    "target_price": 31.687
   },
   "ICBR": {
     "tipo": "NONE",
@@ -1733,17 +1733,17 @@
     "entry_price": 4.7275,
     "entry_date": "29/04/2026",
     "entry_time": "11:38",
-    "stop_price": 7.6703,
+    "stop_price": 7.6502,
     "target_price": null
   },
   "IEAA": {
     "tipo": "WATCH",
-    "uscita": "",
+    "uscita": "ATTENZIONE",
     "entry_price": 5.314,
     "entry_date": "09/10/2026",
     "entry_time": "14:23",
-    "stop_price": 5.3067,
-    "target_price": 5.3466
+    "stop_price": 5.344,
+    "target_price": null
   },
   "IEGS": {
     "tipo": "",
@@ -1751,7 +1751,7 @@
     "entry_price": 4.9805,
     "entry_date": "15/10/2026",
     "entry_time": "12:40",
-    "stop_price": 4.9606,
+    "stop_price": 4.9602,
     "target_price": null
   },
   "IEMB": {
@@ -1760,16 +1760,16 @@
     "entry_price": 79.07,
     "entry_date": "05/05/2026",
     "entry_time": "11:15",
-    "stop_price": 78.3568,
+    "stop_price": 78.3488,
     "target_price": null
   },
   "IEMO": {
     "tipo": "NONE",
-    "uscita": "USCITA",
+    "uscita": "STOP",
     "entry_price": 15.478,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 15.7202,
+    "stop_price": 16.0,
     "target_price": null
   },
   "IMIB": {
@@ -1778,7 +1778,7 @@
     "entry_price": 30.265,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 31.1989,
+    "stop_price": 31.0324,
     "target_price": null
   },
   "INDG": {
@@ -1787,7 +1787,7 @@
     "entry_price": 147.48,
     "entry_date": "05/05/2026",
     "entry_time": "17:58",
-    "stop_price": 150.1281,
+    "stop_price": 149.7802,
     "target_price": null
   },
   "INDI": {
@@ -1796,8 +1796,8 @@
     "entry_price": 25.49,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 24.531,
-    "target_price": 25.188
+    "stop_price": 24.5325,
+    "target_price": 25.29
   },
   "INF1A": {
     "tipo": "WATCH",
@@ -1805,8 +1805,8 @@
     "entry_price": 8.661,
     "entry_date": "09/10/2026",
     "entry_time": "16:47",
-    "stop_price": 8.6618,
-    "target_price": 8.7344
+    "stop_price": 8.6624,
+    "target_price": 8.7482
   },
   "INQQ": {
     "tipo": "NONE",
@@ -1814,25 +1814,25 @@
     "entry_price": 6.917,
     "entry_date": "07/05/2026",
     "entry_time": "11:48",
-    "stop_price": 7.4013,
+    "stop_price": 7.3955,
     "target_price": null
   },
   "INS": {
-    "tipo": "BUY2",
+    "tipo": "BUY1",
     "uscita": "",
     "entry_price": 89.85,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 95.8679,
-    "target_price": 99.1142
+    "stop_price": 95.88,
+    "target_price": 98.55
   },
   "ISAC": {
     "tipo": "NONE",
-    "uscita": "ATTENZIONE",
+    "uscita": "STOP",
     "entry_price": 99.27,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 111.2479,
+    "stop_price": 111.1936,
     "target_price": null
   },
   "ISAG": {
@@ -1841,7 +1841,7 @@
     "entry_price": 50.06,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 50.3,
+    "stop_price": 50.2761,
     "target_price": null
   },
   "ISPY": {
@@ -1850,7 +1850,7 @@
     "entry_price": 28.07,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 46.5556,
+    "stop_price": 46.3473,
     "target_price": null
   },
   "ITBL": {
@@ -1863,31 +1863,31 @@
     "target_price": null
   },
   "IU0E": {
-    "tipo": "",
-    "uscita": "USCITA",
-    "entry_price": 5.431,
-    "entry_date": "15/10/2026",
-    "entry_time": "12:40",
-    "stop_price": 5.4224,
-    "target_price": null
-  },
-  "IUSE": {
     "tipo": "WATCH",
     "uscita": "",
+    "entry_price": 5.427,
+    "entry_date": "20/10/2026",
+    "entry_time": "12:44",
+    "stop_price": 5.4224,
+    "target_price": 5.4362
+  },
+  "IUSE": {
+    "tipo": "NONE",
+    "uscita": "USCITA",
     "entry_price": 148.47,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 157.4298,
-    "target_price": 160.1304
+    "stop_price": 157.429,
+    "target_price": null
   },
   "IWDE": {
-    "tipo": "WATCH",
-    "uscita": "",
+    "tipo": "NONE",
+    "uscita": "STOP",
     "entry_price": 112.26,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 119.3077,
-    "target_price": 120.0646
+    "stop_price": 121.34,
+    "target_price": null
   },
   "IWMO": {
     "tipo": "NONE",
@@ -1895,7 +1895,7 @@
     "entry_price": 92.57,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 106.6914,
+    "stop_price": 106.3533,
     "target_price": null
   },
   "IWVL": {
@@ -1904,7 +1904,7 @@
     "entry_price": 54.66,
     "entry_date": "07/04/2026",
     "entry_time": "18:36",
-    "stop_price": 72.2575,
+    "stop_price": 72.1775,
     "target_price": null
   },
   "JEDI": {
@@ -1913,17 +1913,17 @@
     "entry_price": 85.46,
     "entry_date": "06/05/2026",
     "entry_time": "17:59",
-    "stop_price": 70.1201,
+    "stop_price": 69.3483,
     "target_price": null
   },
   "JRGE": {
-    "tipo": "WATCH",
-    "uscita": "",
+    "tipo": "NONE",
+    "uscita": "USCITA",
     "entry_price": 53.28,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 56.4259,
-    "target_price": 56.5582
+    "stop_price": 56.4226,
+    "target_price": null
   },
   "JU13": {
     "tipo": "",
@@ -1931,7 +1931,7 @@
     "entry_price": 102.005,
     "entry_date": "18/09/2026",
     "entry_time": "12:14",
-    "stop_price": 105.61,
+    "stop_price": 105.5928,
     "target_price": null
   },
   "KARS": {
@@ -1949,7 +1949,7 @@
     "entry_price": 158.61,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 188.5751,
+    "stop_price": 187.0013,
     "target_price": null
   },
   "KRBN": {
@@ -1967,7 +1967,7 @@
     "entry_price": 13.09,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 11.6153,
+    "stop_price": 11.6134,
     "target_price": null
   },
   "LABL": {
@@ -1976,7 +1976,7 @@
     "entry_price": 14.922,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 16.6205,
+    "stop_price": 16.6132,
     "target_price": null
   },
   "LAFRI": {
@@ -1985,7 +1985,7 @@
     "entry_price": 14.858,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 14.7083,
+    "stop_price": 14.666,
     "target_price": null
   },
   "LCCN": {
@@ -1994,17 +1994,17 @@
     "entry_price": 18.866,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 18.0397,
+    "stop_price": 18.0221,
     "target_price": null
   },
   "LEAD": {
-    "tipo": "WATCH",
+    "tipo": "BUY1",
     "uscita": "",
     "entry_price": 14.224,
     "entry_date": "05/05/2026",
     "entry_time": "11:15",
-    "stop_price": 13.9111,
-    "target_price": 14.0938
+    "stop_price": 13.9116,
+    "target_price": 14.1648
   },
   "LITM": {
     "tipo": "NONE",
@@ -2012,7 +2012,7 @@
     "entry_price": 7.895,
     "entry_date": "05/05/2026",
     "entry_time": "17:58",
-    "stop_price": 6.7035,
+    "stop_price": 6.6852,
     "target_price": null
   },
   "LOCK": {
@@ -2021,7 +2021,7 @@
     "entry_price": 9.274,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 12.4686,
+    "stop_price": 12.4393,
     "target_price": null
   },
   "LTAM": {
@@ -2030,8 +2030,8 @@
     "entry_price": 19.3,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 19.8281,
-    "target_price": 21.8138
+    "stop_price": 19.8981,
+    "target_price": 22.0638
   },
   "MACV": {
     "tipo": "NONE",
@@ -2039,7 +2039,7 @@
     "entry_price": 5.286,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 5.3481,
+    "stop_price": 5.348,
     "target_price": null
   },
   "MAGR": {
@@ -2057,7 +2057,7 @@
     "entry_price": 15.166,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 15.6644,
+    "stop_price": 15.6635,
     "target_price": null
   },
   "MCHT": {
@@ -2066,7 +2066,7 @@
     "entry_price": 27.885,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 24.7205,
+    "stop_price": 24.5575,
     "target_price": null
   },
   "METAA": {
@@ -2075,7 +2075,7 @@
     "entry_price": 152.36,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 170.6627,
+    "stop_price": 170.2335,
     "target_price": null
   },
   "METE": {
@@ -2084,7 +2084,7 @@
     "entry_price": 44.23,
     "entry_date": "04/05/2026",
     "entry_time": "18:00",
-    "stop_price": 50.1949,
+    "stop_price": 49.9666,
     "target_price": null
   },
   "MILL": {
@@ -2111,7 +2111,7 @@
     "entry_price": 16.652,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 18.8171,
+    "stop_price": 18.806,
     "target_price": null
   },
   "NCLR": {
@@ -2120,7 +2120,7 @@
     "entry_price": 56.12,
     "entry_date": "05/05/2026",
     "entry_time": "11:15",
-    "stop_price": 42.1192,
+    "stop_price": 41.6427,
     "target_price": null
   },
   "NGAS": {
@@ -2129,7 +2129,7 @@
     "entry_price": 4.2795,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 4.1931,
+    "stop_price": 4.1922,
     "target_price": null
   },
   "NICK": {
@@ -2138,7 +2138,7 @@
     "entry_price": 14.19,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 12.3862,
+    "stop_price": 12.378,
     "target_price": null
   },
   "NTSG": {
@@ -2147,7 +2147,7 @@
     "entry_price": 27.04,
     "entry_date": "05/05/2026",
     "entry_time": "11:15",
-    "stop_price": 29.4444,
+    "stop_price": 29.434,
     "target_price": null
   },
   "NUCL": {
@@ -2156,35 +2156,35 @@
     "entry_price": 53.6,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 44.5463,
+    "stop_price": 44.1799,
     "target_price": null
   },
   "OCEAN": {
-    "tipo": "BUY3",
+    "tipo": "WATCH",
     "uscita": "",
     "entry_price": 18.006,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 18.6941,
-    "target_price": 19.7738
+    "stop_price": 18.7509,
+    "target_price": 19.4382
   },
   "OIH": {
     "tipo": "NONE",
-    "uscita": "STOP",
+    "uscita": "ATTENZIONE",
     "entry_price": 29.505,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 28.8466,
+    "stop_price": 28.8204,
     "target_price": null
   },
   "OVER": {
-    "tipo": "WATCH",
-    "uscita": "",
+    "tipo": "",
+    "uscita": "USCITA",
     "entry_price": 5.12,
     "entry_date": "29/05/2026",
     "entry_time": "10:54",
-    "stop_price": 5.1732,
-    "target_price": 5.1756
+    "stop_price": 5.1731,
+    "target_price": null
   },
   "PAVE": {
     "tipo": "NONE",
@@ -2192,7 +2192,7 @@
     "entry_price": 45.175,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 45.6011,
+    "stop_price": 45.5402,
     "target_price": null
   },
   "PHAG": {
@@ -2201,7 +2201,7 @@
     "entry_price": 60.0,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 49.4785,
+    "stop_price": 49.1372,
     "target_price": null
   },
   "PHPT": {
@@ -2210,7 +2210,7 @@
     "entry_price": 157.88,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 143.5039,
+    "stop_price": 142.849,
     "target_price": null
   },
   "QNTM": {
@@ -2219,7 +2219,7 @@
     "entry_price": 23.435,
     "entry_date": "30/04/2026",
     "entry_time": "17:50",
-    "stop_price": 26.3314,
+    "stop_price": 26.1643,
     "target_price": null
   },
   "QTOP": {
@@ -2228,7 +2228,7 @@
     "entry_price": 5.67,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 6.6339,
+    "stop_price": 6.6085,
     "target_price": null
   },
   "RARE": {
@@ -2237,7 +2237,7 @@
     "entry_price": 56.33,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 46.3742,
+    "stop_price": 46.0158,
     "target_price": null
   },
   "RAYZ": {
@@ -2246,7 +2246,7 @@
     "entry_price": 10.612,
     "entry_date": "30/04/2026",
     "entry_time": "11:37",
-    "stop_price": 8.1469,
+    "stop_price": 8.1305,
     "target_price": null
   },
   "RBOT": {
@@ -2255,7 +2255,7 @@
     "entry_price": 16.25,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 20.4123,
+    "stop_price": 20.3609,
     "target_price": null
   },
   "REMX": {
@@ -2264,7 +2264,7 @@
     "entry_price": 17.086,
     "entry_date": "29/04/2026",
     "entry_time": "11:38",
-    "stop_price": 10.3703,
+    "stop_price": 10.1742,
     "target_price": null
   },
   "RENW": {
@@ -2273,17 +2273,17 @@
     "entry_price": 15.68,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 13.9584,
+    "stop_price": 13.8988,
     "target_price": null
   },
   "REUSE": {
-    "tipo": "BUY2",
+    "tipo": "WATCH",
     "uscita": "",
     "entry_price": 21.485,
     "entry_date": "05/05/2026",
     "entry_time": "17:58",
-    "stop_price": 22.8605,
-    "target_price": 23.519
+    "stop_price": 22.9304,
+    "target_price": 23.0942
   },
   "ROBO": {
     "tipo": "NONE",
@@ -2291,7 +2291,7 @@
     "entry_price": 28.205,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 29.8611,
+    "stop_price": 29.742,
     "target_price": null
   },
   "ROE": {
@@ -2318,7 +2318,7 @@
     "entry_price": 52.7,
     "entry_date": "05/05/2026",
     "entry_time": "11:15",
-    "stop_price": 65.6296,
+    "stop_price": 65.5798,
     "target_price": null
   },
   "SCITY": {
@@ -2336,7 +2336,7 @@
     "entry_price": 52.61,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 58.5115,
+    "stop_price": 58.3054,
     "target_price": null
   },
   "SEME": {
@@ -2345,7 +2345,7 @@
     "entry_price": 14.304,
     "entry_date": "30/04/2026",
     "entry_time": "11:37",
-    "stop_price": 19.6416,
+    "stop_price": 19.5486,
     "target_price": null
   },
   "SILV": {
@@ -2354,35 +2354,35 @@
     "entry_price": 37.8,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 36.8955,
+    "stop_price": 36.667,
     "target_price": null
   },
   "SJPA": {
     "tipo": "NONE",
-    "uscita": "ATTENZIONE",
+    "uscita": "STOP",
     "entry_price": 64.58,
     "entry_date": "30/04/2026",
     "entry_time": "11:37",
-    "stop_price": 76.1952,
+    "stop_price": 76.0828,
     "target_price": null
   },
   "SMCX": {
-    "tipo": "WATCH",
-    "uscita": "",
+    "tipo": "NONE",
+    "uscita": "USCITA",
     "entry_price": 374.8,
     "entry_date": "04/05/2026",
     "entry_time": "18:00",
-    "stop_price": 389.3216,
-    "target_price": 391.9568
+    "stop_price": 389.2831,
+    "target_price": null
   },
   "SMEA": {
-    "tipo": "WATCH",
-    "uscita": "",
+    "tipo": "NONE",
+    "uscita": "USCITA",
     "entry_price": 100.26,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 103.9507,
-    "target_price": 104.0386
+    "stop_price": 103.9398,
+    "target_price": null
   },
   "SMH": {
     "tipo": "NONE",
@@ -2390,7 +2390,7 @@
     "entry_price": 76.32,
     "entry_date": "30/04/2026",
     "entry_time": "11:37",
-    "stop_price": 105.1659,
+    "stop_price": 103.6961,
     "target_price": null
   },
   "SNSR": {
@@ -2399,7 +2399,7 @@
     "entry_price": 14.604,
     "entry_date": "30/04/2026",
     "entry_time": "17:50",
-    "stop_price": 17.54,
+    "stop_price": 17.5094,
     "target_price": null
   },
   "SOLR": {
@@ -2408,7 +2408,7 @@
     "entry_price": 26.55,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 21.2605,
+    "stop_price": 21.123,
     "target_price": null
   },
   "SP1E": {
@@ -2426,17 +2426,17 @@
     "entry_price": 15.218,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 17.3224,
+    "stop_price": 17.315,
     "target_price": null
   },
   "SPXE": {
-    "tipo": "WATCH",
-    "uscita": "",
+    "tipo": "NONE",
+    "uscita": "USCITA",
     "entry_price": 17.516,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 18.5953,
-    "target_price": 18.9214
+    "stop_price": 18.5952,
+    "target_price": null
   },
   "SRIUC": {
     "tipo": "WATCH",
@@ -2444,17 +2444,17 @@
     "entry_price": 11.028,
     "entry_date": "14/10/2026",
     "entry_time": "18:24",
-    "stop_price": 11.0259,
-    "target_price": 11.0442
+    "stop_price": 11.0323,
+    "target_price": 11.0554
   },
   "SRSA": {
-    "tipo": "WATCH",
-    "uscita": "",
+    "tipo": "NONE",
+    "uscita": "USCITA",
     "entry_price": 54.17,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 51.3757,
-    "target_price": 52.2886
+    "stop_price": 51.3755,
+    "target_price": null
   },
   "STAW": {
     "tipo": "BUY3",
@@ -2462,17 +2462,17 @@
     "entry_price": 10.47,
     "entry_date": "30/04/2026",
     "entry_time": "11:37",
-    "stop_price": 11.1608,
-    "target_price": 12.4004
+    "stop_price": 11.2693,
+    "target_price": 12.4714
   },
   "DFSV": {
-    "tipo": "WATCH",
-    "uscita": "",
+    "tipo": "NONE",
+    "uscita": "USCITA",
     "entry_price": 10.562,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 10.0099,
-    "target_price": 10.3462
+    "stop_price": 10.0098,
+    "target_price": null
   },
   "STKX": {
     "tipo": "NONE",
@@ -2480,7 +2480,7 @@
     "entry_price": 179.84,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 217.4662,
+    "stop_price": 216.5758,
     "target_price": null
   },
   "STNX": {
@@ -2489,17 +2489,17 @@
     "entry_price": 276.9,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 316.8537,
-    "target_price": 383.5926
+    "stop_price": 320.8043,
+    "target_price": 389.6414
   },
   "STPX": {
-    "tipo": "BUY1",
-    "uscita": "",
+    "tipo": "NONE",
+    "uscita": "USCITA",
     "entry_price": 371.6,
     "entry_date": "06/05/2026",
     "entry_time": "17:59",
-    "stop_price": 383.6686,
-    "target_price": 388.5628
+    "stop_price": 383.6516,
+    "target_price": null
   },
   "STQX": {
     "tipo": "NONE",
@@ -2507,7 +2507,7 @@
     "entry_price": 435.15,
     "entry_date": "05/05/2026",
     "entry_time": "17:58",
-    "stop_price": 440.4738,
+    "stop_price": 439.8866,
     "target_price": null
   },
   "STRX": {
@@ -2516,8 +2516,8 @@
     "entry_price": 149.44,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 146.0887,
-    "target_price": 158.0626
+    "stop_price": 146.2041,
+    "target_price": 158.1318
   },
   "STSX": {
     "tipo": "BUY3",
@@ -2525,8 +2525,8 @@
     "entry_price": 226.05,
     "entry_date": "05/05/2026",
     "entry_time": "11:15",
-    "stop_price": 237.8253,
-    "target_price": 272.0994
+    "stop_price": 239.3901,
+    "target_price": 270.9198
   },
   "STTX": {
     "tipo": "WATCH",
@@ -2534,8 +2534,8 @@
     "entry_price": 74.12,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 73.6982,
-    "target_price": 74.6036
+    "stop_price": 73.7012,
+    "target_price": 74.4176
   },
   "STUX": {
     "tipo": "WATCH",
@@ -2543,8 +2543,8 @@
     "entry_price": 258.9,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 254.4682,
-    "target_price": 259.3636
+    "stop_price": 254.55,
+    "target_price": 263.1
   },
   "SUGA": {
     "tipo": "WATCH",
@@ -2552,8 +2552,8 @@
     "entry_price": 8.338,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 11.1469,
-    "target_price": 11.9002
+    "stop_price": 11.1785,
+    "target_price": 11.969
   },
   "SWDA": {
     "tipo": "NONE",
@@ -2561,17 +2561,17 @@
     "entry_price": 117.72,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 132.3466,
+    "stop_price": 132.2943,
     "target_price": null
   },
   "SXLB": {
-    "tipo": "BUY2",
+    "tipo": "BUY1",
     "uscita": "",
     "entry_price": 44.07,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 44.5232,
-    "target_price": 49.1336
+    "stop_price": 44.6729,
+    "target_price": 48.5792
   },
   "SXLC": {
     "tipo": "WATCH",
@@ -2579,25 +2579,25 @@
     "entry_price": 48.605,
     "entry_date": "07/05/2026",
     "entry_time": "11:48",
-    "stop_price": 47.224,
-    "target_price": 47.527
+    "stop_price": 47.3162,
+    "target_price": 47.4176
   },
   "SXLF": {
-    "tipo": "BUY2",
+    "tipo": "BUY1",
     "uscita": "",
     "entry_price": 52.13,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 57.5295,
-    "target_price": 61.101
+    "stop_price": 57.5998,
+    "target_price": 60.9604
   },
   "SXLI": {
     "tipo": "NONE",
-    "uscita": "ATTENZIONE",
+    "uscita": "STOP",
     "entry_price": 64.08,
     "entry_date": "05/05/2026",
     "entry_time": "17:58",
-    "stop_price": 66.6092,
+    "stop_price": 66.5397,
     "target_price": null
   },
   "SXLK": {
@@ -2606,7 +2606,7 @@
     "entry_price": 141.53,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 179.0179,
+    "stop_price": 178.3352,
     "target_price": null
   },
   "SXLP": {
@@ -2615,26 +2615,26 @@
     "entry_price": 39.435,
     "entry_date": "30/04/2026",
     "entry_time": "17:50",
-    "stop_price": 41.5166,
-    "target_price": 45.5468
+    "stop_price": 41.8888,
+    "target_price": 45.8974
   },
   "SXLV": {
-    "tipo": "BUY1",
+    "tipo": "BUY2",
     "uscita": "",
     "entry_price": 38.275,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 47.7313,
-    "target_price": 50.9824
+    "stop_price": 48.0718,
+    "target_price": 51.8914
   },
   "SXLY": {
-    "tipo": "WATCH",
+    "tipo": "BUY2",
     "uscita": "",
     "entry_price": 64.0,
     "entry_date": "07/05/2026",
     "entry_time": "11:48",
-    "stop_price": 62.803,
-    "target_price": 67.894
+    "stop_price": 62.9853,
+    "target_price": 68.2194
   },
   "T10A": {
     "tipo": "WATCH",
@@ -2642,8 +2642,8 @@
     "entry_price": 8.345,
     "entry_date": "14/10/2026",
     "entry_time": "12:53",
-    "stop_price": 8.3167,
-    "target_price": 8.4016
+    "stop_price": 8.3169,
+    "target_price": 8.4012
   },
   "TELE": {
     "tipo": "NONE",
@@ -2651,7 +2651,7 @@
     "entry_price": 54.46,
     "entry_date": "29/04/2026",
     "entry_time": "17:56",
-    "stop_price": 50.9134,
+    "stop_price": 50.8748,
     "target_price": null
   },
   "TIP1A": {
@@ -2660,8 +2660,8 @@
     "entry_price": 14.01,
     "entry_date": "01/10/2026",
     "entry_time": "14:30",
-    "stop_price": 14.252,
-    "target_price": 14.48
+    "stop_price": 14.2669,
+    "target_price": 14.4922
   },
   "TLCO": {
     "tipo": "NONE",
@@ -2669,26 +2669,26 @@
     "entry_price": 6.215,
     "entry_date": "05/05/2026",
     "entry_time": "11:15",
-    "stop_price": 6.1168,
+    "stop_price": 6.0982,
     "target_price": null
   },
   "TNO": {
     "tipo": "NONE",
-    "uscita": "ATTENZIONE",
+    "uscita": "STOP",
     "entry_price": 103.78,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 124.3673,
+    "stop_price": 124.0025,
     "target_price": null
   },
   "TRVL": {
-    "tipo": "BUY1",
+    "tipo": "BUY2",
     "uscita": "",
     "entry_price": 25.54,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 25.4525,
-    "target_price": 26.885
+    "stop_price": 25.4634,
+    "target_price": 26.7732
   },
   "TUR": {
     "tipo": "NONE",
@@ -2696,7 +2696,7 @@
     "entry_price": 53.53,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 52.0191,
+    "stop_price": 51.637,
     "target_price": null
   },
   "U3O8": {
@@ -2705,7 +2705,7 @@
     "entry_price": 14.408,
     "entry_date": "07/05/2026",
     "entry_time": "11:48",
-    "stop_price": 10.9433,
+    "stop_price": 10.8509,
     "target_price": null
   },
   "UCRP": {
@@ -2714,8 +2714,8 @@
     "entry_price": 53.71,
     "entry_date": "05/10/2026",
     "entry_time": "16:04",
-    "stop_price": 54.0948,
-    "target_price": 55.3404
+    "stop_price": 54.2065,
+    "target_price": 55.117
   },
   "UGAS": {
     "tipo": "WATCH",
@@ -2723,17 +2723,17 @@
     "entry_price": 75.64,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 94.7636,
-    "target_price": 100.1528
+    "stop_price": 94.8238,
+    "target_price": 103.3024
   },
   "UKE": {
-    "tipo": "BUY2",
+    "tipo": "BUY3",
     "uscita": "",
     "entry_price": 21.58,
     "entry_date": "06/05/2026",
     "entry_time": "17:59",
-    "stop_price": 22.1196,
-    "target_price": 23.7708
+    "stop_price": 22.1415,
+    "target_price": 23.727
   },
   "UNIC": {
     "tipo": "NONE",
@@ -2741,7 +2741,7 @@
     "entry_price": 16.844,
     "entry_date": "30/04/2026",
     "entry_time": "17:50",
-    "stop_price": 22.6431,
+    "stop_price": 22.4864,
     "target_price": null
   },
   "URNJ": {
@@ -2750,7 +2750,7 @@
     "entry_price": 9.741,
     "entry_date": "07/05/2026",
     "entry_time": "11:48",
-    "stop_price": 6.1564,
+    "stop_price": 6.0521,
     "target_price": null
   },
   "URNU": {
@@ -2759,7 +2759,7 @@
     "entry_price": 29.815,
     "entry_date": "06/05/2026",
     "entry_time": "17:59",
-    "stop_price": 21.3694,
+    "stop_price": 20.9613,
     "target_price": null
   },
   "US1": {
@@ -2768,7 +2768,7 @@
     "entry_price": 10.024,
     "entry_date": "16/10/2026",
     "entry_time": "17:53",
-    "stop_price": 10.0884,
+    "stop_price": 10.0868,
     "target_price": null
   },
   "US10C": {
@@ -2777,8 +2777,8 @@
     "entry_price": 6.077,
     "entry_date": "14/10/2026",
     "entry_time": "18:24",
-    "stop_price": 6.0527,
-    "target_price": 6.2396
+    "stop_price": 6.054,
+    "target_price": 6.351
   },
   "US7": {
     "tipo": "WATCH",
@@ -2786,8 +2786,8 @@
     "entry_price": 234.5,
     "entry_date": "01/10/2026",
     "entry_time": "16:52",
-    "stop_price": 235.7696,
-    "target_price": 242.4308
+    "stop_price": 235.9499,
+    "target_price": 243.9302
   },
   "USIG": {
     "tipo": "WATCH",
@@ -2795,17 +2795,17 @@
     "entry_price": 81.14,
     "entry_date": "02/10/2026",
     "entry_time": "16:04",
-    "stop_price": 81.4336,
-    "target_price": 83.2528
+    "stop_price": 81.4384,
+    "target_price": 82.1332
   },
   "USTEC": {
-    "tipo": "WATCH",
-    "uscita": "",
+    "tipo": "NONE",
+    "uscita": "USCITA",
     "entry_price": 17.828,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 20.0893,
-    "target_price": 20.1214
+    "stop_price": 20.0828,
+    "target_price": null
   },
   "UTI": {
     "tipo": "WATCH",
@@ -2813,8 +2813,8 @@
     "entry_price": 103.1,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 101.0463,
-    "target_price": 102.8274
+    "stop_price": 101.07,
+    "target_price": 104.16
   },
   "VAGF": {
     "tipo": "WATCH",
@@ -2822,8 +2822,8 @@
     "entry_price": 23.235,
     "entry_date": "15/10/2026",
     "entry_time": "12:40",
-    "stop_price": 23.1108,
-    "target_price": 23.2734
+    "stop_price": 23.1115,
+    "target_price": 23.242
   },
   "VCDE": {
     "tipo": "WATCH",
@@ -2831,7 +2831,7 @@
     "entry_price": 55.14,
     "entry_date": "08/10/2026",
     "entry_time": "14:36",
-    "stop_price": 56.1784,
+    "stop_price": 56.1572,
     "target_price": null
   },
   "VDCA": {
@@ -2840,7 +2840,7 @@
     "entry_price": 55.28,
     "entry_date": "19/10/2026",
     "entry_time": "14:42",
-    "stop_price": 55.6304,
+    "stop_price": 55.621,
     "target_price": null
   },
   "VDCE": {
@@ -2849,8 +2849,8 @@
     "entry_price": 54.22,
     "entry_date": "15/10/2026",
     "entry_time": "12:40",
-    "stop_price": 53.8591,
-    "target_price": 54.3718
+    "stop_price": 53.8661,
+    "target_price": 54.5678
   },
   "VDEA": {
     "tipo": "WATCH",
@@ -2858,8 +2858,8 @@
     "entry_price": 54.94,
     "entry_date": "07/10/2026",
     "entry_time": "14:32",
-    "stop_price": 55.0244,
-    "target_price": 55.8512
+    "stop_price": 55.0891,
+    "target_price": 55.3018
   },
   "VDST": {
     "tipo": "WATCH",
@@ -2876,17 +2876,17 @@
     "entry_price": 52.7,
     "entry_date": "09/10/2026",
     "entry_time": "14:23",
-    "stop_price": 52.6777,
-    "target_price": 52.9846
+    "stop_price": 52.678,
+    "target_price": 52.894
   },
   "VEGI": {
-    "tipo": "BUY2",
+    "tipo": "WATCH",
     "uscita": "",
     "entry_price": 18.804,
     "entry_date": "27/04/2026",
     "entry_time": "11:44",
-    "stop_price": 19.2825,
-    "target_price": 21.249
+    "stop_price": 19.3723,
+    "target_price": 19.7494
   },
   "VGEA": {
     "tipo": "",
@@ -2894,7 +2894,7 @@
     "entry_price": 23.42,
     "entry_date": "15/10/2026",
     "entry_time": "12:40",
-    "stop_price": 23.3318,
+    "stop_price": 23.3307,
     "target_price": null
   },
   "VITA": {
@@ -2903,7 +2903,7 @@
     "entry_price": 5.642,
     "entry_date": "05/05/2026",
     "entry_time": "11:15",
-    "stop_price": 5.5728,
+    "stop_price": 5.5687,
     "target_price": null
   },
   "VJPE": {
@@ -2912,7 +2912,7 @@
     "entry_price": 68.5,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 75.1901,
+    "stop_price": 75.1364,
     "target_price": null
   },
   "VNGA20": {
@@ -2921,8 +2921,8 @@
     "entry_price": 25.83,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 25.7377,
-    "target_price": 25.7746
+    "stop_price": 25.7378,
+    "target_price": 25.7744
   },
   "VNGA40": {
     "tipo": "BUY1",
@@ -2944,11 +2944,11 @@
   },
   "VNGA80": {
     "tipo": "NONE",
-    "uscita": "ATTENZIONE",
+    "uscita": "STOP",
     "entry_price": 41.585,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 45.1463,
+    "stop_price": 45.13,
     "target_price": null
   },
   "VOLT": {
@@ -2957,7 +2957,7 @@
     "entry_price": 49.6,
     "entry_date": "29/04/2026",
     "entry_time": "11:38",
-    "stop_price": 42.5657,
+    "stop_price": 42.398,
     "target_price": null
   },
   "VPN": {
@@ -2966,17 +2966,17 @@
     "entry_price": 22.375,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 22.6216,
+    "stop_price": 22.5954,
     "target_price": null
   },
   "VSCF": {
     "tipo": "WATCH",
-    "uscita": "",
+    "uscita": "ATTENZIONE",
     "entry_price": 5.14,
     "entry_date": "05/10/2026",
     "entry_time": "19:03",
-    "stop_price": 5.1472,
-    "target_price": 5.1616
+    "stop_price": 5.165,
+    "target_price": null
   },
   "VSGF": {
     "tipo": "WATCH",
@@ -2984,8 +2984,8 @@
     "entry_price": 5.097,
     "entry_date": "06/10/2026",
     "entry_time": "14:13",
-    "stop_price": 5.096,
-    "target_price": 5.111
+    "stop_price": 5.0972,
+    "target_price": 5.1086
   },
   "VUCE": {
     "tipo": "WATCH",
@@ -2993,8 +2993,8 @@
     "entry_price": 52.82,
     "entry_date": "01/10/2026",
     "entry_time": "16:52",
-    "stop_price": 53.1188,
-    "target_price": 53.9924
+    "stop_price": 53.2342,
+    "target_price": 54.1516
   },
   "VUKE": {
     "tipo": "WATCH",
@@ -3002,16 +3002,16 @@
     "entry_price": 52.66,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 54.3149,
-    "target_price": 57.3902
+    "stop_price": 54.3371,
+    "target_price": 56.9258
   },
   "VUSA": {
     "tipo": "NONE",
-    "uscita": "ATTENZIONE",
+    "uscita": "STOP",
     "entry_price": 115.89,
     "entry_date": "30/04/2026",
     "entry_time": "17:50",
-    "stop_price": 132.5414,
+    "stop_price": 132.484,
     "target_price": null
   },
   "WATC": {
@@ -3020,8 +3020,8 @@
     "entry_price": 6.843,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 6.9716,
-    "target_price": 7.3058
+    "stop_price": 6.9971,
+    "target_price": 7.1858
   },
   "WATT": {
     "tipo": "NONE",
@@ -3038,7 +3038,7 @@
     "entry_price": 49.605,
     "entry_date": "05/05/2026",
     "entry_time": "11:15",
-    "stop_price": 51.0445,
+    "stop_price": 50.5384,
     "target_price": null
   },
   "WCBR": {
@@ -3047,7 +3047,7 @@
     "entry_price": 22.38,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 44.2376,
+    "stop_price": 44.0229,
     "target_price": null
   },
   "WCLD": {
@@ -3056,25 +3056,25 @@
     "entry_price": 24.135,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 36.28,
-    "target_price": 38.68
+    "stop_price": 36.285,
+    "target_price": 39.42
   },
   "WDEF": {
-    "tipo": "WATCH",
-    "uscita": "",
+    "tipo": "NONE",
+    "uscita": "USCITA",
     "entry_price": 32.57,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 30.7841,
-    "target_price": 32.2118
+    "stop_price": 30.7837,
+    "target_price": null
   },
   "WDNA": {
     "tipo": "NONE",
-    "uscita": "STOP",
+    "uscita": "ATTENZIONE",
     "entry_price": 17.194,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 24.2087,
+    "stop_price": 24.158,
     "target_price": null
   },
   "WEAT": {
@@ -3083,7 +3083,7 @@
     "entry_price": 17.07,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 19.7275,
+    "stop_price": 19.6677,
     "target_price": null
   },
   "WEB3": {
@@ -3123,13 +3123,13 @@
     "target_price": null
   },
   "WHEA": {
-    "tipo": "BUY1",
+    "tipo": "BUY2",
     "uscita": "",
     "entry_price": 54.53,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 63.4266,
-    "target_price": 70.0668
+    "stop_price": 63.7724,
+    "target_price": 71.6552
   },
   "WIND": {
     "tipo": "NONE",
@@ -3137,7 +3137,7 @@
     "entry_price": 81.86,
     "entry_date": "05/05/2026",
     "entry_time": "17:58",
-    "stop_price": 83.9526,
+    "stop_price": 83.8645,
     "target_price": null
   },
   "WMAT": {
@@ -3155,7 +3155,7 @@
     "entry_price": 37.06,
     "entry_date": "05/05/2026",
     "entry_time": "11:15",
-    "stop_price": 37.0757,
+    "stop_price": 36.9091,
     "target_price": null
   },
   "WMIB": {
@@ -3164,7 +3164,7 @@
     "entry_price": 56.44,
     "entry_date": "05/05/2026",
     "entry_time": "17:58",
-    "stop_price": 60.3046,
+    "stop_price": 59.9499,
     "target_price": null
   },
   "WNAS": {
@@ -3173,7 +3173,7 @@
     "entry_price": 34.695,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 40.7285,
+    "stop_price": 40.6936,
     "target_price": null
   },
   "WNDE": {
@@ -3182,8 +3182,8 @@
     "entry_price": 6.6,
     "entry_date": "30/04/2026",
     "entry_time": "11:37",
-    "stop_price": 5.946,
-    "target_price": 6.351
+    "stop_price": 5.9905,
+    "target_price": 6.262
   },
   "WNDY": {
     "tipo": "NONE",
@@ -3191,7 +3191,7 @@
     "entry_price": 12.096,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 10.17,
+    "stop_price": 10.1488,
     "target_price": null
   },
   "WNRG": {
@@ -3200,8 +3200,8 @@
     "entry_price": 60.33,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 69.9866,
-    "target_price": 83.1068
+    "stop_price": 70.557,
+    "target_price": 84.846
   },
   "WRNW": {
     "tipo": "NONE",
@@ -3209,7 +3209,7 @@
     "entry_price": 28.265,
     "entry_date": "30/04/2026",
     "entry_time": "17:50",
-    "stop_price": 24.2811,
+    "stop_price": 24.1944,
     "target_price": null
   },
   "WRTY": {
@@ -3218,7 +3218,7 @@
     "entry_price": 34.17,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 36.2156,
+    "stop_price": 36.1346,
     "target_price": null
   },
   "WS5X": {
@@ -3227,7 +3227,7 @@
     "entry_price": 43.98,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 46.0602,
+    "stop_price": 45.9703,
     "target_price": null
   },
   "WSLV": {
@@ -3236,17 +3236,17 @@
     "entry_price": 65.66,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 54.2676,
+    "stop_price": 53.9485,
     "target_price": null
   },
   "WSPE": {
-    "tipo": "WATCH",
-    "uscita": "",
+    "tipo": "NONE",
+    "uscita": "ATTENZIONE",
     "entry_price": 26.975,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 28.655,
-    "target_price": 29.03
+    "stop_price": 29.17,
+    "target_price": null
   },
   "WTAI": {
     "tipo": "NONE",
@@ -3254,7 +3254,7 @@
     "entry_price": 90.18,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 113.1286,
+    "stop_price": 112.6347,
     "target_price": null
   },
   "WTEC": {
@@ -3263,7 +3263,7 @@
     "entry_price": 203.45,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 259.4964,
+    "stop_price": 258.6767,
     "target_price": null
   },
   "WTEL": {
@@ -3308,7 +3308,7 @@
     "entry_price": 235.66,
     "entry_date": "15/10/2026",
     "entry_time": "12:40",
-    "stop_price": 233.8066,
+    "stop_price": 233.6925,
     "target_price": null
   },
   "XAGZ": {
@@ -3317,8 +3317,8 @@
     "entry_price": 12.74,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 13.5062,
-    "target_price": 14.0216
+    "stop_price": 13.5107,
+    "target_price": 14.0486
   },
   "XAIX": {
     "tipo": "NONE",
@@ -3326,7 +3326,7 @@
     "entry_price": 175.25,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 225.5191,
+    "stop_price": 224.6402,
     "target_price": null
   },
   "XBAE": {
@@ -3335,8 +3335,8 @@
     "entry_price": 20.435,
     "entry_date": "15/10/2026",
     "entry_time": "12:40",
-    "stop_price": 20.3342,
-    "target_price": 20.4716
+    "stop_price": 20.3345,
+    "target_price": 20.381
   },
   "XBAG": {
     "tipo": "WATCH",
@@ -3344,8 +3344,8 @@
     "entry_price": 33.15,
     "entry_date": "01/10/2026",
     "entry_time": "16:52",
-    "stop_price": 33.2554,
-    "target_price": 33.9052
+    "stop_price": 33.2726,
+    "target_price": 34.0448
   },
   "XBLC": {
     "tipo": "WATCH",
@@ -3353,8 +3353,8 @@
     "entry_price": 161.0,
     "entry_date": "06/10/2026",
     "entry_time": "14:13",
-    "stop_price": 160.6994,
-    "target_price": 161.8412
+    "stop_price": 160.7011,
+    "target_price": 161.7178
   },
   "XBNK": {
     "tipo": "WATCH",
@@ -3371,7 +3371,7 @@
     "entry_price": 18.004,
     "entry_date": "29/04/2026",
     "entry_time": "11:38",
-    "stop_price": 18.1533,
+    "stop_price": 18.0934,
     "target_price": null
   },
   "XCS5": {
@@ -3380,8 +3380,8 @@
     "entry_price": 16.338,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 15.9286,
-    "target_price": 16.3588
+    "stop_price": 15.9297,
+    "target_price": 16.4586
   },
   "XCTE": {
     "tipo": "NONE",
@@ -3389,7 +3389,7 @@
     "entry_price": 31.655,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 28.1459,
+    "stop_price": 27.9754,
     "target_price": null
   },
   "XDAX": {
@@ -3398,7 +3398,7 @@
     "entry_price": 234.75,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 238.4826,
+    "stop_price": 238.3904,
     "target_price": null
   },
   "XDBC": {
@@ -3407,8 +3407,8 @@
     "entry_price": 36.49,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 36.2337,
-    "target_price": 36.6126
+    "stop_price": 36.2344,
+    "target_price": 36.5362
   },
   "XDEE": {
     "tipo": "WATCH",
@@ -3416,17 +3416,17 @@
     "entry_price": 11.622,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 11.9384,
-    "target_price": 12.5132
+    "stop_price": 11.9739,
+    "target_price": 12.3522
   },
   "XDER": {
-    "tipo": "WATCH",
-    "uscita": "",
+    "tipo": "NONE",
+    "uscita": "USCITA",
     "entry_price": 24.24,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 22.505,
-    "target_price": 22.805
+    "stop_price": 22.5033,
+    "target_price": null
   },
   "XDEV": {
     "tipo": "NONE",
@@ -3434,17 +3434,17 @@
     "entry_price": 56.24,
     "entry_date": "07/04/2026",
     "entry_time": "18:36",
-    "stop_price": 74.7996,
+    "stop_price": 74.7171,
     "target_price": null
   },
   "XDG3": {
-    "tipo": "WATCH",
+    "tipo": "BUY1",
     "uscita": "",
     "entry_price": 29.395,
     "entry_date": "07/05/2026",
     "entry_time": "11:48",
-    "stop_price": 34.7062,
-    "target_price": 37.6576
+    "stop_price": 34.8695,
+    "target_price": 38.426
   },
   "XDG6": {
     "tipo": "BUY2",
@@ -3461,26 +3461,26 @@
     "entry_price": 27.795,
     "entry_date": "29/04/2026",
     "entry_time": "11:38",
-    "stop_price": 24.6672,
+    "stop_price": 24.6325,
     "target_price": null
   },
   "XDGI": {
-    "tipo": "WATCH",
-    "uscita": "",
+    "tipo": "NONE",
+    "uscita": "USCITA",
     "entry_price": 30.795,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 30.8425,
-    "target_price": 30.895
+    "stop_price": 30.8413,
+    "target_price": null
   },
   "XDRE": {
-    "tipo": "BUY1",
+    "tipo": "WATCH",
     "uscita": "",
     "entry_price": 28.74,
     "entry_date": "07/05/2026",
     "entry_time": "11:48",
-    "stop_price": 28.6709,
-    "target_price": 28.9682
+    "stop_price": 28.676,
+    "target_price": 28.958
   },
   "XDW0": {
     "tipo": "BUY3",
@@ -3488,8 +3488,8 @@
     "entry_price": 59.1,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 68.5335,
-    "target_price": 81.513
+    "stop_price": 69.1211,
+    "target_price": 82.3178
   },
   "XDWC": {
     "tipo": "BUY1",
@@ -3497,8 +3497,8 @@
     "entry_price": 58.3,
     "entry_date": "04/05/2026",
     "entry_time": "18:00",
-    "stop_price": 58.5991,
-    "target_price": 63.0868
+    "stop_price": 58.7466,
+    "target_price": 62.8668
   },
   "XDWF": {
     "tipo": "NONE",
@@ -3506,17 +3506,17 @@
     "entry_price": 37.555,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 41.5406,
+    "stop_price": 41.5365,
     "target_price": null
   },
   "XDWH": {
-    "tipo": "BUY1",
+    "tipo": "BUY2",
     "uscita": "",
     "entry_price": 47.285,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 54.7929,
-    "target_price": 61.1442
+    "stop_price": 54.9429,
+    "target_price": 62.6142
   },
   "XDWI": {
     "tipo": "NONE",
@@ -3524,17 +3524,17 @@
     "entry_price": 72.56,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 74.9493,
+    "stop_price": 74.8818,
     "target_price": null
   },
   "XDWM": {
-    "tipo": "WATCH",
-    "uscita": "",
+    "tipo": "NONE",
+    "uscita": "USCITA",
     "entry_price": 68.0,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 69.4928,
-    "target_price": 69.5444
+    "stop_price": 69.4896,
+    "target_price": null
   },
   "XDWS": {
     "tipo": "BUY3",
@@ -3542,8 +3542,8 @@
     "entry_price": 46.875,
     "entry_date": "30/04/2026",
     "entry_time": "17:50",
-    "stop_price": 49.5573,
-    "target_price": 54.6054
+    "stop_price": 50.0292,
+    "target_price": 54.9816
   },
   "XDWT": {
     "tipo": "NONE",
@@ -3551,7 +3551,7 @@
     "entry_price": 108.68,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 138.1901,
+    "stop_price": 137.6315,
     "target_price": null
   },
   "XDWU": {
@@ -3560,8 +3560,8 @@
     "entry_price": 42.04,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 40.3079,
-    "target_price": 41.9642
+    "stop_price": 40.4834,
+    "target_price": 41.8382
   },
   "XE01": {
     "tipo": "WATCH",
@@ -3569,8 +3569,8 @@
     "entry_price": 35.58,
     "entry_date": "15/09/2026",
     "entry_time": "12:42",
-    "stop_price": 35.6586,
-    "target_price": 35.6778
+    "stop_price": 35.666,
+    "target_price": 35.723
   },
   "XEON": {
     "tipo": "WATCH",
@@ -3578,8 +3578,8 @@
     "entry_price": 149.0679,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 150.5122,
-    "target_price": 150.5281
+    "stop_price": 150.5204,
+    "target_price": 150.5609
   },
   "XFNT": {
     "tipo": "NONE",
@@ -3596,7 +3596,7 @@
     "entry_price": 36.815,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 34.1927,
+    "stop_price": 34.0331,
     "target_price": null
   },
   "XG11": {
@@ -3605,7 +3605,7 @@
     "entry_price": 33.475,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 34.4025,
+    "stop_price": 34.2939,
     "target_price": null
   },
   "XG12": {
@@ -3623,7 +3623,7 @@
     "entry_price": 27.94,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 40.2018,
+    "stop_price": 40.1295,
     "target_price": null
   },
   "XGLE": {
@@ -3632,7 +3632,7 @@
     "entry_price": 216.97,
     "entry_date": "16/10/2026",
     "entry_time": "14:30",
-    "stop_price": 216.4279,
+    "stop_price": 216.4186,
     "target_price": null
   },
   "XIFE": {
@@ -3641,17 +3641,17 @@
     "entry_price": 32.415,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 30.3049,
-    "target_price": 33.6952
+    "stop_price": 30.4069,
+    "target_price": 33.4912
   },
   "XLBS": {
-    "tipo": "BUY3",
+    "tipo": "BUY2",
     "uscita": "",
     "entry_price": 539.8,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 545.1067,
-    "target_price": 607.8166
+    "stop_price": 547.6831,
+    "target_price": 597.6838
   },
   "XLCS": {
     "tipo": "WATCH",
@@ -3663,30 +3663,30 @@
     "target_price": 85.2916
   },
   "XLES": {
-    "tipo": "BUY1",
+    "tipo": "BUY2",
     "uscita": "",
     "entry_price": 670.28,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 808.9445,
-    "target_price": 964.691
+    "stop_price": 815.5751,
+    "target_price": 970.5398
   },
   "XLFS": {
-    "tipo": "BUY2",
+    "tipo": "BUY1",
     "uscita": "",
     "entry_price": 345.38,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 381.6316,
-    "target_price": 405.3868
+    "stop_price": 381.7414,
+    "target_price": 405.2572
   },
   "XLIS": {
     "tipo": "NONE",
-    "uscita": "ATTENZIONE",
+    "uscita": "STOP",
     "entry_price": 816.99,
     "entry_date": "05/05/2026",
     "entry_time": "17:58",
-    "stop_price": 848.9112,
+    "stop_price": 847.7803,
     "target_price": null
   },
   "XLKS": {
@@ -3695,16 +3695,16 @@
     "entry_price": 798.2,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 1012.7107,
+    "stop_price": 1008.8545,
     "target_price": null
   },
   "XLPE": {
     "tipo": "NONE",
-    "uscita": "USCITA",
+    "uscita": "STOP",
     "entry_price": 112.34,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 108.3905,
+    "stop_price": 109.52,
     "target_price": null
   },
   "XLPS": {
@@ -3713,8 +3713,8 @@
     "entry_price": 650.71,
     "entry_date": "30/04/2026",
     "entry_time": "17:50",
-    "stop_price": 684.0721,
-    "target_price": 752.0758
+    "stop_price": 690.1667,
+    "target_price": 759.4166
   },
   "XLUS": {
     "tipo": "WATCH",
@@ -3722,17 +3722,17 @@
     "entry_price": 564.86,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 532.7888,
-    "target_price": 564.3224
+    "stop_price": 536.089,
+    "target_price": 559.612
   },
   "XLVS": {
-    "tipo": "BUY1",
+    "tipo": "BUY2",
     "uscita": "",
     "entry_price": 610.38,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 757.4357,
-    "target_price": 820.2386
+    "stop_price": 762.2153,
+    "target_price": 840.6194
   },
   "XLYS": {
     "tipo": "BUY3",
@@ -3740,8 +3740,8 @@
     "entry_price": 727.17,
     "entry_date": "07/05/2026",
     "entry_time": "11:48",
-    "stop_price": 705.2938,
-    "target_price": 761.1724
+    "stop_price": 707.1425,
+    "target_price": 757.715
   },
   "D5BI": {
     "tipo": "BUY2",
@@ -3749,8 +3749,8 @@
     "entry_price": 7.875,
     "entry_date": "05/05/2026",
     "entry_time": "17:58",
-    "stop_price": 7.7439,
-    "target_price": 8.6982
+    "stop_price": 7.7595,
+    "target_price": 8.664
   },
   "XMME": {
     "tipo": "NONE",
@@ -3758,7 +3758,7 @@
     "entry_price": 76.162,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 84.7258,
+    "stop_price": 84.4271,
     "target_price": null
   },
   "XMOV": {
@@ -3767,7 +3767,7 @@
     "entry_price": 115.64,
     "entry_date": "30/04/2026",
     "entry_time": "11:37",
-    "stop_price": 120.5983,
+    "stop_price": 120.2246,
     "target_price": null
   },
   "XNGI": {
@@ -3776,7 +3776,7 @@
     "entry_price": 59.79,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 72.8353,
+    "stop_price": 72.6448,
     "target_price": null
   },
   "XNNV": {
@@ -3794,17 +3794,17 @@
     "entry_price": 341.31,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 362.7438,
+    "stop_price": 362.5807,
     "target_price": null
   },
   "XRES": {
-    "tipo": "NONE",
-    "uscita": "USCITA",
+    "tipo": "WATCH",
+    "uscita": "",
     "entry_price": 23.16,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 23.1852,
-    "target_price": null
+    "stop_price": 23.1855,
+    "target_price": 23.379
   },
   "XS8R": {
     "tipo": "WATCH",
@@ -3812,8 +3812,8 @@
     "entry_price": 94.59,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 96.8077,
-    "target_price": 97.2346
+    "stop_price": 96.871,
+    "target_price": 97.108
   },
   "XSFR": {
     "tipo": "NONE",
@@ -3821,17 +3821,17 @@
     "entry_price": 25.445,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 26.7364,
+    "stop_price": 26.7224,
     "target_price": null
   },
   "XSGI": {
-    "tipo": "BUY2",
+    "tipo": "WATCH",
     "uscita": "",
     "entry_price": 69.57,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 67.6948,
-    "target_price": 70.6504
+    "stop_price": 67.963,
+    "target_price": 69.994
   },
   "XSMI": {
     "tipo": "BUY2",
@@ -3839,17 +3839,17 @@
     "entry_price": 149.7,
     "entry_date": "05/05/2026",
     "entry_time": "11:15",
-    "stop_price": 155.183,
-    "target_price": 170.654
+    "stop_price": 155.7703,
+    "target_price": 171.5194
   },
   "XSX6": {
-    "tipo": "WATCH",
-    "uscita": "",
+    "tipo": "NONE",
+    "uscita": "USCITA",
     "entry_price": 161.58,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 166.9441,
-    "target_price": 167.2918
+    "stop_price": 166.9307,
+    "target_price": null
   },
   "XT01": {
     "tipo": "",
@@ -3857,7 +3857,7 @@
     "entry_price": 54.87,
     "entry_date": "08/09/2026",
     "entry_time": "12:09",
-    "stop_price": 57.4976,
+    "stop_price": 57.4854,
     "target_price": null
   },
   "XTC5": {
@@ -3884,8 +3884,8 @@
     "entry_price": 27.945,
     "entry_date": "07/05/2026",
     "entry_time": "11:48",
-    "stop_price": 29.1629,
-    "target_price": 29.6792
+    "stop_price": 29.175,
+    "target_price": 29.715
   },
   "XUTC": {
     "tipo": "NONE",
@@ -3893,7 +3893,7 @@
     "entry_price": 129.86,
     "entry_date": "05/05/2026",
     "entry_time": "11:15",
-    "stop_price": 164.0715,
+    "stop_price": 163.2734,
     "target_price": null
   },
   "XWTS": {
@@ -3902,17 +3902,17 @@
     "entry_price": 29.56,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 30.4658,
+    "stop_price": 30.4365,
     "target_price": null
   },
   "XXSC": {
-    "tipo": "WATCH",
-    "uscita": "",
+    "tipo": "NONE",
+    "uscita": "USCITA",
     "entry_price": 71.38,
     "entry_date": "05/05/2026",
     "entry_time": "11:15",
-    "stop_price": 74.1902,
-    "target_price": 74.2496
+    "stop_price": 74.1771,
+    "target_price": null
   },
   "XYP0": {
     "tipo": "WATCH",
@@ -3929,7 +3929,7 @@
     "entry_price": 9.949,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 12.0359,
+    "stop_price": 12.0145,
     "target_price": null
   },
   "DBMFE": {
@@ -3938,17 +3938,17 @@
     "entry_price": 118.23,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 138.99,
+    "stop_price": 138.95,
     "target_price": null
   },
   "MEUD": {
-    "tipo": "WATCH",
-    "uscita": "",
+    "tipo": "NONE",
+    "uscita": "USCITA",
     "entry_price": 305.6,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 315.5951,
-    "target_price": 315.9098
+    "stop_price": 315.562,
+    "target_price": null
   },
   "WRD": {
     "tipo": "NONE",
@@ -3956,7 +3956,7 @@
     "entry_price": 39.946,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 44.6977,
+    "stop_price": 44.6818,
     "target_price": null
   },
   "IB01": {
@@ -3974,7 +3974,7 @@
     "entry_price": 37.02,
     "entry_date": "05/05/2026",
     "entry_time": "11:15",
-    "stop_price": 39.8779,
+    "stop_price": 39.8751,
     "target_price": null
   },
   "X13E": {
@@ -3983,8 +3983,8 @@
     "entry_price": 173.74,
     "entry_date": "14/10/2026",
     "entry_time": "14:51",
-    "stop_price": 173.6582,
-    "target_price": 174.1136
+    "stop_price": 173.6615,
+    "target_price": 174.047
   },
   "EM13": {
     "tipo": "WATCH",
@@ -3992,17 +3992,17 @@
     "entry_price": 127.52,
     "entry_date": "06/10/2026",
     "entry_time": "14:13",
-    "stop_price": 127.4748,
-    "target_price": 127.8504
+    "stop_price": 127.5133,
+    "target_price": 127.6234
   },
   "ERNE": {
     "tipo": "WATCH",
-    "uscita": "ATTENZIONE",
+    "uscita": "",
     "entry_price": 100.88,
     "entry_date": "13/10/2026",
     "entry_time": "15:05",
-    "stop_price": 101.03,
-    "target_price": null
+    "stop_price": 100.8866,
+    "target_price": 101.0468
   },
   "INFR": {
     "tipo": "BUY2",
@@ -4010,8 +4010,8 @@
     "entry_price": 33.63,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 33.0683,
-    "target_price": 34.8134
+    "stop_price": 33.2616,
+    "target_price": 34.4418
   },
   "XDWD": {
     "tipo": "NONE",
@@ -4019,7 +4019,7 @@
     "entry_price": 128.792,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 144.7686,
+    "stop_price": 144.7126,
     "target_price": null
   },
   "CW8": {
@@ -4028,26 +4028,26 @@
     "entry_price": 641.12,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 718.9722,
+    "stop_price": 718.7195,
     "target_price": null
   },
   "INAA": {
     "tipo": "NONE",
-    "uscita": "ATTENZIONE",
+    "uscita": "STOP",
     "entry_price": 114.44,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 129.4702,
+    "stop_price": 129.4214,
     "target_price": null
   },
   "SXLE": {
-    "tipo": "BUY1",
+    "tipo": "BUY2",
     "uscita": "",
     "entry_price": 38.275,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 46.1673,
-    "target_price": 55.4004
+    "stop_price": 46.6382,
+    "target_price": 56.0036
   },
   "MGIN": {
     "tipo": "NONE",
@@ -4064,8 +4064,8 @@
     "entry_price": 221.1,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 224.9894,
-    "target_price": 243.1712
+    "stop_price": 225.3628,
+    "target_price": 250.5244
   },
   "STZX": {
     "tipo": "NONE",
@@ -4073,7 +4073,7 @@
     "entry_price": 142.14,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 156.8603,
+    "stop_price": 156.4718,
     "target_price": null
   },
   "SWRD": {
@@ -4082,7 +4082,7 @@
     "entry_price": 43.04,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 48.3809,
+    "stop_price": 48.3622,
     "target_price": null
   },
   "600X": {
@@ -4091,7 +4091,7 @@
     "entry_price": 36.855,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 38.4129,
+    "stop_price": 38.4009,
     "target_price": null
   },
   "ADS": {
@@ -4100,8 +4100,8 @@
     "entry_price": 150.5,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 151.4355,
-    "target_price": 170.829
+    "stop_price": 152.0939,
+    "target_price": 172.6622
   },
   "ADYEN": {
     "tipo": "WATCH",
@@ -4109,8 +4109,8 @@
     "entry_price": 958.2,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 895.2739,
-    "target_price": 1000.6522
+    "stop_price": 895.7117,
+    "target_price": 973.9766
   },
   "AI": {
     "tipo": "NONE",
@@ -4118,26 +4118,26 @@
     "entry_price": 177.44,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 175.9493,
+    "stop_price": 175.7865,
     "target_price": null
   },
   "AIR": {
-    "tipo": "WATCH",
-    "uscita": "",
+    "tipo": "NONE",
+    "uscita": "USCITA",
     "entry_price": 170.66,
     "entry_date": "29/04/2026",
     "entry_time": "11:38",
-    "stop_price": 192.8599,
-    "target_price": 197.3002
+    "stop_price": 192.8278,
+    "target_price": null
   },
   "AM": {
-    "tipo": "BUY1",
+    "tipo": "BUY2",
     "uscita": "",
     "entry_price": 306.6,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 286.2087,
-    "target_price": 331.1826
+    "stop_price": 286.3691,
+    "target_price": 320.0618
   },
   "BEI": {
     "tipo": "BUY3",
@@ -4145,8 +4145,8 @@
     "entry_price": 72.7,
     "entry_date": "07/05/2026",
     "entry_time": "11:48",
-    "stop_price": 78.9846,
-    "target_price": 87.4308
+    "stop_price": 79.3391,
+    "target_price": 86.5418
   },
   "CBK": {
     "tipo": "NONE",
@@ -4154,7 +4154,7 @@
     "entry_price": 37.37,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 40.512,
+    "stop_price": 40.2111,
     "target_price": null
   },
   "DB1": {
@@ -4163,8 +4163,8 @@
     "entry_price": 247.9,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 300.5909,
-    "target_price": 321.9182
+    "stop_price": 301.896,
+    "target_price": 316.008
   },
   "DSY": {
     "tipo": "BUY3",
@@ -4172,8 +4172,8 @@
     "entry_price": 19.11,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 22.2431,
-    "target_price": 25.3838
+    "stop_price": 22.3744,
+    "target_price": 24.6712
   },
   "DTE": {
     "tipo": "NONE",
@@ -4181,7 +4181,7 @@
     "entry_price": 27.08,
     "entry_date": "05/05/2026",
     "entry_time": "11:15",
-    "stop_price": 26.8503,
+    "stop_price": 26.7946,
     "target_price": null
   },
   "EL": {
@@ -4190,8 +4190,8 @@
     "entry_price": 176.9,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 147.661,
-    "target_price": 160.828
+    "stop_price": 147.8817,
+    "target_price": 161.5866
   },
   "ENR": {
     "tipo": "NONE",
@@ -4199,7 +4199,7 @@
     "entry_price": 184.94,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 150.4719,
+    "stop_price": 150.2117,
     "target_price": null
   },
   "HEI": {
@@ -4208,17 +4208,17 @@
     "entry_price": 195.3,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 146.7553,
+    "stop_price": 146.7272,
     "target_price": null
   },
   "HO": {
-    "tipo": "WATCH",
-    "uscita": "",
+    "tipo": "NONE",
+    "uscita": "USCITA",
     "entry_price": 238.4,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 229.6506,
-    "target_price": 236.6988
+    "stop_price": 229.6108,
+    "target_price": null
   },
   "IFX": {
     "tipo": "NONE",
@@ -4226,7 +4226,7 @@
     "entry_price": 38.265,
     "entry_date": "07/04/2026",
     "entry_time": "18:36",
-    "stop_price": 63.6186,
+    "stop_price": 63.207,
     "target_price": null
   },
   "KNEBV": {
@@ -4235,17 +4235,17 @@
     "entry_price": 52.84,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 52.2332,
-    "target_price": 61.3136
+    "stop_price": 53.0954,
+    "target_price": 57.1892
   },
   "LDO": {
-    "tipo": "WATCH",
-    "uscita": "",
+    "tipo": "NONE",
+    "uscita": "USCITA",
     "entry_price": 54.88,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 49.1544,
-    "target_price": 49.5912
+    "stop_price": 49.1499,
+    "target_price": null
   },
   "LR": {
     "tipo": "NONE",
@@ -4253,7 +4253,7 @@
     "entry_price": 152.65,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 147.2905,
+    "stop_price": 146.8311,
     "target_price": null
   },
   "MC": {
@@ -4262,7 +4262,7 @@
     "entry_price": 478.7,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 392.8988,
+    "stop_price": 392.7073,
     "target_price": null
   },
   "NOKIA": {
@@ -4271,7 +4271,7 @@
     "entry_price": 10.835,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 9.694,
+    "stop_price": 9.6313,
     "target_price": null
   },
   "OR": {
@@ -4280,8 +4280,8 @@
     "entry_price": 374.45,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 384.1856,
-    "target_price": 442.4288
+    "stop_price": 385.1579,
+    "target_price": 442.2842
   },
   "PRX": {
     "tipo": "NONE",
@@ -4289,7 +4289,7 @@
     "entry_price": 42.585,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 37.0,
+    "stop_price": 36.9095,
     "target_price": null
   },
   "PRY": {
@@ -4298,17 +4298,17 @@
     "entry_price": 129.4,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 129.8901,
+    "stop_price": 129.3423,
     "target_price": null
   },
   "RACE": {
-    "tipo": "BUY1",
-    "uscita": "",
+    "tipo": "NONE",
+    "uscita": "USCITA",
     "entry_price": 286.7,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 351.7292,
-    "target_price": 356.5916
+    "stop_price": 351.7119,
+    "target_price": null
   },
   "RHM": {
     "tipo": "BUY1",
@@ -4316,8 +4316,8 @@
     "entry_price": 1441.6,
     "entry_date": "05/05/2026",
     "entry_time": "11:15",
-    "stop_price": 1001.0388,
-    "target_price": 1177.3224
+    "stop_price": 1001.3524,
+    "target_price": 1101.6952
   },
   "RMS": {
     "tipo": "BUY1",
@@ -4325,8 +4325,8 @@
     "entry_price": 1705.0,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 1320.9657,
-    "target_price": 1369.0686
+    "stop_price": 1321.0479,
+    "target_price": 1352.4042
   },
   "SAF": {
     "tipo": "NONE",
@@ -4334,7 +4334,7 @@
     "entry_price": 299.4,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 330.2446,
+    "stop_price": 328.698,
     "target_price": null
   },
   "SAP": {
@@ -4343,8 +4343,8 @@
     "entry_price": 149.4,
     "entry_date": "05/05/2026",
     "entry_time": "11:15",
-    "stop_price": 188.9236,
-    "target_price": 221.6728
+    "stop_price": 190.0428,
+    "target_price": 223.2144
   },
   "SHL": {
     "tipo": "BUY3",
@@ -4352,8 +4352,8 @@
     "entry_price": 33.55,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 38.9627,
-    "target_price": 45.1646
+    "stop_price": 39.1371,
+    "target_price": 45.3858
   },
   "SIE": {
     "tipo": "NONE",
@@ -4361,7 +4361,7 @@
     "entry_price": 254.4,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 284.4159,
+    "stop_price": 284.1595,
     "target_price": null
   },
   "SRT": {
@@ -4370,7 +4370,7 @@
     "entry_price": 176.2,
     "entry_date": "05/05/2026",
     "entry_time": "17:58",
-    "stop_price": 214.1209,
+    "stop_price": 213.9317,
     "target_price": null
   },
   "SU": {
@@ -4379,7 +4379,7 @@
     "entry_price": 284.3,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 285.9911,
+    "stop_price": 283.3133,
     "target_price": null
   },
   "UCG": {
@@ -4388,7 +4388,7 @@
     "entry_price": 67.87,
     "entry_date": "05/05/2026",
     "entry_time": "11:15",
-    "stop_price": 81.4098,
+    "stop_price": 80.8554,
     "target_price": null
   },
   "UMG": {
@@ -4397,8 +4397,8 @@
     "entry_price": 19.22,
     "entry_date": "07/05/2026",
     "entry_time": "11:48",
-    "stop_price": 15.1326,
-    "target_price": 18.1098
+    "stop_price": 15.1958,
+    "target_price": 17.6684
   },
   "BAYN": {
     "tipo": "NONE",
@@ -4406,7 +4406,7 @@
     "entry_price": 37.7,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 47.7924,
+    "stop_price": 47.5336,
     "target_price": null
   },
   "CSUS": {
@@ -4415,7 +4415,7 @@
     "entry_price": 637.21,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 726.5348,
+    "stop_price": 726.2161,
     "target_price": null
   },
   "LITU": {
@@ -4424,7 +4424,7 @@
     "entry_price": 12.964,
     "entry_date": "24/04/2026",
     "entry_time": "11:07",
-    "stop_price": 11.1899,
+    "stop_price": 11.134,
     "target_price": null
   },
   "SGBS": {
@@ -4433,7 +4433,7 @@
     "entry_price": 383.97,
     "entry_date": "07/05/2026",
     "entry_time": "11:48",
-    "stop_price": 359.5471,
+    "stop_price": 359.1737,
     "target_price": null
   },
   "SXLU": {
@@ -4442,17 +4442,17 @@
     "entry_price": 49.0,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 46.1242,
-    "target_price": 49.0816
+    "stop_price": 46.1651,
+    "target_price": 48.9548
   },
   "IMEU": {
-    "tipo": "WATCH",
-    "uscita": "",
+    "tipo": "NONE",
+    "uscita": "USCITA",
     "entry_price": 39.045,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 39.8029,
-    "target_price": 40.0192
+    "stop_price": 39.8007,
+    "target_price": null
   },
   "ASML": {
     "tipo": "NONE",
@@ -4460,7 +4460,7 @@
     "entry_price": 1181.0,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 1538.8984,
+    "stop_price": 1536.6244,
     "target_price": null
   },
   "CBUH": {
@@ -4469,7 +4469,7 @@
     "entry_price": 6.62,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 7.3019,
+    "stop_price": 7.2928,
     "target_price": null
   },
   "EHYA": {
@@ -4478,7 +4478,7 @@
     "entry_price": 5.89,
     "entry_date": "04/09/2026",
     "entry_time": "17:29",
-    "stop_price": 5.7768,
+    "stop_price": 5.7713,
     "target_price": null
   }
 }
