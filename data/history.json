@@ -2863,11 +2863,11 @@
   },
   "VDST": {
     "tipo": "",
-    "uscita": "USCITA",
+    "uscita": "STOP",
     "entry_price": 53.4,
     "entry_date": "04/11/2026",
     "entry_time": "17:44",
-    "stop_price": 53.4136,
+    "stop_price": 53.8364,
     "target_price": null
   },
   "VECA": {
@@ -2930,7 +2930,7 @@
     "entry_price": 30.3,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 31.355,
+    "stop_price": 31.3265,
     "target_price": null
   },
   "VNGA60": {
@@ -2939,7 +2939,7 @@
     "entry_price": 35.59,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
-    "stop_price": 37.56,
+    "stop_price": 37.5335,
     "target_price": null
   },
   "VNGA80": {
@@ -4230,13 +4230,13 @@
     "target_price": null
   },
   "KNEBV": {
-    "tipo": "BUY2",
+    "tipo": "BUY3",
     "uscita": "",
     "entry_price": 52.84,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 55.2883,
-    "target_price": 66.3634
+    "stop_price": 54.81,
+    "target_price": 65.4
   },
   "LDO": {
     "tipo": "NONE",
@@ -4271,7 +4271,7 @@
     "entry_price": 10.835,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 8.6269,
+    "stop_price": 8.7003,
     "target_price": null
   },
   "OR": {
