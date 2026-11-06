@@ -468,17 +468,17 @@
     "target_price": 9.7135
   },
   "ACT20": {
-    "tipo": "BUY1",
+    "tipo": "WATCH",
     "uscita": "",
     "entry_price": 10.458,
     "entry_date": "06/05/2026",
     "entry_time": "11:48",
-    "stop_price": 10.3771,
-    "target_price": 10.4878
+    "stop_price": 10.3768,
+    "target_price": 10.4164
   },
   "ACT60": {
     "tipo": "NONE",
-    "uscita": "ATTENZIONE",
+    "uscita": "STOP",
     "entry_price": 11.016,
     "entry_date": "04/05/2026",
     "entry_time": "11:49",
@@ -510,7 +510,7 @@
     "entry_date": "22/10/2026",
     "entry_time": "12:59",
     "stop_price": 4.5476,
-    "target_price": 4.6148
+    "target_price": 4.6268
   },
   "AGEB": {
     "tipo": "WATCH",
@@ -644,7 +644,7 @@
     "entry_price": 46.965,
     "entry_date": "06/05/2026",
     "entry_time": "17:59",
-    "stop_price": 41.3785,
+    "stop_price": 41.3817,
     "target_price": null
   },
   "AIGS": {
@@ -689,8 +689,8 @@
     "entry_price": 3.956,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 3.6941,
-    "target_price": 3.7733
+    "stop_price": 3.6944,
+    "target_price": 3.8117
   },
   "ANAU": {
     "tipo": "NONE",
@@ -708,7 +708,7 @@
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
     "stop_price": 28.0254,
-    "target_price": 28.1442
+    "target_price": 28.3842
   },
   "ARMI": {
     "tipo": "NONE",
@@ -4406,8 +4406,8 @@
     "entry_price": 37.7,
     "entry_date": "07/05/2026",
     "entry_time": "12:04",
-    "stop_price": 50.6441,
-    "target_price": 65.5118
+    "stop_price": 50.4007,
+    "target_price": 64.4986
   },
   "CSUS": {
     "tipo": "NONE",
